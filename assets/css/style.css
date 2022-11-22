@@ -14,15 +14,33 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
     background: linear-gradient(0deg, rgba(19,41,61,1) 0%, rgba(237,245,249,1) 63%);
   }
   
-  .view-HS {
-    font-size: 16px;
-    height: 30px;
-    line-height: 8px;
-    margin-top: 20px;
+  header {
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+    padding: 0px;
+    /* padding: 40px; */
+    /* text-align: center; */
+    background: #13293d;
+    color: #fff;
+    justify-content:space-between;
+    /* border-bottom:30px #879274; */
+  }
+
+  h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  header h2{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
   }
   
   /* .highscores-container {
@@ -31,7 +49,7 @@
     margin-top: 16px;
   } */
   
-  button {
+  .start-button {
     background-color: var(--purple);
     border-radius: 8px;
     color: var(--offWhite);
@@ -48,34 +66,36 @@
     margin-top: 0.6em;
   }
   
-  header {
+  .highscores {
     display: flex;
-    flex-direction: row;
-    padding: 40px;
-    /* text-align: center; */
-    background: #13293d;
-    color: #fff;
-    border-bottom:30px #879274;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: none;
+    font-size: 16px;
+    height: 30px;
+    line-height: 8px;
+    margin-top: 20px;
   }
+
+
   
   main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-  }
+  } 
   
   section {
-    flex: 0 auto;
-    padding: 8px;
-    margin-top: 50px;
     background-color: white;
     border-radius: 8px;
+    min-width: 80vw;
+    min-height: 80vh;
   }
   
-  .word-guess {
+  /* .word-guess {
     width: 55vw;
     height: 400px;
-  }
+  } */
   
   /* .results {
     width: 30vw;
@@ -101,14 +121,11 @@
     text-align:center;
   }
   
-  .timer {
-    justify-content: flex-end;
-    height: 240px;
-    padding: 10px;
+  /* .timer {
     background: #13293d;
     color: #fff;
     text-align: center;
-  }
+  } */
   
   /* .timer-text {
     padding: 55px;
@@ -122,7 +139,7 @@
     font-weight: bold;
   }
   
-  @media screen and (max-width: 1183px) {
+  /* @media screen and (max-width: 1183px) {
     main {
       flex-direction: column;
     }
@@ -137,20 +154,10 @@
       margin: 20px auto;
       width: 92vw;
     }
-  }
+  } */
   
   @media screen and (max-width: 504px) {
-    .large-font {
-      font-size: 2em;
+    body {
+        font-size: smaller;
     }
-  
-    /* .reset-button {
-      font-size: 12px;
-      width: 20ox;
-      
-    } */
-  
-    /* .timer {
-      height: 200px;
-    } */
-   }
+}

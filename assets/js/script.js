@@ -19,11 +19,11 @@ var blanksLetters = [];
 // Array of words the user will guess
 var words = ["variable","array", "modulus", "object", "function", "string", "boolean"];
 
-// The init function is called when the page loads 
-function init() {
-  getWins();
-  getlosses();
-}
+// // The init function is called when the page loads 
+// function init() {
+//   getWins();
+//   getlosses();
+// }
 
 // The startGame function is called when the start button is clicked
 function startGame() {
@@ -35,13 +35,13 @@ function startGame() {
   startTimer()
 }
 
-// The winGame function is called when the win condition is met
-function winGame() {
-  wordBlank.textContent = "YOU WON!!!🏆 ";
-  highCounter++
-  startButton.disabled = false;
-  setWins()
-}
+// // The winGame function is called when the win condition is met
+// function winGame() {
+//   wordBlank.textContent = "YOU WON!!!🏆 ";
+//   highCounter++
+//   startButton.disabled = false;
+//   setWins()
+// }
 
 // // The loseGame function is called when timer reaches 0
 // function loseGame() {
@@ -74,26 +74,26 @@ function startTimer() {
   }, 1000);
 }
 
-// Creates blanks on screen
-function renderBlanks() {
-  // Randomly picks word from words array
-  chosenWord = words[Math.floor(Math.random() * words.length)];
-  lettersInChosenWord = chosenWord.split("");
-  numBlanks = lettersInChosenWord.length;
-  blanksLetters = []
-  // Uses loop to push blanks to blankLetters array
-  for (var i = 0; i < numBlanks; i++) {
-    blanksLetters.push("_");
-  }
-  // Converts blankLetters array into a string and renders it on the screen
-  wordBlank.textContent = blanksLetters.join(" ")
-}
+// // Creates blanks on screen
+// function renderBlanks() {
+//   // Randomly picks word from words array
+//   chosenWord = words[Math.floor(Math.random() * words.length)];
+//   lettersInChosenWord = chosenWord.split("");
+//   numBlanks = lettersInChosenWord.length;
+//   blanksLetters = []
+//   // Uses loop to push blanks to blankLetters array
+//   for (var i = 0; i < numBlanks; i++) {
+//     blanksLetters.push("_");
+//   }
+//   // Converts blankLetters array into a string and renders it on the screen
+//   wordBlank.textContent = blanksLetters.join(" ")
+// }
 
-// Updates win count on screen and sets win count to client storage
-function setWins() {
-  highS.textContent = highCounter;
-  localStorage.setItem("winCount", highCounter);
-}
+// // Updates win count on screen and sets win count to client storage
+// function setWins() {
+//   highS.textContent = highCounter;
+//   localStorage.setItem("winCount", highCounter);
+// }
 
 // // Updates lose count on screen and sets lose count to client storage
 // function setLosses() {
@@ -126,13 +126,13 @@ function getWins() {
 //   lose.textContent = loseCounter;
 // }
 
-function checkWin() {
-  // If the word equals the blankLetters array when converted to string, set isWin to true
-  if (chosenWord === blanksLetters.join("")) {
-    // This value is used in the timer function to test if win condition is met
-    isWin = true;
-  }
-}
+// function checkWin() {
+//   // If the word equals the blankLetters array when converted to string, set isWin to true
+//   if (chosenWord === blanksLetters.join("")) {
+//     // This value is used in the timer function to test if win condition is met
+//     isWin = true;
+//   }
+// }
 
 // Tests if guessed letter is in word and renders it to the screen.
 function checkLetters(letter) {
