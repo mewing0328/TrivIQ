@@ -3,7 +3,7 @@
   }
 
 :root {
-    --purple: rgb(190, 120, 247);
+    --purple: rgb(61, 17, 97);
     --offWhite: rgb(249, 246, 250);
     --hoverShadow: rgb(216, 170, 233);
     }
@@ -14,8 +14,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* justify-content: flex-start; */
-    background: linear-gradient(0deg, rgba(19,41,61,1) 0%, rgba(237,245,249,1) 63%);
+    background: linear-gradient(0deg, rgb(98, 69, 126) 0%, rgb(236, 221, 247) 63%);
   }
   
   header {
@@ -23,33 +22,80 @@
     flex-direction: row;
     margin: 0px;
     padding: 0px;
-    /* padding: 40px; */
-    /* text-align: center; */
-    background: #13293d;
+    background: var(--purple);
     color: #fff;
     justify-content:space-between;
-    /* border-bottom:30px #879274; */
+    margin: 2vh;
+    border-radius: 8px;
+    border-color: var(--purple);
+  }
+
+  h2,
+  h1{
+    display: flex;
+    align-items: center;
+    background-color: none;
+    font-size: 20px;
+  }
+
+  .highscores {
+    justify-content: flex-start;
+    margin-left: 20px;
   }
 
   h1 {
-    display: flex;
-    align-items: center;
     justify-content: center;
+    font-size: 5rem;
   }
 
   header h2{
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    justify-content: flex-end;
+    margin-right: 20px;
   }
   
-  /* .highscores-container {
+  main {
     display: flex;
-    justify-content: space-between;
-    margin-top: 16px;
-  } */
-  
+    flex-wrap: wrap;
+    justify-content: space-around;
+  } 
+
+  section {
+    background-color: white;
+    border-radius: 8px;
+    border-color: var(--purple);
+    border-width: 10px;
+    min-width: 80vw;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .questions {
+    font-size: 4vh;
+    max-width: 90%;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  ul {
+    text-align: left;
+    display: inline;
+  }
+
+  .choices button {
+    font-size: 3vh;
+    margin: 1vh;
+    flex-direction: column;
+    text-align: left;
+    min-width: 50%;
+    background-color: var(--offWhite);
+    display: none;
+  }
+
   .start-button {
+    display: flex;
     background-color: var(--purple);
     border-radius: 8px;
     color: var(--offWhite);
@@ -59,77 +105,18 @@
     line-height: 16px;
     max-width: 255px;
     padding: 20px 52px;
-    text-align: center;
     transition-duration: 0.15s;
     transition-property: background-color;
     transition-timing-function: linear;
     margin-top: 0.6em;
   }
-  
-  .highscores {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: none;
-    font-size: 16px;
-    height: 30px;
-    line-height: 8px;
-    margin-top: 20px;
-  }
+    
 
-
-  
-  main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  } 
-  
-  section {
-    background-color: white;
-    border-radius: 8px;
-    min-width: 80vw;
-    min-height: 80vh;
-  }
-  
-  /* .word-guess {
-    width: 55vw;
-    height: 400px;
-  } */
-  
-  /* .results {
-    width: 30vw;
-    height: 400px; 
-  }*/
-  
-  /* .card {
-    background: radial-gradient(circle, rgba(240,230,140,1) 0%, rgba(187,124,33,0.604079131652661) 100%);
-    border: 1px solid #eceff1;
-    border-radius: 8px;
-    box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
-      rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
-    margin: auto;
-    padding: 20px;
-  }
-   */
-  .word-blanks {
-    line-height: 360px;
-  }
   
   .large-font {
     font-size: 3.5em;
     text-align:center;
   }
-  
-  /* .timer {
-    background: #13293d;
-    color: #fff;
-    text-align: center;
-  } */
-  
-  /* .timer-text {
-    padding: 55px;
-  } */
 
   /* ----- PSUEDO SELECTORS ----- */
 
@@ -138,23 +125,6 @@
     box-shadow: 0 0 5rem var(--hovershadow);
     font-weight: bold;
   }
-  
-  /* @media screen and (max-width: 1183px) {
-    main {
-      flex-direction: column;
-    }
-  
-    .word-guess,
-    .results {
-      width: 90vw;
-    }
-  
-    section {
-      background-color: white;
-      margin: 20px auto;
-      width: 92vw;
-    }
-  } */
   
   @media screen and (max-width: 504px) {
     body {
