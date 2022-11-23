@@ -12,6 +12,8 @@ var timerElement = document.querySelector(".timer-count");
 var highS = document.querySelector(".highScoresStorage");
 var score = 0;
 
+
+
 //This function initiates when the Start button is clicked. The internal functions are shown below it
 function startQuiz(){
     timerElement = 75;
@@ -23,44 +25,55 @@ function startQuiz(){
 var questions = [
     {   
         question : "Placeholder #1",
+        answers: {
             optionA : "Wrong!",
             optionB : "Wrong!",
             optionC : "Correct!",
             optionD : "Wrong!",
+        },
             correct : "C"
     },
     { 
         question : "Placeholder #2",
+        answers: {
             optionA : "Correct!",
             optionB : "Wrong!",
             optionC : "Wrong!",
             optionD : "Wrong!",
+        },
             correct : "A"
     },
     { 
         question : "Placeholder #3",
+        answers: {
             optionA : "Wrong!",
             optionB : "Wrong!",
             optionC : "Wrong!",
             optionD : "Correct!",
+        },
             correct : "D"
     },
     { 
         question : "Placeholder #4",
+        answers: {
             optionA : "Correct!",
             optionB : "Wrong!",
             optionC : "Wrong!",
             optionD : "Wrong!",
+        },
             correct : "A"
     },
     { 
         question : "Placeholder #5",
+        answers: {
             optionA : "Wrong!",
             optionB : "Correct!",
             optionC : "Wrong!",
             optionD : "Wrong!",
+        },
             correct : "B"
     }];
+
 
 
 
