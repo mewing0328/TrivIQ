@@ -69,30 +69,34 @@
     min-height: 50vh;
     display: flex;
     flex-direction: column;
-    text-align: center;
+    text-align: left;
     align-items: center;
   }
 
-  .questions {
+  .question {
+    padding-left: 40px;
+    font-size: 5vh;
+  }
+
+  .list {
     font-size: 4vh;
-    max-width: 90%;
+    min-width: 90%;
     text-align: left;
     font-weight: bold;
   }
 
-  ul {
+  /* ul {
     text-align: left;
     display: inline;
-  }
+  } */
 
-  .choices button {
+  .choice {
     font-size: 3vh;
     margin: 1vh;
     flex-direction: column;
     text-align: left;
     min-width: 50%;
     background-color: var(--offWhite);
-    display: none;
   }
 
   .start-button {
