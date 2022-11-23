@@ -3,7 +3,8 @@
   }
 
 :root {
-    --purple: rgb(61, 17, 97);
+    --dark: rgb(36, 131, 155);
+    --light: rgb(230, 243, 248);
     --offWhite: rgb(249, 246, 250);
     --hoverShadow: rgb(216, 170, 233);
     }
@@ -14,7 +15,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: linear-gradient(0deg, rgb(98, 69, 126) 0%, rgb(236, 221, 247) 63%);
+    background: linear-gradient(0deg, var(--dark) 0%, var(--light) 70%);
   }
   
   header {
@@ -22,12 +23,12 @@
     flex-direction: row;
     margin: 0px;
     padding: 0px;
-    background: var(--purple);
+    background: var(--dark);
     color: #fff;
     justify-content:space-between;
     margin: 2vh;
     border-radius: 8px;
-    border-color: var(--purple);
+    border-color: var(--dark);
   }
 
   h2,
@@ -38,7 +39,7 @@
     font-size: 20px;
   }
 
-  .highscores {
+  .highScores {
     justify-content: flex-start;
     margin-left: 20px;
   }
@@ -60,12 +61,12 @@
   } 
 
   section {
-    background-color: white;
+    background-color:var(--offWhite);
     border-radius: 8px;
-    border-color: var(--purple);
+    border-color: var(--dark);
     border-width: 10px;
     min-width: 80vw;
-    min-height: 60vh;
+    min-height: 50vh;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -96,7 +97,7 @@
 
   .start-button {
     display: flex;
-    background-color: var(--purple);
+    background-color: var(--dark);
     border-radius: 8px;
     color: var(--offWhite);
     cursor: pointer;
