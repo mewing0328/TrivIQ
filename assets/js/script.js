@@ -10,11 +10,11 @@ var optionC = document.getElementById("C");
 var optionD = document.getElementById("D");
 var timerEl = document.querySelector(".timer-count");
 var highS = document.querySelector(".highScoresStorage");
+var currentScore = document.querySelector("#currentScore");
 var score = 0;
 
 
-//The questions are set up as an array
-//string array is called list
+// ---- ARRAY "questions" ----
 var questions = [
     {   
         question : "Placeholder #1",
@@ -67,8 +67,19 @@ var questions = [
             correct : "B"
     }];
 
+// ---- END OF THE ARRAY "questions"
 
-// ---- TIMER ----- 
+
+
+// ---- CARD FUNCTION WITH QUESTIONS ----
+
+
+// ---- END CARD FUNCTION WITH QUESTIONS ----
+
+
+
+
+// ---- TIMER FUNCTION----- 
     // ACCEPTANCE CRITERIA: "THEN a timer starts and I am presented with a question"
     // Shows the timer countdown on the top right which starts when Start Quiz button is pressed
     var secondsLeft = 75
@@ -99,32 +110,35 @@ var questions = [
 
     }
 
-    //CALL setTime function
-    setTime();
-
-// ---- END TIMER FUNCTION & CALL ----- 
-
-// ---- CARD FUNCTION WITH QUESTIONS ----
+// ---- END TIMER FUNCTION ----- 
 
 
-// ---- END CARD FUNCTION WITH QUESTIONS ----
+
+// ---- ADD TO SCORE FUNCTION ----
+// Look at Activity 11,12 Event Listener
+
+    function setCurrentScoreText() {
+        currentScore.textContent = score;
+    }
+
+    //Event listener to add points for correct answers
+
+    // TO DO: create a function for the event listener here where IF correct (true), then score++; setCurrentScoreText();
+
+// END ADD TO SCORE FUNCTION -----
     
-    //Attach event listener to document to listen for key event of the Start button
+
+
+
+
+// ---- EVENT LISTENER: START QUIZ
     startButton.addEventListener("click", () => {
     //hide the start button when clicked
     startButton.disabled = true;
     startButton.style.display="none";
     //show the card of questions
     card.style.display="block";
+    setTime();
     });
-
-
-    // WHEN I answer a question
-    // THEN I am presented with another question
-    // WHEN I answer a question incorrectly
-    // THEN time is subtracted from the clock
-    // WHEN all questions are answered or the timer reaches 0
-    // THEN the game is over
-    // WHEN the game is over
-    // THEN I can save my initials and my score
-    // ```
+    
+// ---- END OF EVENT LISTENER: START QUIZ
