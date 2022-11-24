@@ -8,17 +8,17 @@ var optionA = document.getElementById("A");
 var optionB = document.getElementById("B");
 var optionC = document.getElementById("C");
 var optionD = document.getElementById("D");
-var timerElement = document.querySelector(".timer-count");
+var timerEl = document.querySelector(".timer-count");
 var highS = document.querySelector(".highScoresStorage");
 var score = 0;
 
 
 
-//This function initiates when the Start button is clicked. The internal functions are shown below it
-function startQuiz(){
-    timerElement = 75;
-    renderQuestion();
-}
+// //This function initiates when the Start button is clicked. The internal functions are shown below it
+// function startQuiz(){
+//     timerEl = 75;
+//     renderQuestion();
+// }
 
 //The questions are set up as an array
 //string array is called list
@@ -75,7 +75,34 @@ var questions = [
     }];
 
 
+    // Shows the timer countdown on the top right which starts when Start Quiz button is pressed
+    var secondsLeft = 75
 
+    function setTime(){
+        //Sets interval in variable
+      var timerInterval = setInterval(function(){
+        secondsLeft--;
+        timerEl.textContent = "Time Remaining: " + secondsLeft;
+
+        if(secondsLeft ===0) {
+            clearInterval(timerInterval);
+            sendMessage();
+        }
+
+      }, 1000);
+    }
+
+    function sendMessage(){
+        timerEl.textContent = "Time is done. Your score is: " + score;
+        //add content here that asks for the person's initials
+
+        //add content here that shows the high scores from init
+
+        //add a reset button option
+    }
+
+    //CALL setTime function
+    setTime();
 
     
     //Attach event listener to document to listen for key event of the Start button
