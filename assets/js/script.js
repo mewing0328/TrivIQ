@@ -13,13 +13,6 @@ var highS = document.querySelector(".highScoresStorage");
 var score = 0;
 
 
-
-// //This function initiates when the Start button is clicked. The internal functions are shown below it
-// function startQuiz(){
-//     timerEl = 75;
-//     renderQuestion();
-// }
-
 //The questions are set up as an array
 //string array is called list
 var questions = [
@@ -75,6 +68,8 @@ var questions = [
     }];
 
 
+// ---- TIMER ----- 
+    // ACCEPTANCE CRITERIA: "THEN a timer starts and I am presented with a question"
     // Shows the timer countdown on the top right which starts when Start Quiz button is pressed
     var secondsLeft = 75
 
@@ -83,6 +78,8 @@ var questions = [
       var timerInterval = setInterval(function(){
         secondsLeft--;
         timerEl.textContent = "Time Remaining: " + secondsLeft;
+        
+        //add a conditional that if I answer a question wrong, the timer subtracts time
 
         if(secondsLeft ===0) {
             clearInterval(timerInterval);
@@ -96,14 +93,21 @@ var questions = [
         timerEl.textContent = "Time is done. Your score is: " + score;
         //add content here that asks for the person's initials
 
-        //add content here that shows the high scores from init
+        //add content here that shows the high scores from init & adds the current score too
 
         //add a reset button option
+
     }
 
     //CALL setTime function
     setTime();
 
+// ---- END TIMER FUNCTION & CALL ----- 
+
+// ---- CARD FUNCTION WITH QUESTIONS ----
+
+
+// ---- END CARD FUNCTION WITH QUESTIONS ----
     
     //Attach event listener to document to listen for key event of the Start button
     startButton.addEventListener("click", () => {
@@ -114,3 +118,13 @@ var questions = [
     card.style.display="block";
     });
 
+
+    // WHEN I answer a question
+    // THEN I am presented with another question
+    // WHEN I answer a question incorrectly
+    // THEN time is subtracted from the clock
+    // WHEN all questions are answered or the timer reaches 0
+    // THEN the game is over
+    // WHEN the game is over
+    // THEN I can save my initials and my score
+    // ```
