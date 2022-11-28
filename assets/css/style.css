@@ -7,6 +7,7 @@
     --light: rgb(230, 243, 248);
     --offWhite: rgb(249, 246, 250);
     --hoverShadow: rgb(216, 170, 233);
+    --gray: rgb(141, 150, 145); 
     }
   
   body {
@@ -34,6 +35,7 @@
   header ul {
     display: flex;
     justify-content: space-between;
+    font-size: 1rem;
     align-items: center;
     list-style-type: none;
     margin: 0;
@@ -42,29 +44,6 @@
     background-color: var(--dark);
   }
 
-
-
-
-
-  /* h2,
-  h1{
-    display: flex;
-    align-items: center;
-    background-color: none;
-    font-size: 20px;
-  } */
-
-
-  /* h1 {
-    justify-content: center;
-    font-size: 5rem;
-  } */
-
-  /* header h2{
-    justify-content: flex-end;
-    margin-right: 20px;
-  } */
-  
   main {
     display: flex;
     flex-wrap: wrap;
@@ -96,18 +75,22 @@
     font-weight: bold;
   }
 
-  /* ul {
-    text-align: left;
-    display: inline;
-  } */
 
   .choice {
     font-size: 3vh;
-    margin: 1vh;
+    margin: 0vh 1vh;
     flex-direction: column;
     text-align: left;
     min-width: 50%;
     background-color: var(--offWhite);
+  }
+
+  #response {
+  border-top: solid 5px var(--gray);
+  padding-top: 2vh;
+  max-width: 50%;
+  margin-left: 4vh;
+  font-size: 2vh;
   }
 
   .start-button {
@@ -126,8 +109,6 @@
     transition-timing-function: linear;
     margin-top: 0.6em;
   }
-    
-
   
   .large-font {
     font-size: 3.5em;

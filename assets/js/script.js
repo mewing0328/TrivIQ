@@ -10,71 +10,96 @@ var optionC = document.getElementById("C");
 var optionD = document.getElementById("D");
 var timerEl = document.querySelector(".timer-count");
 var highS = document.querySelector(".highScoresStorage");
-var currentScore = document.querySelector("#currentScore");
-var score = 0;
+var currentScore = document.getElementById("currentScore");
+var responseEl = document.getElementById("response");
 
+var score = 0;
+var userChoice = "Yes";
 
 // ---- ARRAY "questions" ----
 var questions = [
     {   
         question : "Placeholder #1",
         answers: {
-            optionA : "Wrong!",
-            optionB : "Wrong!",
-            optionC : "Correct!",
-            optionD : "Wrong!",
+            optionA : "No",
+            optionB : "No",
+            optionC : "Yes",
+            optionD : "No",
         },
-            correct : "C"
+            user : userChoice,
     },
     { 
         question : "Placeholder #2",
         answers: {
-            optionA : "Correct!",
-            optionB : "Wrong!",
-            optionC : "Wrong!",
-            optionD : "Wrong!",
+            optionA : "Yes",
+            optionB : "No",
+            optionC : "No",
+            optionD : "No",
         },
-            correct : "A"
+            correct : "userChoice"
     },
     { 
         question : "Placeholder #3",
         answers: {
-            optionA : "Wrong!",
-            optionB : "Wrong!",
-            optionC : "Wrong!",
-            optionD : "Correct!",
+            optionA : "No",
+            optionB : "No",
+            optionC : "Yes",
+            optionD : "No",
         },
-            correct : "D"
+            correct : "userChoice"
     },
     { 
         question : "Placeholder #4",
         answers: {
-            optionA : "Correct!",
-            optionB : "Wrong!",
-            optionC : "Wrong!",
-            optionD : "Wrong!",
+            optionA : "Yes",
+            optionB : "No",
+            optionC : "No",
+            optionD : "No",
         },
-            correct : "A"
+            correct : "userChoice"
     },
     { 
         question : "Placeholder #5",
         answers: {
-            optionA : "Wrong!",
-            optionB : "Correct!",
-            optionC : "Wrong!",
-            optionD : "Wrong!",
+            optionA : "No",
+            optionB : "B",
+            optionC : "No",
+            optionD : "No",
         },
-            correct : "B"
+            correct : "userChoice"
     }];
 
 // ---- END OF THE ARRAY "questions"
 
 
 
+
+
+
 // ---- CARD FUNCTION WITH QUESTIONS ----
 
+//Function prevents default for the buttons. Call this function for any buttons
+function showResponse(event) {
+    event.preventDefault();
+    //Add a conditional that if userChoice === the option which is correct, then true. Else, then false
+    
+   /* for (let i = 0; i < questions.answers.length; i++){
+        if (userChoice === optionA) {
+    }
+    
+
+    } */
+    var responseText = "Testing this out";
+    responseEl.textContent = responseText; 
+}
+
+//Test function showResponse with an event listener
+//Event Listener: When optionA element is clicked, initiate the showResponse event
+optionA.addEventListener("click", showResponse)
 
 // ---- END CARD FUNCTION WITH QUESTIONS ----
+
+
 
 
 
@@ -111,6 +136,9 @@ var questions = [
 
 
 // ---- END TIMER FUNCTION ----- 
+
+
+
 
 
 
