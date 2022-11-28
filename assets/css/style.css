@@ -20,7 +20,7 @@
   
   header {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin: 0px;
     padding: 0px;
     background: var(--dark);
@@ -31,28 +31,39 @@
     border-color: var(--dark);
   }
 
-  h2,
+  header ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0 3rem;
+    min-height: 5vh;
+    background-color: var(--dark);
+  }
+
+
+
+
+
+  /* h2,
   h1{
     display: flex;
     align-items: center;
     background-color: none;
     font-size: 20px;
-  }
+  } */
 
-  .highScores {
-    justify-content: flex-start;
-    margin-left: 20px;
-  }
 
-  h1 {
+  /* h1 {
     justify-content: center;
     font-size: 5rem;
-  }
+  } */
 
-  header h2{
+  /* header h2{
     justify-content: flex-end;
     margin-right: 20px;
-  }
+  } */
   
   main {
     display: flex;

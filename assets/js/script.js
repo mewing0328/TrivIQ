@@ -82,14 +82,13 @@ var questions = [
 // ---- TIMER FUNCTION----- 
     // ACCEPTANCE CRITERIA: "THEN a timer starts and I am presented with a question"
     // Shows the timer countdown on the top right which starts when Start Quiz button is pressed
-    var secondsLeft = 75
+    var secondsLeft = 10
 
     function setTime(){
         //Sets interval in variable
       var timerInterval = setInterval(function(){
         secondsLeft--;
         timerEl.textContent = "Time Remaining: " + secondsLeft;
-        
         //add a conditional that if I answer a question wrong, the timer subtracts time
 
         if(secondsLeft ===0) {
@@ -110,6 +109,7 @@ var questions = [
 
     }
 
+
 // ---- END TIMER FUNCTION ----- 
 
 
@@ -117,9 +117,9 @@ var questions = [
 // ---- ADD TO SCORE FUNCTION ----
 // Look at Activity 11,12 Event Listener
 
-    function setCurrentScoreText() {
-        currentScore.textContent = score;
-    }
+function setCurrentScoreText() {
+    currentScore.textContent = score;
+}
 
     //Event listener to add points for correct answers
 
