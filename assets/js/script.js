@@ -76,89 +76,33 @@ function clickNext () {
 
 
 function nextQuestion(){
-    /*
-    i = indexCounter;
-    i < cards.length;
-    cards.forEach( function (question) {
+    function showQuestion (question){
         questionEl.innerText = question.questionEl;
-    i++;
-    }); 
-    
- 
-    
-    for (i = 0; i < cards.length; i++) {
-        showQuestion(cards[i]);
-    };
-
-    for (i = 0; i < cards.length; i++) {
-        showChoiceA(cards[i]);
-    };
-    */
-
-    function randomUniqueNum (range, outputCount){
-        var indexArray = []
-        for (i = 0; i <= range; i ++) {
-            indexArray.push(i)
-        }
-    
-        var result = []
-        console.log(result);
-        console.log(i);
-        console.log(indexArray);
-    
-        for (i = 0; i <= outputCount; i++){
-            var random = Math.floor(Math.random() * (range - i));
-            result.push(indexArray[random]);
-            indexArray[random] = indexArray[range - i];
-        }
-        console.log(result);
-        console.log(i);
-        console.log(indexArray);
-
-        return result;
     }
-    
-    randomUniqueNum (2, 1);
-
-    /*
-    var i = Math.floor(Math.random() * cards.length);
-    */
-
+    function showChoiceA (A){
+        choiceAEl.innerText = A.choiceAEl;
+    }
+    function showChoiceB (B){
+        choiceBEl.innerText = B.choiceBEl;
+    }
+    function showChoiceC (C){
+        choiceCEl.innerText = C.choiceCEl;
+    }
+    function showChoiceD (D){
+        choiceDEl.innerText = D.choiceDEl;
+    }
+    var i = Math.floor(Math.random() * (cards.length -1));
     showQuestion(cards[i]);
     showChoiceA(cards[i]);
     showChoiceB(cards[i]);
     showChoiceC(cards[i]);
     showChoiceD(cards[i]);
-
+    cards.splice(i, 1);
     console.log(i);
-    
-
+    console.log(cards);
 }
-
-
 
 console.log(cards);
-
-function showQuestion (question){
-    questionEl.innerText = question.questionEl;
-}
-
-function showChoiceA (A){
-    choiceAEl.innerText = A.choiceAEl;
-}
-
-function showChoiceB (B){
-    choiceBEl.innerText = B.choiceBEl;
-}
-
-function showChoiceC (C){
-    choiceCEl.innerText = C.choiceCEl;
-}
-
-function showChoiceD (D){
-    choiceDEl.innerText = D.choiceDEl;
-}
-
 
 clickNext();
 
