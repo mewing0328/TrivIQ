@@ -9,6 +9,7 @@ var choiceDEl = document.querySelector("#D");
 var nextBtnEl = document.querySelector("nextBtn");
 var highScoresEl = document.querySelector("#highScores")
 var timerEl = document.querySelector(".timer-count");
+var resetBtnEl = document.querySelector(".resetButton");
 
 var score = 0;
 
@@ -63,7 +64,7 @@ function startQuiz (){
 // ---- TIMER FUNCTION----- 
 // ACCEPTANCE CRITERIA: "THEN a timer starts and I am presented with a question"
 // Shows the timer countdown on the top right which starts when Start Quiz button is pressed
-var secondsLeft = 5;
+var secondsLeft = 20;
 
 function setTime(){
     //Sets interval in variable
@@ -73,12 +74,12 @@ function setTime(){
 
     //TO DO: add a conditional that if I answer a question wrong, the timer subtracts time
 
-    if(secondsLeft ===0) {
+    if(secondsLeft === 0 || cards.length === 0) {
         clearInterval(timerInterval);
         endQuiz();
     }
     }, 1000);
-}
+};
 
 function sendMessage(){
     timerEl.textContent = "Time is done. Your score is: " + score;
@@ -109,6 +110,7 @@ function clickNext () {
 };
 
 
+
 // Function that is triggered when the clickNext event happens
 function nextQuestion(){
     //functions to replace the innerText in html with the array elements in js
@@ -130,8 +132,7 @@ function nextQuestion(){
     cards.splice(i, 1);
     
     //if the array length is at 0, end the quiz
-    if (cards.length == 0){
-        clearInterval(timerInterval);
+    if (cards.length === 0){
         endQuiz();
     }
 }
@@ -142,6 +143,8 @@ cardEl.style.display="none";
 highScoresEl.style.display="block";
 sendMessage();
 }
+
+
 
 console.log(cards);
 
