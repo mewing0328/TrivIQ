@@ -35,6 +35,8 @@ THEN I can save my initials and my score
 3. [Image Repository Website](https://pixabay.com/): I downloaded image(s)
 4. [MDN Web Docs]() 
 5. George Washington University instructor for GitLab repository with tutorials and this project's specifications. MiniProject files utilized to create frame of application.
+6. [techformist website](https://techformist.com/delete-array-elements-iteration-javascript/): Provided a solution to my random numbers repeating for index. Demo of splice for array in a for loop.
+7. [coeinwp](https://www.codeinwp.com/snippets/add-event-listener-to-multiple-elements-with-javascript/): forEach loop for allowing the event listener of click to all the option buttons.
 
 
 

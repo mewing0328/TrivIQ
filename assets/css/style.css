@@ -51,11 +51,12 @@
   } 
 
   section {
+    display: block;
     background-color:var(--offWhite);
     border-radius: 8px;
     border-color: var(--dark);
     border-width: 10px;
-    min-width: 80vw;
+    min-width: 80%;
     min-height: 50vh;
     display: flex;
     flex-direction: column;
