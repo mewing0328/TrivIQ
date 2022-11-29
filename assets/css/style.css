@@ -63,7 +63,7 @@
     align-items: center;
   }
 
-  .question {
+  #question {
     padding-left: 40px;
     font-size: 5vh;
   }

@@ -2,9 +2,9 @@
 var startButton = document.querySelector(".start-button");
 var card = document.getElementById("card");
 var list = document.querySelector(".list");
-var question = document.querySelector("question");
+var questionEl = document.getElementById("question");
 var choice = document.querySelector("choice");
-var optionA = document.getElementById("A");
+var optionAEl = document.getElementById("A");
 var optionB = document.getElementById("B");
 var optionC = document.getElementById("C");
 var optionD = document.getElementById("D");
@@ -14,64 +14,22 @@ var currentScore = document.getElementById("currentScore");
 var responseEl = document.getElementById("response");
 
 var score = 0;
-var userChoice = "Yes";
+var userChoice = true;
+var checkAnswer = "";
 
 // ---- ARRAY "questions" ----
 var questions = [
     {   
         question : "Placeholder #1",
-        answers: {
-            optionA : "No",
-            optionB : "No",
-            optionC : "Yes",
-            optionD : "No",
-        },
-            user : userChoice,
-    },
-    { 
-        question : "Placeholder #2",
-        answers: {
-            optionA : "Yes",
-            optionB : "No",
-            optionC : "No",
-            optionD : "No",
-        },
-            correct : "userChoice"
-    },
-    { 
-        question : "Placeholder #3",
-        answers: {
-            optionA : "No",
-            optionB : "No",
-            optionC : "Yes",
-            optionD : "No",
-        },
-            correct : "userChoice"
-    },
-    { 
-        question : "Placeholder #4",
-        answers: {
-            optionA : "Yes",
-            optionB : "No",
-            optionC : "No",
-            optionD : "No",
-        },
-            correct : "userChoice"
-    },
-    { 
-        question : "Placeholder #5",
-        answers: {
-            optionA : "No",
-            optionB : "B",
-            optionC : "No",
-            optionD : "No",
-        },
-            correct : "userChoice"
-    }];
-
+        answers: [
+            { text: "this is right", correct: true}, //optionA
+            { dataState: false, textContent: "this is wrong" }, //optionB
+            { dataState: false, textContent: "this is wrong" }, //optionC
+            { dataState: false, textContent: "this is wrong" }, //optionD
+        ]
+    }
+]    
 // ---- END OF THE ARRAY "questions"
-
-
 
 
 
@@ -83,6 +41,7 @@ function showResponse(event) {
     event.preventDefault();
     //Add a conditional that if userChoice === the option which is correct, then true. Else, then false
     
+    
    /* for (let i = 0; i < questions.answers.length; i++){
         if (userChoice === optionA) {
     }
@@ -93,11 +52,38 @@ function showResponse(event) {
     responseEl.textContent = responseText; 
 }
 
+function nextQuestion () {
+    resetState()
+    showQuestion(questions[0])
+}
+
+function showQuestion (question) {
+    questionEl.innerText = question.question;
+}
+
+function resetState () {
+
+}
+
+function selectAnswer(e) {
+
+}
+
+
+
 //Test function showResponse with an event listener
 //Event Listener: When optionA element is clicked, initiate the showResponse event
-optionA.addEventListener("click", showResponse)
+//IMPORTANT: Make sure to use stopPropagation (activity 17) 
+    //so clicking on the other options doesn't cause a cascading event. Each click is SOLO event.
+    //these are SIBLINGS so no need for stop Propagation
+optionAEl.addEventListener("click", showResponse)
+optionB.addEventListener("click", showResponse)
+optionC.addEventListener("click", showResponse)
+optionD.addEventListener("click", showResponse)
 
 // ---- END CARD FUNCTION WITH QUESTIONS ----
+
+
 
 
 
@@ -131,7 +117,7 @@ optionA.addEventListener("click", showResponse)
         //add content here that shows the high scores from init & adds the current score too
 
         //add a reset button option
-
+        //
     }
 
 
@@ -167,6 +153,7 @@ function setCurrentScoreText() {
     //show the card of questions
     card.style.display="block";
     setTime();
+    nextQuestion();
     });
     
 // ---- END OF EVENT LISTENER: START QUIZ
