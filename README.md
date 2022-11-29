@@ -35,8 +35,7 @@ THEN I can save my initials and my score
 3. [Image Repository Website](https://pixabay.com/): I downloaded image(s)
 4. [MDN Web Docs]() 
 5. George Washington University instructor for GitLab repository with tutorials and this project's specifications. MiniProject files utilized to create frame of application.
-6. [YouTube Video Tutorial](https://www.youtube.com/watch?v=riDzcEQbX6k): I referenced this tutorial to apply a solution for changing the questions.
-7. [YouTube Video Tutorial](https://www.youtube.com/watch?v=zZdQGs62cR8): I referenced this tutorial 
+
 
 
 ## Contributed

@@ -7,6 +7,7 @@ var choiceBEl = document.querySelector("#B");
 var choiceCEl = document.querySelector("#C");
 var choiceDEl = document.querySelector("#D");
 var nextBtnEl = document.querySelector("nextBtn");
+var highScoresEl = document.querySelector("#highScores")
 
 
 
@@ -60,21 +61,15 @@ function startQuiz (){
 function setTime(){
 }
 
-console.log(choicesEl);
 
-
-
-var indexCounter = 0;
-
-
+// NEXT QUESTION EVENT LISTENER -> When end user clicks on a question choice, the app moves to the next question
 function clickNext () {
     choiceAEl.addEventListener("click", () => {
         nextQuestion();
     });
-   
 }
 
-
+// Function that is triggered when the clickNext event happens
 function nextQuestion(){
     function showQuestion (question){
         questionEl.innerText = question.questionEl;
@@ -98,12 +93,21 @@ function nextQuestion(){
     showChoiceC(cards[i]);
     showChoiceD(cards[i]);
     cards.splice(i, 1);
-    console.log(i);
-    console.log(cards);
+    
+    if (cards.length == 0){
+        endQuiz();
+    }
+}
+
+function endQuiz (){
+//hide the cards section 
+cardEl.style.display="none";    
+            
+//show the card of cards
+highScoresEl.style.display="block";
 }
 
 console.log(cards);
 
 clickNext();
-
 startQuiz();
