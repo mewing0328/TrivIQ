@@ -90,7 +90,22 @@ optionD.addEventListener("click", showResponse)
 
 
 
+var userScore = {
+    user: userInitialsEl.value.trim,
+    score: theScore.valueOf,
+  };
+  
+  localStorage.setItem("userScore", JSON.stringify(userScore));
+  renderMessage();
+  
+  });
+  
 
+
+  function renderMessage() {
+    var lastScore = JSON.parse(localStorage.getItem("userScore"));
+   
+    };
 
 
 
@@ -162,3 +177,21 @@ function setCurrentScoreText() {
     });
     
 // ---- END OF EVENT LISTENER: START QUIZ
+
+
+var userScore = {
+    user: userInitialsEl.value.trim,
+    score: theScore.valueOf,
+  };
+  
+  localStorage.setItem("userScore", JSON.stringify(userScore));
+  renderMessage();
+  
+  });
+  
+
+
+  function renderMessage() {
+    var lastScore = JSON.parse(localStorage.getItem("userScore"));
+   
+    };

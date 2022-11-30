@@ -9,15 +9,22 @@ var choiceDEl = document.querySelector("#D");
 var nextBtnEl = document.querySelector("nextBtn");
 var highScoresEl = document.querySelector("#highScores")
 var timerEl = document.querySelector(".timer-count");
+var currentScoreEl = document.querySelector("#currentScore");
 var resetBtnEl = document.querySelector(".resetButton");
+var greetingEl = document.querySelector("#greeting");
+var myFormEl = document.querySelector("#myForm");
+var userInitialsEl = document.querySelector("#userInitials");
+var responseEl = document.querySelector("#response");
+var person1El = document.querySelector("#person1");
 
-var score = 0;
+
+var theScore = 0;
 
 // ---- ARRAY "cards" ----
 var cards = [
     {   
         questionEl : "INDEX 0: I am...",
-        choiceAEl : "Happy",
+        choiceAEl : {text : "Happy", dataState : "Correct!"},
         choiceBEl : "Sad",
         choiceCEl : "Stressed",
         choiceDEl : "Tired",       
@@ -25,15 +32,15 @@ var cards = [
     },
     {   
         questionEl : "INDEX 1: I would like to eat...",
-        choiceAEl : "beef",
+        choiceAEl : {text : "beef", dataState : "Wrong!"},
         choiceBEl : "pork",
         choiceCEl : "salad",
         choiceDEl : "chicken",       
-        answer : "beef", 
+        answer : "", 
     },
     {   
         questionEl : "INDEX 2: Question 3",
-        choiceAEl : "a",
+        choiceAEl : {text : "a", dataState : "Wrong!"},
         choiceBEl : "b",
         choiceCEl : "c",
         choiceDEl : "d",       
@@ -42,6 +49,9 @@ var cards = [
 ]   
 // ---- END OF THE ARRAY "cards"
 
+function init() {
+    addToScore();
+}
 
 // START BUTTON -> Starts the quiz
 function startQuiz (){
@@ -81,18 +91,43 @@ function setTime(){
     }, 1000);
 };
 
-function sendMessage(){
-    timerEl.textContent = "Time is done. Your score is: " + score;
-    //add content here that asks for the person's initials
+// ---- END TIMER FUNCTION ----- 
 
-    //add content here that shows the high scores from init & adds the current score too
 
-    //add a reset button option
-    //
+// ---- SCORE ADD, SET, and GET ----
+myFormEl.addEventListener("submit", function(event) {
+    event.preventDefault();
+});
+
+function addToScore () {
+    responseEl.textContent = "You are Correct!";
+    theScore+10
+    setTheScore()
 }
 
+function setTheScore() {
+    currentScoreEl.textContent = "Your current score is " + theScore;
+    localStorage.setItem("theScore", theScore);
+}
 
-// ---- END TIMER FUNCTION ----- 
+function getTheScore() {
+    var storedScore = localStorage.getItem("theScore");
+    if (storedScore === null) {
+        theScore = 0;
+    } else {
+        theScore = storedScore;
+    }
+    person1El.textContent = theScore;
+}
+
+// ---- END OF SCORE ADD, SET, and GET ----
+
+
+
+
+    //add a reset button option
+
+
 
 
 
@@ -105,6 +140,9 @@ function clickNext () {
         choiceIndex.addEventListener("click", () => {
             nextQuestion();
             console.log(choiceIndex); 
+
+    //var userChoice = choiceIndex;
+ 
         });
     });
 };
@@ -115,7 +153,7 @@ function clickNext () {
 function nextQuestion(){
     //functions to replace the innerText in html with the array elements in js
     function showQuestion (question){questionEl.innerText = question.questionEl;}
-    function showChoiceA (A){choiceAEl.innerText = A.choiceAEl;}
+    function showChoiceA (A){choiceAEl.innerText = A.choiceAEl.text;}
     function showChoiceB (B){choiceBEl.innerText = B.choiceBEl;}
     function showChoiceC (C){choiceCEl.innerText = C.choiceCEl;}
     function showChoiceD (D){choiceDEl.innerText = D.choiceDEl;}
@@ -144,9 +182,19 @@ highScoresEl.style.display="block";
 sendMessage();
 }
 
+function sendMessage(){
+    timerEl.textContent = "";
+    greetingEl.textContent = "Your time is done. Your score is: " + theScore;
+    //add content here that asks for the person's initials
+            // object.addEventListener("input", myScript);
 
+    /*
+
+}*/
+}
 
 console.log(cards);
 
+init ();
 clickNext();
 startQuiz();

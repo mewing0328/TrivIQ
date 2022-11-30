@@ -12,12 +12,13 @@
         <h1 class= "large-font">IQ API</h1>
         <ul class="score-time">
           <li><button class="highScores">View Highscores</button></li>
-          <!-- <li id="currentScore"></li> -->
+          <li id="currentScore"></li>
           <li class="timer-count"></li>
         </ul>
     </header>
 
     <main>
+
        <section id="card" style="display: none">
             <div id="question"></div>
             <ul class="list">
@@ -28,18 +29,29 @@
             </ul>
         <p id="response">Placeholder where "Correct" or "Wrong" is displayed</p>
         </section>
+
         <section id="highScores" style="display: none">
           <div id="greeting">Great job!</div>
+          <form id="myForm" action="/action_page.php">
+            Enter your initials: <input type="text" name="fname">
+            <input id="userInitials" type="submit" value="Submit">
+          </form>
           <ul class="highScoresList">
               <li class="highS" id="person1">P1.........</li>
               <li class="highS" id="person2">P1.........</li>
               <li class="highS" id="person3">P1.........</li>
               <li class="highS" id="person4">P1.........</li>
           </ul>
-          <button class="resetButton">Reset</button>
+          <button class="tryAgainButton">Try Quiz Again</button>
+          <button class="resetButton">Clear High Scores</button>
         </section>
+
+
         <button class="start-button">Start Quiz</button>
 <!-- <section class="highScoresStorage"> style="display: none" -->
+    
+
+
     </main>
 
 
