@@ -84,6 +84,7 @@ function testUserChoice () {
 // ---- TIMER FUNCTION----- 
 // ACCEPTANCE CRITERIA: "THEN a timer starts and I am presented with a question"
 // Shows the timer countdown on the top right which starts when Start Quiz button is pressed
+
 var secondsLeft = 50;
 
 function setTime(){
@@ -95,11 +96,12 @@ function setTime(){
     
     //TO DO: add a conditional that if I answer a question wrong, the timer subtracts time
 
-    if(secondsLeft === 0 || cards.length === 0) {
+    if(secondsLeft === 0) {
         clearInterval(timerInterval);
         endQuiz();
     }
     }
+
     , 1000);
 };
 
@@ -146,9 +148,6 @@ function clickNext () {
     choicesEl.forEach(function (choiceIndex) {
         choiceIndex.addEventListener("click", () => {
             nextQuestion();
-
-    //var userChoice = choiceIndex;
- 
         });
     });
 };
@@ -167,13 +166,17 @@ choiceDEl.onclick = function (){
     userChoice = "D";
 };
 
-var i = Math.floor(Math.random() * (cards.length));
-var correctAnswer = cards[i].answer;
+
 
 // Function that is triggered when the clickNext event happens
 function nextQuestion(){
-    console.log(cards);
-
+   
+    if(cards.length === 0){
+        endQuiz();
+    }else{
+        var i = Math.floor(Math.random() * (cards.length));
+        var correctAnswer = cards[i].answer;
+    };
 
     if(secondsLeft === 0 || cards.length === 0) {
         endQuiz();
@@ -185,6 +188,7 @@ function nextQuestion(){
         showChoiceD(cards[i]);
     };
 
+
         //functions to replace the innerText in html with the array elements in js
     function showQuestion (question){questionEl.innerText = question.questionEl;}
     function showChoiceA (A){choiceAEl.innerText = A.choiceAEl;}
@@ -192,7 +196,7 @@ function nextQuestion(){
     function showChoiceC (C){choiceCEl.innerText = C.choiceCEl;}
     function showChoiceD (D){choiceDEl.innerText = D.choiceDEl;}
 
-    checkAnswer();
+    checkAnswer(); 
 
     function checkAnswer(){
         if (userChoice === correctAnswer) {
@@ -201,8 +205,6 @@ function nextQuestion(){
             secondsLeft = secondsLeft - 5;
         };
     };
-    
-    console.log(cards);
 
     if(secondsLeft === 0 || cards.length === 0) {
         endQuiz();
@@ -210,14 +212,10 @@ function nextQuestion(){
         spliceIndex();
     };
     
-    console.log(cards);
 
     function spliceIndex (){
         cards.splice(i, 1);
     };
-
-    console.log(cards);
-
 
     //remove the i number used and create a new array
 
@@ -226,18 +224,18 @@ function nextQuestion(){
 }
 
 
-
 function endQuiz (){
 //hide the cards section & show the highScore 
 cardEl.style.display="none";    
 viewHighScoreEl.style.display="none";  
 currentScoreEl.style.display="none";  
 highScoresEl.style.display="block";
+timerEl.style.display = "none";
+
 sendMessage();
-}
+};
 
 function sendMessage(){
-    timerEl.textContent = "";
     greetingEl.textContent = "Your time is done. Your score is: " + theScore;
     myFormEl.addEventListener("submit", function(event) {
         event.preventDefault();
