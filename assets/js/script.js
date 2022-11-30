@@ -53,11 +53,8 @@ var cards = [
 // ---- END OF THE ARRAY "cards"
 
 
-function init() {
-    addToScore();
-}
-
 // START BUTTON -> Starts the quiz
+// ACCEPTANCE CRITERIA: WHEN I click the start button THEN a timer starts and I am presented with a question
 function startQuiz (){
     //Event Listener: when start button clicked -> initiate these below
     startBtnEl.addEventListener("click", () => {
@@ -113,29 +110,7 @@ function setTime(){
 
 
 
-function addToScore () {
 
-    setTheScore();
-}
-
-function setTheScore() {
-    localStorage.setItem("theScore", theScore);
-}
-
-function getTheScore() {
-    var storedScore = localStorage.getItem("theScore");
-    if (storedScore === null) {
-        theScore = 0;
-    } else {
-        theScore = storedScore;
-    } 
-    
-    showPerson1();
-    //TO DO: show the name in the 
-    
-}
-
-function showPerson1 (one) {person1El.innertext = one.person1El;}
 
 
 // ---- END OF SCORE ADD, SET, and GET ----
@@ -144,6 +119,7 @@ function showPerson1 (one) {person1El.innertext = one.person1El;}
 
 
 // NEXT QUESTION EVENT LISTENER -> When end user clicks on a question choice, the app moves to the next question
+
 function clickNext () {
     choicesEl.forEach(function (choiceIndex) {
         choiceIndex.addEventListener("click", () => {
@@ -168,11 +144,14 @@ choiceDEl.onclick = function (){
 
 
 
-// Function that is triggered when the clickNext event happens
+//ACCEPTANCE CRITERIA: WHEN I answer a question THEN I am presented with another question
+//ACCEPTANCE CRITERIA: WHEN all questions are answered or the timer reaches 0 THEN the game is over
+
 function nextQuestion(){
-   
+
+    //ASK TUTOR HOW TO FIX NOT BEING ABLE TO CHECK ANSWER OF LAST QUESTION
     if(cards.length === 0){
-        endQuiz();
+        endQuiz(); 
     }else{
         var i = Math.floor(Math.random() * (cards.length));
         var correctAnswer = cards[i].answer;
@@ -188,7 +167,6 @@ function nextQuestion(){
         showChoiceD(cards[i]);
     };
 
-
         //functions to replace the innerText in html with the array elements in js
     function showQuestion (question){questionEl.innerText = question.questionEl;}
     function showChoiceA (A){choiceAEl.innerText = A.choiceAEl;}
@@ -198,6 +176,7 @@ function nextQuestion(){
 
     checkAnswer(); 
 
+//ACCEPTANCE CRITERIA: WHEN I answer a question incorrectly THEN time is subtracted from the clock
     function checkAnswer(){
         if (userChoice === correctAnswer) {
             theScore++;
@@ -205,6 +184,7 @@ function nextQuestion(){
             secondsLeft = secondsLeft - 5;
         };
     };
+    
 
     if(secondsLeft === 0 || cards.length === 0) {
         endQuiz();
@@ -221,35 +201,55 @@ function nextQuestion(){
 
     //if the array length is at 0, end the quiz
   
-}
+};
 
 
 function endQuiz (){
-//hide the cards section & show the highScore 
-cardEl.style.display="none";    
-viewHighScoreEl.style.display="none";  
-currentScoreEl.style.display="none";  
-highScoresEl.style.display="block";
-timerEl.style.display = "none";
-
-sendMessage();
+    //hide the cards section & show the highScore 
+    cardEl.style.display="none";    
+    viewHighScoreEl.style.display="none";  
+    currentScoreEl.style.display="none";  
+    highScoresEl.style.display="block";
+    timerEl.style.display = "none";
+    console.log(theScore);
+    sendMessage();
 };
 
+console.log(theScore);
+
 function sendMessage(){
+    setTheScore();
+    function setTheScore() {
+        localStorage.setItem("theScore", theScore);
+    }
+
     greetingEl.textContent = "Your time is done. Your score is: " + theScore;
     myFormEl.addEventListener("submit", function(event) {
         event.preventDefault();
     });
-    //add content here that asks for the person's initials
-            // object.addEventListener("input", myScript);
 
-    /*
 
-}*/
-}
+    getTheScore();
+    function getTheScore() {
+        var storedScore = localStorage.getItem("theScore");
+        if (storedScore === null) {
+            theScore = 0;
+        } else {
+            theScore = storedScore;
+        } 
+        
+        /*
+        function showPerson1 (one) {person1El.innertext = one.person1El;}
 
-console.log(cards);
+        showPerson1();
+        //TO DO: show the name in the 
+        */
 
-init ();
+    };
+
+};
+
+console.log(theScore);
+
 clickNext();
 startQuiz();

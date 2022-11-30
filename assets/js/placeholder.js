@@ -195,3 +195,7 @@ var userScore = {
     var lastScore = JSON.parse(localStorage.getItem("userScore"));
    
     };
+
+    
+    showPerson1();
+    //TO DO: show the name in the 
