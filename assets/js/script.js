@@ -17,34 +17,39 @@ var userInitialsEl = document.querySelector("#userInitials");
 var responseEl = document.querySelector("#response");
 var person1El = document.querySelector("#person1");
 var viewHighScoreEl = document.querySelector(".highScoreButton");
+var pickedEl = document.querySelector("#picked");
 
 var theScore = 0;
+
+var userChoice = "";
+
+console.log(userChoice);
 
 // ---- ARRAY "cards" ----
 var cards = [
     {   
         questionEl : "INDEX 0: I am...",
-        choiceAEl : {text : "Happy", dataState : "Correct!"},
+        choiceAEl : "Happy",
         choiceBEl : "Sad",
         choiceCEl : "Stressed",
-        choiceDEl : "Tired",       
-        answer : "Sad", 
+        choiceDEl : "Tired",   
+        answer : "A", 
     },
     {   
         questionEl : "INDEX 1: I would like to eat...",
-        choiceAEl : {text : "beef", dataState : "Wrong!"},
+        choiceAEl : "beef",
         choiceBEl : "pork",
         choiceCEl : "salad",
         choiceDEl : "chicken",       
-        answer : "", 
+        answer : "B", 
     },
     {   
         questionEl : "INDEX 2: Question 3",
-        choiceAEl : {text : "a", dataState : "Wrong!"},
+        choiceAEl : "a",
         choiceBEl : "b",
         choiceCEl : "c",
         choiceDEl : "d",       
-        answer : "c", 
+        answer : "C", 
     },
 ]   
 // ---- END OF THE ARRAY "cards"
@@ -70,11 +75,17 @@ function startQuiz (){
         });
 }
 
+/*
+console.log(choiceIndex.dataState); 
+
+function testUserChoice () {
+    if (userChoice === )
+}; */
 
 // ---- TIMER FUNCTION----- 
 // ACCEPTANCE CRITERIA: "THEN a timer starts and I am presented with a question"
 // Shows the timer countdown on the top right which starts when Start Quiz button is pressed
-var secondsLeft = 20;
+var secondsLeft = 50;
 
 function setTime(){
     //Sets interval in variable
@@ -82,14 +93,15 @@ function setTime(){
     secondsLeft--;
     timerEl.textContent = "Time Remaining: " + secondsLeft;
     currentScoreEl.textContent = "Your current score is " + theScore;
-
+    
     //TO DO: add a conditional that if I answer a question wrong, the timer subtracts time
 
     if(secondsLeft === 0 || cards.length === 0) {
         clearInterval(timerInterval);
         endQuiz();
     }
-    }, 1000);
+    }
+    , 1000);
 };
 
 // ---- END TIMER FUNCTION ----- 
@@ -97,12 +109,12 @@ function setTime(){
 
 // ---- SCORE ADD, SET, and GET ----
 
-function showPerson1 (one) {person1El.innertext = one.person1El;}
+
+
 
 function addToScore () {
-    responseEl.textContent = "You are Correct!";
-    theScore+10
-    setTheScore()
+
+    setTheScore();
 }
 
 function setTheScore() {
@@ -115,10 +127,15 @@ function getTheScore() {
         theScore = 0;
     } else {
         theScore = storedScore;
-    } showPerson1();
+    } 
+    
+    showPerson1();
     //TO DO: show the name in the 
     
 }
+
+function showPerson1 (one) {person1El.innertext = one.person1El;}
+
 
 // ---- END OF SCORE ADD, SET, and GET ----
 
@@ -130,7 +147,6 @@ function clickNext () {
     choicesEl.forEach(function (choiceIndex) {
         choiceIndex.addEventListener("click", () => {
             nextQuestion();
-            console.log(choiceIndex); 
 
     //var userChoice = choiceIndex;
  
@@ -144,7 +160,7 @@ function clickNext () {
 function nextQuestion(){
     //functions to replace the innerText in html with the array elements in js
     function showQuestion (question){questionEl.innerText = question.questionEl;}
-    function showChoiceA (A){choiceAEl.innerText = A.choiceAEl.text;}
+    function showChoiceA (A){choiceAEl.innerText = A.choiceAEl;}
     function showChoiceB (B){choiceBEl.innerText = B.choiceBEl;}
     function showChoiceC (C){choiceCEl.innerText = C.choiceCEl;}
     function showChoiceD (D){choiceDEl.innerText = D.choiceDEl;}
@@ -159,12 +175,38 @@ function nextQuestion(){
 
     //remove the i number used and create a new array
     cards.splice(i, 1);
-    
+    checkAnswer();
+
     //if the array length is at 0, end the quiz
     if (cards.length === 0){
         endQuiz();
     }
 }
+
+
+function checkAnswer(){
+
+    choiceAEl.onclick = function (){
+        userChoice = "A";
+    };
+    choiceBEl.onclick = function (){
+        userChoice = "B";
+    };
+    choiceCEl.onclick = function (){
+        userChoice = "C";
+    };
+    choiceDEl.onclick = function (){
+        userChoice = "D";
+    };
+
+    console.log(A.choiceAEl);
+
+    if (userChoice === cards.answer) {
+        theScore++;
+    } else {
+        secondsLeft = secondsLeft - 5;
+    };
+};
 
 function endQuiz (){
 //hide the cards section & show the highScore 
