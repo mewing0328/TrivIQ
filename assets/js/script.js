@@ -23,8 +23,6 @@ var theScore = 0;
 
 var userChoice = "";
 
-console.log(userChoice);
-
 // ---- ARRAY "cards" ----
 var cards = [
     {   
@@ -41,7 +39,7 @@ var cards = [
         choiceBEl : "pork",
         choiceCEl : "salad",
         choiceDEl : "chicken",       
-        answer : "B", 
+        answer : "A", 
     },
     {   
         questionEl : "INDEX 2: Question 3",
@@ -49,10 +47,11 @@ var cards = [
         choiceBEl : "b",
         choiceCEl : "c",
         choiceDEl : "d",       
-        answer : "C", 
+        answer : "A", 
     },
 ]   
 // ---- END OF THE ARRAY "cards"
+
 
 function init() {
     addToScore();
@@ -155,58 +154,78 @@ function clickNext () {
 };
 
 
+choiceAEl.onclick = function (){
+    userChoice = "A";
+};
+choiceBEl.onclick = function (){
+    userChoice = "B";
+};
+choiceCEl.onclick = function (){
+    userChoice = "C";
+};
+choiceDEl.onclick = function (){
+    userChoice = "D";
+};
+
+var i = Math.floor(Math.random() * (cards.length));
+var correctAnswer = cards[i].answer;
 
 // Function that is triggered when the clickNext event happens
 function nextQuestion(){
-    //functions to replace the innerText in html with the array elements in js
+    console.log(cards);
+
+
+    if(secondsLeft === 0 || cards.length === 0) {
+        endQuiz();
+    }else{
+        showQuestion(cards[i]);
+        showChoiceA(cards[i]);
+        showChoiceB(cards[i]);
+        showChoiceC(cards[i]);
+        showChoiceD(cards[i]);
+    };
+
+        //functions to replace the innerText in html with the array elements in js
     function showQuestion (question){questionEl.innerText = question.questionEl;}
     function showChoiceA (A){choiceAEl.innerText = A.choiceAEl;}
     function showChoiceB (B){choiceBEl.innerText = B.choiceBEl;}
     function showChoiceC (C){choiceCEl.innerText = C.choiceCEl;}
     function showChoiceD (D){choiceDEl.innerText = D.choiceDEl;}
 
-    //randomize the index number
-    var i = Math.floor(Math.random() * (cards.length -1));
-    showQuestion(cards[i]);
-    showChoiceA(cards[i]);
-    showChoiceB(cards[i]);
-    showChoiceC(cards[i]);
-    showChoiceD(cards[i]);
-
-    //remove the i number used and create a new array
-    cards.splice(i, 1);
     checkAnswer();
 
-    //if the array length is at 0, end the quiz
-    if (cards.length === 0){
+    function checkAnswer(){
+        if (userChoice === correctAnswer) {
+            theScore++;
+        } else {
+            secondsLeft = secondsLeft - 5;
+        };
+    };
+    
+    console.log(cards);
+
+    if(secondsLeft === 0 || cards.length === 0) {
         endQuiz();
-    }
+    }else{
+        spliceIndex();
+    };
+    
+    console.log(cards);
+
+    function spliceIndex (){
+        cards.splice(i, 1);
+    };
+
+    console.log(cards);
+
+
+    //remove the i number used and create a new array
+
+    //if the array length is at 0, end the quiz
+  
 }
 
 
-function checkAnswer(){
-
-    choiceAEl.onclick = function (){
-        userChoice = "A";
-    };
-    choiceBEl.onclick = function (){
-        userChoice = "B";
-    };
-    choiceCEl.onclick = function (){
-        userChoice = "C";
-    };
-    choiceDEl.onclick = function (){
-        userChoice = "D";
-    };
-
-    console.log(A.choiceAEl);
-
-    if (userChoice === cards.answer) {
-        theScore++;
-    } else {
-        secondsLeft = secondsLeft - 5;
-    };
-};
 
 function endQuiz (){
 //hide the cards section & show the highScore 

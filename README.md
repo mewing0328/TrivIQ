@@ -30,7 +30,7 @@ THEN I can save my initials and my score
 ### Screenshots
 
 ## Credit: References and Tutorials Utilized
-1. [Stack Overflow]():  
+1. [Stack Overflow](https://stackoverflow.com/questions/70338345/when-a-user-clicks-a-button-how-do-you-store-a-variable-that-can-be-used-later): Used this approach to convert user input as a variable.
 2. [W3docs](): 
 3. [Image Repository Website](https://pixabay.com/): I downloaded image(s)
 4. [MDN Web Docs]() 
