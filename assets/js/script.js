@@ -16,7 +16,7 @@ var myFormEl = document.querySelector("#myForm");
 var userInitialsEl = document.querySelector("#userInitials");
 var responseEl = document.querySelector("#response");
 var person1El = document.querySelector("#person1");
-
+var viewHighScoreEl = document.querySelector(".highScoreButton");
 
 var theScore = 0;
 
@@ -81,6 +81,7 @@ function setTime(){
     var timerInterval = setInterval(function(){
     secondsLeft--;
     timerEl.textContent = "Time Remaining: " + secondsLeft;
+    currentScoreEl.textContent = "Your current score is " + theScore;
 
     //TO DO: add a conditional that if I answer a question wrong, the timer subtracts time
 
@@ -95,9 +96,8 @@ function setTime(){
 
 
 // ---- SCORE ADD, SET, and GET ----
-myFormEl.addEventListener("submit", function(event) {
-    event.preventDefault();
-});
+
+function showPerson1 (one) {person1El.innertext = one.person1El;}
 
 function addToScore () {
     responseEl.textContent = "You are Correct!";
@@ -106,7 +106,6 @@ function addToScore () {
 }
 
 function setTheScore() {
-    currentScoreEl.textContent = "Your current score is " + theScore;
     localStorage.setItem("theScore", theScore);
 }
 
@@ -116,22 +115,14 @@ function getTheScore() {
         theScore = 0;
     } else {
         theScore = storedScore;
-    }
-    person1El.textContent = theScore;
+    } showPerson1();
+    //TO DO: show the name in the 
+    
 }
 
 // ---- END OF SCORE ADD, SET, and GET ----
 
-
-
-
     //add a reset button option
-
-
-
-
-
-
 
 
 // NEXT QUESTION EVENT LISTENER -> When end user clicks on a question choice, the app moves to the next question
@@ -178,6 +169,8 @@ function nextQuestion(){
 function endQuiz (){
 //hide the cards section & show the highScore 
 cardEl.style.display="none";    
+viewHighScoreEl.style.display="none";  
+currentScoreEl.style.display="none";  
 highScoresEl.style.display="block";
 sendMessage();
 }
@@ -185,6 +178,9 @@ sendMessage();
 function sendMessage(){
     timerEl.textContent = "";
     greetingEl.textContent = "Your time is done. Your score is: " + theScore;
+    myFormEl.addEventListener("submit", function(event) {
+        event.preventDefault();
+    });
     //add content here that asks for the person's initials
             // object.addEventListener("input", myScript);
 

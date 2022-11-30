@@ -80,7 +80,6 @@
     font-weight: bold;
   }
 
-
   .choice,
   .highS {
     font-size: 3vh;
@@ -119,16 +118,15 @@
 
   .resetButton,
   .tryAgainButton {
-    background-color: var(--dark);
+    display: flex;
+    flex-direction: column;
     border-radius: 8px;
     color: var(--offWhite);
     cursor: pointer;
-    font-size: 2em;
+    font-size: 20px;
     padding: 20px 52px;
-    transition-duration: 0.15s;
-    transition-property: background-color;
-    transition-timing-function: linear;
-    margin-top: 0.6em;
+    margin: 20px;
+
   }
 
   .resetButton {
