@@ -20,8 +20,10 @@ var viewHighScoreEl = document.querySelector(".highScoreButton");
 var pickedEl = document.querySelector("#picked");
 
 var theScore = 0;
-
 var userChoice = "";
+var secondsLeft = 50;
+
+//TO DO: add a reset button option
 
 // ---- ARRAY "cards" ----
 var cards = [
@@ -49,11 +51,24 @@ var cards = [
         choiceDEl : "d",       
         answer : "A", 
     },
-]   
+];
+
+choiceAEl.onclick = function (){
+    userChoice = "A";
+};
+choiceBEl.onclick = function (){
+    userChoice = "B";
+};
+choiceCEl.onclick = function (){
+    userChoice = "C";
+};
+choiceDEl.onclick = function (){
+    userChoice = "D";
+};
+
 // ---- END OF THE ARRAY "cards"
 
-
-// START BUTTON -> Starts the quiz
+// ---- START QUIZ FUNCTION----- 
 // ACCEPTANCE CRITERIA: WHEN I click the start button THEN a timer starts and I am presented with a question
 function startQuiz (){
     //Event Listener: when start button clicked -> initiate these below
@@ -70,20 +85,10 @@ function startQuiz (){
         setTime();
         });
 }
-
-/*
-console.log(choiceIndex.dataState); 
-
-function testUserChoice () {
-    if (userChoice === )
-}; */
+// ---- END START QUIZ FUNCTION----- 
 
 // ---- TIMER FUNCTION----- 
 // ACCEPTANCE CRITERIA: "THEN a timer starts and I am presented with a question"
-// Shows the timer countdown on the top right which starts when Start Quiz button is pressed
-
-var secondsLeft = 50;
-
 function setTime(){
     //Sets interval in variable
     var timerInterval = setInterval(function(){
@@ -98,28 +103,17 @@ function setTime(){
         endQuiz();
     }
     }
-
     , 1000);
 };
-
 // ---- END TIMER FUNCTION ----- 
 
 
-// ---- SCORE ADD, SET, and GET ----
 
 
-
-
-
-
-
-// ---- END OF SCORE ADD, SET, and GET ----
-
-    //add a reset button option
 
 
 // NEXT QUESTION EVENT LISTENER -> When end user clicks on a question choice, the app moves to the next question
-
+//ACCEPTANCE CRITERIA: WHEN I answer a question THEN I am presented with another question
 function clickNext () {
     choicesEl.forEach(function (choiceIndex) {
         choiceIndex.addEventListener("click", () => {
@@ -129,33 +123,16 @@ function clickNext () {
 };
 
 
-choiceAEl.onclick = function (){
-    userChoice = "A";
-};
-choiceBEl.onclick = function (){
-    userChoice = "B";
-};
-choiceCEl.onclick = function (){
-    userChoice = "C";
-};
-choiceDEl.onclick = function (){
-    userChoice = "D";
-};
 
 
 
-//ACCEPTANCE CRITERIA: WHEN I answer a question THEN I am presented with another question
+
 //ACCEPTANCE CRITERIA: WHEN all questions are answered or the timer reaches 0 THEN the game is over
 
 function nextQuestion(){
-
-    //ASK TUTOR HOW TO FIX NOT BEING ABLE TO CHECK ANSWER OF LAST QUESTION
-    if(cards.length === 0){
-        endQuiz(); 
-    }else{
         var i = Math.floor(Math.random() * (cards.length));
         var correctAnswer = cards[i].answer;
-    };
+    
 
     if(secondsLeft === 0 || cards.length === 0) {
         endQuiz();
@@ -174,7 +151,6 @@ function nextQuestion(){
     function showChoiceC (C){choiceCEl.innerText = C.choiceCEl;}
     function showChoiceD (D){choiceDEl.innerText = D.choiceDEl;}
 
-    checkAnswer(); 
 
 //ACCEPTANCE CRITERIA: WHEN I answer a question incorrectly THEN time is subtracted from the clock
     function checkAnswer(){
@@ -185,24 +161,21 @@ function nextQuestion(){
         };
     };
     
-
-    if(secondsLeft === 0 || cards.length === 0) {
+    //End the game once there is only 1 item left in the cards array. 
+        //If I wait until 0 items are in the array, the loop breaks and does not log the answer of the last random question
+    if(secondsLeft === 0 || cards.length === 1) {
+        checkAnswer();
         endQuiz();
     }else{
+        checkAnswer();
         spliceIndex();
     };
     
-
+    //Splice (remove) the i number used and create a new array
     function spliceIndex (){
         cards.splice(i, 1);
     };
-
-    //remove the i number used and create a new array
-
-    //if the array length is at 0, end the quiz
-  
 };
-
 
 function endQuiz (){
     //hide the cards section & show the highScore 
@@ -215,8 +188,6 @@ function endQuiz (){
     sendMessage();
 };
 
-console.log(theScore);
-
 function sendMessage(){
     setTheScore();
     function setTheScore() {
@@ -228,7 +199,6 @@ function sendMessage(){
         event.preventDefault();
     });
 
-
     getTheScore();
     function getTheScore() {
         var storedScore = localStorage.getItem("theScore");
@@ -237,19 +207,8 @@ function sendMessage(){
         } else {
             theScore = storedScore;
         } 
-        
-        /*
-        function showPerson1 (one) {person1El.innertext = one.person1El;}
-
-        showPerson1();
-        //TO DO: show the name in the 
-        */
-
     };
-
 };
-
-console.log(theScore);
 
 clickNext();
 startQuiz();
