@@ -16,12 +16,11 @@ var myFormEl = document.querySelector("#myForm");
 var userInitialsEl = document.querySelector("#userInitials");
 var responseEl = document.querySelector("#response");
 var person1El = document.querySelector("#person1");
-var viewHighScoreEl = document.querySelector(".highScoreButton");
 var pickedEl = document.querySelector("#picked");
 
 var theScore = 0;
 var userChoice = "";
-var secondsLeft = 50;
+var secondsLeft = 5;
 
 //TO DO: add a reset button option
 
@@ -51,7 +50,145 @@ var cards = [
         choiceDEl : "d",       
         answer : "A", 
     },
+    {   
+        questionEl : "INDEX 2: Question 3",
+        choiceAEl : "a",
+        choiceBEl : "b",
+        choiceCEl : "c",
+        choiceDEl : "d",       
+        answer : "A", 
+    },
+    {   
+        questionEl : "INDEX 2: Question 3",
+        choiceAEl : "a",
+        choiceBEl : "b",
+        choiceCEl : "c",
+        choiceDEl : "d",       
+        answer : "A", 
+    },
+    {   
+        questionEl : "INDEX 2: Question 3",
+        choiceAEl : "a",
+        choiceBEl : "b",
+        choiceCEl : "c",
+        choiceDEl : "d",       
+        answer : "A", 
+    },
+    {   
+        questionEl : "INDEX 2: Question 3",
+        choiceAEl : "a",
+        choiceBEl : "b",
+        choiceCEl : "c",
+        choiceDEl : "d",       
+        answer : "A", 
+    },
+    {   
+        questionEl : "INDEX 2: Question 3",
+        choiceAEl : "a",
+        choiceBEl : "b",
+        choiceCEl : "c",
+        choiceDEl : "d",       
+        answer : "A", 
+    },
+    {   
+        questionEl : "INDEX 2: Question 3",
+        choiceAEl : "a",
+        choiceBEl : "b",
+        choiceCEl : "c",
+        choiceDEl : "d",       
+        answer : "A", 
+    },
+    {   
+        questionEl : "INDEX 2: Question 3",
+        choiceAEl : "a",
+        choiceBEl : "b",
+        choiceCEl : "c",
+        choiceDEl : "d",       
+        answer : "A", 
+    },
+    {   
+        questionEl : "INDEX 2: Question 3",
+        choiceAEl : "a",
+        choiceBEl : "b",
+        choiceCEl : "c",
+        choiceDEl : "d",       
+        answer : "A", 
+    },
+    {   
+        questionEl : "INDEX 2: Question 3",
+        choiceAEl : "a",
+        choiceBEl : "b",
+        choiceCEl : "c",
+        choiceDEl : "d",       
+        answer : "A", 
+    },
+    {   
+        questionEl : "INDEX 2: Question 3",
+        choiceAEl : "a",
+        choiceBEl : "b",
+        choiceCEl : "c",
+        choiceDEl : "d",       
+        answer : "A", 
+    },
+    {   
+        questionEl : "INDEX 2: Question 3",
+        choiceAEl : "a",
+        choiceBEl : "b",
+        choiceCEl : "c",
+        choiceDEl : "d",       
+        answer : "A", 
+    },
+    {   
+        questionEl : "INDEX 2: Question 3",
+        choiceAEl : "a",
+        choiceBEl : "b",
+        choiceCEl : "c",
+        choiceDEl : "d",       
+        answer : "A", 
+    },
+    {   
+        questionEl : "INDEX 2: Question 3",
+        choiceAEl : "a",
+        choiceBEl : "b",
+        choiceCEl : "c",
+        choiceDEl : "d",       
+        answer : "A", 
+    },
+    {   
+        questionEl : "INDEX 2: Question 3",
+        choiceAEl : "a",
+        choiceBEl : "b",
+        choiceCEl : "c",
+        choiceDEl : "d",       
+        answer : "A", 
+    },
+    {   
+        questionEl : "INDEX 2: Question 3",
+        choiceAEl : "a",
+        choiceBEl : "b",
+        choiceCEl : "c",
+        choiceDEl : "d",       
+        answer : "A", 
+    },
+    {   
+        questionEl : "INDEX 2: Question 3",
+        choiceAEl : "a",
+        choiceBEl : "b",
+        choiceCEl : "c",
+        choiceDEl : "d",       
+        answer : "A", 
+    },
+    {   
+        questionEl : "INDEX 2: Question 3",
+        choiceAEl : "a",
+        choiceBEl : "b",
+        choiceCEl : "c",
+        choiceDEl : "d",       
+        answer : "A", 
+    },
 ];
+
+console.log(userChoice);
 
 choiceAEl.onclick = function (){
     userChoice = "A";
@@ -72,7 +209,8 @@ choiceDEl.onclick = function (){
 // ACCEPTANCE CRITERIA: WHEN I click the start button THEN a timer starts and I am presented with a question
 function startQuiz (){
     //Event Listener: when start button clicked -> initiate these below
-    startBtnEl.addEventListener("click", () => {
+    startBtnEl.addEventListener("click", function(event) {
+        event.preventDefault();
         //hide the start button when clicked
         startBtnEl.disabled = true;
         startBtnEl.style.display="none";
@@ -96,9 +234,7 @@ function setTime(){
     timerEl.textContent = "Time Remaining: " + secondsLeft;
     currentScoreEl.textContent = "Your current score is " + theScore;
     
-    //TO DO: add a conditional that if I answer a question wrong, the timer subtracts time
-
-    if(secondsLeft === 0) {
+    if(secondsLeft <= 0) {
         clearInterval(timerInterval);
         endQuiz();
     }
@@ -106,10 +242,6 @@ function setTime(){
     , 1000);
 };
 // ---- END TIMER FUNCTION ----- 
-
-
-
-
 
 
 // NEXT QUESTION EVENT LISTENER -> When end user clicks on a question choice, the app moves to the next question
@@ -123,18 +255,12 @@ function clickNext () {
 };
 
 
-
-
-
-
 //ACCEPTANCE CRITERIA: WHEN all questions are answered or the timer reaches 0 THEN the game is over
-
 function nextQuestion(){
         var i = Math.floor(Math.random() * (cards.length));
         var correctAnswer = cards[i].answer;
-    
-
-    if(secondsLeft === 0 || cards.length === 0) {
+       
+    if(secondsLeft <= 0 || cards.length === 0) {
         endQuiz();
     }else{
         showQuestion(cards[i]);
@@ -157,13 +283,20 @@ function nextQuestion(){
         if (userChoice === correctAnswer) {
             theScore++;
         } else {
-            secondsLeft = secondsLeft - 5;
+            if(userChoice === ""){ //makes sure to not remove time when the code first runs since userChoice will be "" so it will !=== correctAnswer
+              return checkAnswer;  
+            }else{
+              secondsLeft = secondsLeft - 5;
+            };    
         };
     };
-    
+
+    console.log(userChoice);
+    console.log(correctAnswer);
+
     //End the game once there is only 1 item left in the cards array. 
         //If I wait until 0 items are in the array, the loop breaks and does not log the answer of the last random question
-    if(secondsLeft === 0 || cards.length === 1) {
+    if(secondsLeft <= 0 || cards.length === 10) {
         checkAnswer();
         endQuiz();
     }else{
@@ -180,7 +313,6 @@ function nextQuestion(){
 function endQuiz (){
     //hide the cards section & show the highScore 
     cardEl.style.display="none";    
-    viewHighScoreEl.style.display="none";  
     currentScoreEl.style.display="none";  
     highScoresEl.style.display="block";
     timerEl.style.display = "none";
@@ -194,12 +326,18 @@ function sendMessage(){
         localStorage.setItem("theScore", theScore);
     }
 
-    greetingEl.textContent = "Your time is done. Your score is: " + theScore;
-    myFormEl.addEventListener("submit", function(event) {
-        event.preventDefault();
+    greetingEl.textContent = "Your time is done. Your score is: " + theScore + " points!";
+
+    userInitialsEl.addEventListener("click", () => {
+
+        saveInitials();
+        function saveInitials(){
+            var listEl = document.createElement("li");
+            listEl.innerText = "This is an initial";
+            document.body.appendChild(listEl);
+        };
     });
 
-    getTheScore();
     function getTheScore() {
         var storedScore = localStorage.getItem("theScore");
         if (storedScore === null) {

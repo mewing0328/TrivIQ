@@ -33,7 +33,7 @@
     border-radius: 8px;
     border-color: var(--dark);
   }
-
+  
   header ul {
     display: flex;
     justify-content: space-between;
@@ -50,7 +50,19 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-  } 
+  }
+
+  .title {
+    font-size: 3em;
+    text-align:center;
+  }
+
+  .instructions {
+    font-size: 1em;
+    font-style: italic;
+    text-align:center;
+    line-height: 25px;
+  }
 
   section {
     display: block;
@@ -137,11 +149,6 @@
     background-color: var(--tryAgainBtn) ;
   }
   
-  .large-font {
-    font-size: 3.5em;
-    text-align:center;
-  }
-
   /* ----- PSUEDO SELECTORS ----- */
 
   button :hover{

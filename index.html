@@ -9,9 +9,9 @@
   <body>
 
     <header>    
-        <h1 class= "large-font">IQ API</h1>
+        <h1 class= "title">IQ API</h1>
+        <h2 class= "instructions">Instructions: You will be asked 15 random questions within an alloted time. <br> Points are added for correct answers and time is deducted for incorrect answers. <br> Max score is 10 points. <br> GOOD LUCK!</h2>
         <ul class="score-time">
-          <li><button class="highScoreButton">View Highscores</button></li>
           <li id="currentScore"></li>
           <li class="timer-count"></li>
         </ul>
@@ -32,9 +32,9 @@
 
         <section id="highScores" style="display: none">
           <div id="greeting">Great job!</div>
-          <form id="myForm" action="/action_page.php">
-            Enter your initials: <input type="text" name="fname">
-            <input id="userInitials" type="submit" value="Submit">
+          <form id="myForm">
+            Enter your initials: <input type="text">
+            <button id="userInitials" value="Submit"></button>
           </form>
           <ul class="highScoresList">
               <p class="highS" id="person1">P1.........</p>
