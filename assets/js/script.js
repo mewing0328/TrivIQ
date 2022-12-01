@@ -17,6 +17,7 @@ var userInitialsEl = document.querySelector("#userInitials");
 var userInputEl = document.querySelector("#userInput");
 var responseEl = document.querySelector("#response");
 var person1El = document.querySelector("#person1");
+var score1El =  document.querySelector("#score1");
 var pickedEl = document.querySelector("#picked");
 
 var theScore = 0;
@@ -326,39 +327,52 @@ function endQuiz (){
 
 function sendMessage(){
     greetingEl.textContent = "Your time is done. Your score is: " + theScore + " points!";
+    saveBtnEl.addEventListener("click", function (event){
+        event.preventDefault();
+        storePlayerData();
+        getPlayerData();
+        function storePlayerData (){
+            var theInitials = userInputEl.value.trim();
+            var playerInfo = {
+                score: theScore.valueOf(),
+                initials: theInitials,
+            };
+            localStorage.setItem("playerInfo",JSON.stringify(playerInfo));
 
-    setTheScore();
-    function setTheScore() {
-        localStorage.setItem("theScore", theScore);
-        saveInitials();
-    }
-
- 
-    function saveInitials(){
-        saveBtnEl.addEventListener("click", function (event){
-            var theInitials = userInputEl.value;
-            alert(theInitials);
-            event.preventDefault();
             person1El.style.display="block";
-            person1El.textContent="theIntials";
-            localStorage.setItem("theInitials", theInitials);
-        })
-        getTheScore;
-    };
+            person1El.textContent=theInitials.value;
+            alert(theInitials);
+            alert(theScore);
+        };
+
+        
+        function getPlayerData() {
+            var lastPlayer = JSON.parse(localStorage.getItem("playerInfo"));
+
+            if(lastPlayer !== null){
+                person1El.innerHTML = lastPlayer.initials;
+                score1El.innerHTML = lastPlayer.score;
+            }else{
+                return;
+            }
+        };
+    });
+
+
+
+
+
+
+
+
+
 
     /*
     startBtnEl.addEventListener("click", function(event) {
         event.preventDefault();
     */
 
-    function getTheScore() {
-        var storedScore = localStorage.getItem("theScore");
-        if (storedScore === null) {
-            theScore = 0;
-        } else {
-            theScore = storedScore;
-        } 
-    };
+  
 };
 
 clickNext();
