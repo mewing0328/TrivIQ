@@ -11,13 +11,13 @@ var highScoresEl = document.querySelector("#highScores")
 var timerEl = document.querySelector(".timer-count");
 var currentScoreEl = document.querySelector("#currentScore");
 var saveBtnEl = document.querySelector(".saveButton");
+var tryAgainBtnEl = document.querySelector(".tryAgainButton");
 var greetingEl = document.querySelector("#greeting");
 var myFormEl = document.querySelector("#myForm");
 var userInitialsEl = document.querySelector("#userInitials");
 var userInputEl = document.querySelector("#userInput");
 var responseEl = document.querySelector("#response");
 var person1El = document.querySelector("#person1");
-var score1El =  document.querySelector("#score1");
 var pickedEl = document.querySelector("#picked");
 
 var theScore = 0;
@@ -209,6 +209,7 @@ choiceDEl.onclick = function (){
 
 // ---- START QUIZ FUNCTION----- 
 // ACCEPTANCE CRITERIA: WHEN I click the start button THEN a timer starts and I am presented with a question
+startQuiz();
 function startQuiz (){
     //Event Listener: when start button clicked -> initiate these below
     startBtnEl.addEventListener("click", function(event) {
@@ -225,7 +226,8 @@ function startQuiz (){
         setTime();
         });
 }
-// ---- END START QUIZ FUNCTION----- 
+// ---- END START QUIZ FUNCTION-----
+
 
 // ---- TIMER FUNCTION----- 
 // ACCEPTANCE CRITERIA: "THEN a timer starts and I am presented with a question"
@@ -248,6 +250,7 @@ function setTime(){
 
 // NEXT QUESTION EVENT LISTENER -> When end user clicks on a question choice, the app moves to the next question
 //ACCEPTANCE CRITERIA: WHEN I answer a question THEN I am presented with another question
+clickNext();
 function clickNext () {
     choicesEl.forEach(function (choiceIndex) {
         choiceIndex.addEventListener("click", () => {
@@ -327,10 +330,12 @@ function endQuiz (){
 
 function sendMessage(){
     greetingEl.textContent = "Your time is done. Your score is: " + theScore + " points!";
+
     saveBtnEl.addEventListener("click", function (event){
         event.preventDefault();
         storePlayerData();
         getPlayerData();
+
         function storePlayerData (){
             var theInitials = userInputEl.value.trim();
             var playerInfo = {
@@ -350,8 +355,7 @@ function sendMessage(){
             var lastPlayer = JSON.parse(localStorage.getItem("playerInfo"));
 
             if(lastPlayer !== null){
-                person1El.innerHTML = lastPlayer.initials;
-                score1El.innerHTML = lastPlayer.score;
+                person1El.innerHTML = "The highest score is " + lastPlayer.initials + " with a score of " + lastPlayer.score + "!";
             }else{
                 return;
             }
@@ -360,20 +364,21 @@ function sendMessage(){
 
 
 
-
-
-
-
-
-
-
-    /*
-    startBtnEl.addEventListener("click", function(event) {
-        event.preventDefault();
-    */
-
-  
 };
 
-clickNext();
-startQuiz();
+
+tryAgainBtnEl.addEventListener("click", function (event){
+    event.preventDefault();
+    theScore = 0;
+    secondsLeft = 60;
+    cards.length = 20;
+
+    startBtnEl.style.display="block";
+    highScoresEl.style.display="none";
+    console.log(theScore);
+    console.log(secondsLeft);
+    console.log(cards.length);
+    console.log(cards);
+
+    startQuiz();
+});
