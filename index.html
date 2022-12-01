@@ -32,15 +32,17 @@
 
         <section id="highScores" style="display: none">
           <div id="greeting">Great job!</div>
-          <form id="myForm">
-            Enter your initials: <input type="text">
-            <button id="userInitials" value="Submit"></button>
+
+          <form id="myForm" onsubmit="return false;">
+            <p>Enter your Initials here</p>
+            <textarea type="text" id="userInput"></textarea>
           </form>
+          
           <ul class="highScoresList">
-              <p class="highS" id="person1">P1.........</p>
+              <li class="highS" id="person1"></li>
           </ul>
+          <button class="saveButton">Save My Score</button>
           <button class="tryAgainButton">Try Quiz Again</button>
-          <button class="resetButton">Clear High Scores</button>
         </section>
 
 

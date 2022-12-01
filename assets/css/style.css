@@ -8,8 +8,8 @@
     --offWhite: rgb(249, 246, 250);
     --hoverShadow: rgb(216, 170, 233);
     --gray: rgb(141, 150, 145);
-    --resetBtn: rgb(185, 88, 88);
-    --tryAgainBtn: rgb(98, 163, 114);
+    --tryAgainBtn: rgb(185, 88, 88);
+    --saveBtn: rgb(98, 163, 114);
     }
   
   body {
@@ -128,7 +128,7 @@
     margin-top: 0.6em;
   }
 
-  .resetButton,
+  .saveButton,
   .tryAgainButton {
     display: flex;
     flex-direction: column;
@@ -141,8 +141,8 @@
 
   }
 
-  .resetButton {
-    background-color: var(--resetBtn)
+  .saveButton {
+    background-color: var(--saveBtn)
   }
 
   .tryAgainButton {
