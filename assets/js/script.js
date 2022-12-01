@@ -342,6 +342,8 @@ function sendMessage(){
                 score: theScore.valueOf(),
                 initials: theInitials,
             };
+            // the key is the name you designated in the "string" below so to add multiple arrays, change the name of the key
+            // make sure to look up how to alert the new user when an initial has been already stored in local storage
             localStorage.setItem("playerInfo",JSON.stringify(playerInfo));
 
             person1El.style.display="block";
