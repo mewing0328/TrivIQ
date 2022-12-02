@@ -28,10 +28,12 @@ THEN I can save my initials and my score
 1. [Stack Overflow](https://stackoverflow.com/questions/70338345/when-a-user-clicks-a-button-how-do-you-store-a-variable-that-can-be-used-later): Used this approach to convert user input as a variable.
 2. [W3docs](): 
 3. [Image Repository Website](https://pixabay.com/): I downloaded image(s)
-4. [MDN Web Docs]() 
+4. [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random): Tutorial on how to utilize random numbers
 5. George Washington University instructor for GitLab repository with tutorials and this project's specifications. MiniProject files utilized to create frame of application.
 6. [techformist website](https://techformist.com/delete-array-elements-iteration-javascript/): Provided a solution to my random numbers repeating for index. Demo of splice for array in a for loop.
 7. [coeinwp](https://www.codeinwp.com/snippets/add-event-listener-to-multiple-elements-with-javascript/): forEach loop for allowing the event listener of click to all the option buttons.
+8. [Stack Overflow](https://stackoverflow.com/questions/17745292/how-to-retrieve-all-localstorage-items-without-knowing-the-keys-in-advance): Utilized to understand clearing the local storage from the browser using a button
+9. [Stack Overflow](https://stackoverflow.com/questions/17745292/how-to-retrieve-all-localstorage-items-without-knowing-the-keys-in-advance): Utilized the advice for how to get all local storage arrays
 
 
 

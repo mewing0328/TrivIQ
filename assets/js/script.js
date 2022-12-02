@@ -7,11 +7,14 @@ var choiceBEl = document.querySelector("#B");
 var choiceCEl = document.querySelector("#C");
 var choiceDEl = document.querySelector("#D");
 var nextBtnEl = document.querySelector("nextBtn");
-var highScoresEl = document.querySelector("#highScores")
+var highScoresEl = document.querySelector("#highScores");
+var highScoresListEl = document.querySelector(".highScoresList");
 var timerEl = document.querySelector(".timer-count");
 var currentScoreEl = document.querySelector("#currentScore");
 var saveBtnEl = document.querySelector(".saveButton");
 var tryAgainBtnEl = document.querySelector(".tryAgainButton");
+var clearHighScoresEl = document.querySelector(".clearHighScores");
+var viewAllHSEl = document.querySelector(".viewAllHighScores");
 var greetingEl = document.querySelector("#greeting");
 var myFormEl = document.querySelector("#myForm");
 var userInitialsEl = document.querySelector("#userInitials");
@@ -322,7 +325,6 @@ function endQuiz (){
     highScoresEl.style.display="block";
     timerEl.style.display = "none";
     person1El.style.display="none";
-    console.log(theScore);
     sendMessage();
 };
 
@@ -334,7 +336,7 @@ function sendMessage(){
     saveBtnEl.addEventListener("click", function (event){
         event.preventDefault();
         storePlayerData();
-        getPlayerData();
+       // getPlayerData();
 
         function storePlayerData (){
             var theInitials = userInputEl.value.trim();
@@ -342,45 +344,87 @@ function sendMessage(){
                 score: theScore.valueOf(),
                 initials: theInitials,
             };
+
+
             // the key is the name you designated in the "string" below so to add multiple arrays, change the name of the key
             // make sure to look up how to alert the new user when an initial has been already stored in local storage
-            localStorage.setItem("playerInfo",JSON.stringify(playerInfo));
-
+            function getRandomInt(max){
+                return JSON.stringify(Math.floor(Math.random()*max));
+            }
+            
+            localStorage.setItem("Player #: " + (getRandomInt(10)),JSON.stringify(playerInfo));
             person1El.style.display="block";
             person1El.textContent=theInitials.value;
-            alert(theInitials);
-            alert(theScore);
-        };
-
-        
-        function getPlayerData() {
-            var lastPlayer = JSON.parse(localStorage.getItem("playerInfo"));
-
-            if(lastPlayer !== null){
-                person1El.innerHTML = "The highest score is " + lastPlayer.initials + " with a score of " + lastPlayer.score + "!";
-            }else{
-                return;
-            }
         };
     });
 
+    viewAllHSEl.addEventListener("click", function (event){
+        event.preventDefault();
+        getPlayerData();
+        function getPlayerData (){
+            //Get all players data
+            for (var i = 0; i <localStorage.length; i++){
+                var key = localStorage.key(i);
 
+                var value = JSON.parse(localStorage.getItem(key));
 
+                console.log("key: " + key + ", Value: " + value);
+                
+                var list = document.createElement("li");
+                var textForList = document.createTextNode("Placeholder");
+                list.appendChild(textForList);
+                highScoresListEl.appendChild(list);
+            };
+        };
+    });
 };
-
 
 tryAgainBtnEl.addEventListener("click", function (event){
     event.preventDefault();
-    theScore = 0;
-    secondsLeft = 60;
-    cards.length = 20;
-
-    startBtnEl.style.display="block";
-    highScoresEl.style.display="none";
-    console.log(theScore);
-    console.log(secondsLeft);
-    console.log(cards.length);
-    console.log(cards);
-
-    startQuiz();
+    location.reload();
 });
+
+clearHighScoresEl.addEventListener("click", function (event){
+    event.preventDefault();
+    localStorage.clear();
+});
+
+
+
+            
+
+
+        //+ " " theInitials + "with a score of " + theScore
+        
+       // function getPlayerData() {
+  
+
+
+
+            // allStorage();
+            // function allStorage() {
+            //     var archive = {},
+            //         keys = Object.keys(localStorage),
+            //         i = keys.length;
+                
+            //     while (i--) {
+            //         archive[ keys[i] ] = localStorage.getItem( keys[i] );
+            //     }
+            //     return archive;
+
+
+            //     console.log(archive);
+
+            // };
+           
+
+            // var textForList = JSON.parse(localStorage.getItem("playerInfo"));
+            
+
+            // if(lastPlayer !== null){
+            //     person1El.innerHTML = "The highest score is " + lastPlayer.initials + " with a score of " + lastPlayer.score + "!";
+            // }else{
+            //     return;
+            // }
+
+       // };
