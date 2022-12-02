@@ -352,7 +352,7 @@ function sendMessage(){
                 return JSON.stringify(Math.floor(Math.random()*max));
             }
             
-            localStorage.setItem("Player #: " + (getRandomInt(10)),JSON.stringify(playerInfo));
+            localStorage.setItem((theInitials + " - Player #" + (getRandomInt(10))  + " with a score of " + theScore), JSON.stringify(playerInfo));
             person1El.style.display="block";
             person1El.textContent=theInitials.value;
         };
@@ -360,6 +360,7 @@ function sendMessage(){
 
     viewAllHSEl.addEventListener("click", function (event){
         event.preventDefault();
+        
         getPlayerData();
         function getPlayerData (){
             //Get all players data
@@ -368,16 +369,18 @@ function sendMessage(){
 
                 var value = JSON.parse(localStorage.getItem(key));
 
-                console.log("key: " + key + ", Value: " + value);
+                console.log(key + ", Value: " + value);
                 
                 var list = document.createElement("li");
-                var textForList = document.createTextNode("Placeholder");
+                var textForList = document.createTextNode(key);
                 list.appendChild(textForList);
                 highScoresListEl.appendChild(list);
             };
         };
     });
 };
+
+
 
 tryAgainBtnEl.addEventListener("click", function (event){
     event.preventDefault();
