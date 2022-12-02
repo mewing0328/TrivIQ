@@ -30,20 +30,24 @@
         <p id="response">Placeholder where "Correct" or "Wrong" is displayed</p>
         </section>
 
-        <section id="highScores" style="display: none">
-          <div id="greeting">Great job!</div>
+        <section id="cardEndQuiz" style="display: none">
+          <p id="greeting"></p>
+          <p id="instruct"></p>
 
           <form id="myForm" onsubmit="return false;">
             <p>Enter your Initials here</p>
             <textarea type="text" id="userInput"></textarea>
           </form>
-          
+          <button class="saveButton">Save My Score</button>
+          <button class="viewAllHighScores" style="display: none">View All Scores</button>
+          <button class="tryAgainButton" style="display: none">Try Quiz Again</button>
+        </section>
+
+        <section id="cardHighScores" style="display: none;">
           <ul class="highScoresList">
               <li class="highS" id="person1"></li>
           </ul>
-          <button class="saveButton">Save My Score</button>
-          <button class="tryAgainButton">Try Quiz Again</button>
-          <button class="viewAllHighScores">View All High Scores</button>
+          <button class="tryAgainButton2">Try Quiz Again</button>
           <button class="clearHighScores">Clear High Scores</button>
         </section>
 

@@ -1,5 +1,4 @@
 var startBtnEl = document.querySelector(".start-button");
-var cardEl = document.querySelector("#card");
 var questionEl = document.querySelector("#question");
 var choicesEl = document.querySelectorAll(".choice");
 var choiceAEl = document.querySelector("#A");
@@ -7,15 +6,23 @@ var choiceBEl = document.querySelector("#B");
 var choiceCEl = document.querySelector("#C");
 var choiceDEl = document.querySelector("#D");
 var nextBtnEl = document.querySelector("nextBtn");
-var highScoresEl = document.querySelector("#highScores");
+
+var cardEl = document.querySelector("#card");
+var cardEndQuizEl = document.querySelector("#cardEndQuiz");
+var cardHighScoresEl = document.querySelector("#cardHighScores");
+
 var highScoresListEl = document.querySelector(".highScoresList");
 var timerEl = document.querySelector(".timer-count");
 var currentScoreEl = document.querySelector("#currentScore");
 var saveBtnEl = document.querySelector(".saveButton");
 var tryAgainBtnEl = document.querySelector(".tryAgainButton");
+var tryAgainBtn2El = document.querySelector(".tryAgainButton2");
+
 var clearHighScoresEl = document.querySelector(".clearHighScores");
 var viewAllHSEl = document.querySelector(".viewAllHighScores");
 var greetingEl = document.querySelector("#greeting");
+var instructEl = document.querySelector("#instruct");
+
 var myFormEl = document.querySelector("#myForm");
 var userInitialsEl = document.querySelector("#userInitials");
 var userInputEl = document.querySelector("#userInput");
@@ -322,10 +329,11 @@ function endQuiz (){
     //hide the cards section & show the highScore 
     cardEl.style.display="none";    
     currentScoreEl.style.display="none";  
-    highScoresEl.style.display="block";
+    cardEndQuizEl.style.display="block";
     timerEl.style.display = "none";
     person1El.style.display="none";
-    greetingEl.textContent = "Your time is done. Your score is: " + theScore + " points!";
+    greetingEl.textContent = "Your time is done.  Your score is: " + theScore + " points!";
+    instructEl.textContent= "Please save your initials. Then you will have more options appear.";
 };
 
 
@@ -340,25 +348,46 @@ saveBtnEl.addEventListener("click", function (event){
             score: theScore.valueOf(),
             initials: theInitials,
         };
+        var letters = /^[A-Za-z]+$/;
+
+
+        if (theInitials.length === 2 && theInitials.match(letters)){
+            // function getRandomInt(max){
+            //     return JSON.stringify(Math.floor(Math.random()*max));
+            // }
+            var date = new Date().toJSON().slice(0,10);
+            var time = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();    
+
+            localStorage.setItem(("On " + date + " at " + time + ", Player " + theInitials + " earned a score of " + theScore), JSON.stringify(playerInfo));
+            person1El.style.display="block";
+            person1El.textContent=theInitials.value;
+            alert("Your score has been saved! \n Click on 'View All High Scores button' to see how you compare with other players.")
+            // After player enters their score, they cannot resubmit - prevents multiple sets in local storage
+            saveBtnEl.disabled = true;
+            viewAllHSEl.style.display="block";
+            tryAgainBtnEl.style.display="block";
+        }else{
+            alert("Initials need to be letters and has to be 2 letters");
+        };
+
+
+
+
 
 
         // the key is the name you designated in the "string" below so to add multiple arrays, change the name of the key
         // make sure to look up how to alert the new user when an initial has been already stored in local storage
 
         //random number generated to give players so if the same initials are used, it won't override any object existing in local Storage already
-        function getRandomInt(max){
-            return JSON.stringify(Math.floor(Math.random()*max));
-        }
-        
-        localStorage.setItem((theInitials + " - Player #" + (getRandomInt(10))  + " with a score of " + theScore), JSON.stringify(playerInfo));
-        person1El.style.display="block";
-        person1El.textContent=theInitials.value;
+
     };
 });
 
 
 viewAllHSEl.addEventListener("click", function (event){
     event.preventDefault();
+    cardHighScoresEl.style.display="block";
+    cardEndQuizEl.style.display="none";
 
     getPlayerData();
     function getPlayerData (){
@@ -378,12 +407,21 @@ viewAllHSEl.addEventListener("click", function (event){
     };
 });
 
+
+
+
+clearHighScoresEl.addEventListener("click", function (event){
+    event.preventDefault();
+    localStorage.clear();
+    highScoresListEl.style.display="none";
+});
+
 tryAgainBtnEl.addEventListener("click", function (event){
     event.preventDefault();
     location.reload();
 });
 
-clearHighScoresEl.addEventListener("click", function (event){
+tryAgainBtn2El.addEventListener("click", function (event){
     event.preventDefault();
-    localStorage.clear();
+    location.reload();
 });
