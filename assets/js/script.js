@@ -325,62 +325,58 @@ function endQuiz (){
     highScoresEl.style.display="block";
     timerEl.style.display = "none";
     person1El.style.display="none";
-    sendMessage();
-};
-
-
-
-function sendMessage(){
     greetingEl.textContent = "Your time is done. Your score is: " + theScore + " points!";
-
-    saveBtnEl.addEventListener("click", function (event){
-        event.preventDefault();
-        storePlayerData();
-       // getPlayerData();
-
-        function storePlayerData (){
-            var theInitials = userInputEl.value.trim();
-            var playerInfo = {
-                score: theScore.valueOf(),
-                initials: theInitials,
-            };
-
-
-            // the key is the name you designated in the "string" below so to add multiple arrays, change the name of the key
-            // make sure to look up how to alert the new user when an initial has been already stored in local storage
-            function getRandomInt(max){
-                return JSON.stringify(Math.floor(Math.random()*max));
-            }
-            
-            localStorage.setItem((theInitials + " - Player #" + (getRandomInt(10))  + " with a score of " + theScore), JSON.stringify(playerInfo));
-            person1El.style.display="block";
-            person1El.textContent=theInitials.value;
-        };
-    });
-
-    viewAllHSEl.addEventListener("click", function (event){
-        event.preventDefault();
-        
-        getPlayerData();
-        function getPlayerData (){
-            //Get all players data
-            for (var i = 0; i <localStorage.length; i++){
-                var key = localStorage.key(i);
-
-                var value = JSON.parse(localStorage.getItem(key));
-
-                console.log(key + ", Value: " + value);
-                
-                var list = document.createElement("li");
-                var textForList = document.createTextNode(key);
-                list.appendChild(textForList);
-                highScoresListEl.appendChild(list);
-            };
-        };
-    });
 };
 
 
+saveBtnEl.addEventListener("click", function (event){
+    event.preventDefault();
+    storePlayerData();
+   // getPlayerData();
+
+    function storePlayerData (){
+        var theInitials = userInputEl.value.trim();
+        var playerInfo = {
+            score: theScore.valueOf(),
+            initials: theInitials,
+        };
+
+
+        // the key is the name you designated in the "string" below so to add multiple arrays, change the name of the key
+        // make sure to look up how to alert the new user when an initial has been already stored in local storage
+
+        //random number generated to give players so if the same initials are used, it won't override any object existing in local Storage already
+        function getRandomInt(max){
+            return JSON.stringify(Math.floor(Math.random()*max));
+        }
+        
+        localStorage.setItem((theInitials + " - Player #" + (getRandomInt(10))  + " with a score of " + theScore), JSON.stringify(playerInfo));
+        person1El.style.display="block";
+        person1El.textContent=theInitials.value;
+    };
+});
+
+
+viewAllHSEl.addEventListener("click", function (event){
+    event.preventDefault();
+
+    getPlayerData();
+    function getPlayerData (){
+        //Get all players data
+        for (var i = 0; i <localStorage.length; i++){
+            var key = localStorage.key(i);
+
+            var value = JSON.parse(localStorage.getItem(key));
+
+            console.log(key + ", Value: " + value);
+            
+            var list = document.createElement("li");
+            var textForList = document.createTextNode(key);
+            list.appendChild(textForList);
+            highScoresListEl.appendChild(list);
+        };
+    };
+});
 
 tryAgainBtnEl.addEventListener("click", function (event){
     event.preventDefault();
