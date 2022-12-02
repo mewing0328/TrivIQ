@@ -34,6 +34,8 @@ THEN I can save my initials and my score
 7. [coeinwp](https://www.codeinwp.com/snippets/add-event-listener-to-multiple-elements-with-javascript/): forEach loop for allowing the event listener of click to all the option buttons.
 8. [Stack Overflow](https://stackoverflow.com/questions/17745292/how-to-retrieve-all-localstorage-items-without-knowing-the-keys-in-advance): Utilized to understand clearing the local storage from the browser using a button
 9. [Stack Overflow](https://stackoverflow.com/questions/17745292/how-to-retrieve-all-localstorage-items-without-knowing-the-keys-in-advance): Utilized the advice for how to get all local storage arrays
+10. [w3 Resource](https://www.w3resource.com/javascript/form/all-letters-field.php): How to only check for letters in Javascript input.
+11. [freecodecamp.org](https://www.freecodecamp.org/news/javascript-get-current-date-todays-date-in-js/#:~:text=In%20JavaScript%2C%20we%20can%20easily,%2C%20time%2C%20and%20time%20zone.): How to obtain the current date.
 
 
 

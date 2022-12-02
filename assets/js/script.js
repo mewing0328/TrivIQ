@@ -340,19 +340,35 @@ saveBtnEl.addEventListener("click", function (event){
             score: theScore.valueOf(),
             initials: theInitials,
         };
+        var letters = /^[A-Za-z]+$/;
+
+
+        if (theInitials.length === 2 && theInitials.match(letters)){
+            // function getRandomInt(max){
+            //     return JSON.stringify(Math.floor(Math.random()*max));
+            // }
+            var date = new Date().toJSON().slice(0,10);
+            var time = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();    
+
+            localStorage.setItem(("On " + date + " at " + time + ", Player " + theInitials + " earned a score of " + theScore), JSON.stringify(playerInfo));
+            person1El.style.display="block";
+            person1El.textContent=theInitials.value;
+            alert("Your score has been saved! \n Click on 'View All High Scores button' to see how you compare with other players.")
+            // After player enters their score, they cannot resubmit - prevents multiple sets in local storage
+            saveBtnEl.disabled = true;
+        }else{
+            alert("Initials need to be letters and a maximum of 2 letters");
+        };
+
+
+
 
 
         // the key is the name you designated in the "string" below so to add multiple arrays, change the name of the key
         // make sure to look up how to alert the new user when an initial has been already stored in local storage
 
         //random number generated to give players so if the same initials are used, it won't override any object existing in local Storage already
-        function getRandomInt(max){
-            return JSON.stringify(Math.floor(Math.random()*max));
-        }
-        
-        localStorage.setItem((theInitials + " - Player #" + (getRandomInt(10))  + " with a score of " + theScore), JSON.stringify(playerInfo));
-        person1El.style.display="block";
-        person1El.textContent=theInitials.value;
+
     };
 });
 
@@ -377,6 +393,7 @@ viewAllHSEl.addEventListener("click", function (event){
         };
     };
 });
+
 
 tryAgainBtnEl.addEventListener("click", function (event){
     event.preventDefault();
