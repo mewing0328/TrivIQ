@@ -82,22 +82,7 @@ var cards = [
     },
 ];
 
-console.log(userChoice);
 
-var i = Math.floor(Math.random() * (cards.length));
-var correctAnswer = cards[i].answer;
-choiceAEl.onclick = function (){
-    userChoice = "A";
-};
-choiceBEl.onclick = function (){
-    userChoice = "B";
-};
-choiceCEl.onclick = function (){
-    userChoice = "C";
-};
-choiceDEl.onclick = function (){
-    userChoice = "D";
-};
 
 
 
@@ -116,20 +101,6 @@ function startQuiz (){
         //show the card of cards
         cardEl.style.display="block";
 
-        showQuestion(cards[i]);
-        showChoiceA(cards[i]);
-        showChoiceB(cards[i]);
-        showChoiceC(cards[i]);
-        showChoiceD(cards[i]);
-        
-        function showQuestion (question){questionEl.innerText = question.questionEl;}
-        function showChoiceA (A){choiceAEl.innerText = A.choiceAEl;}
-        function showChoiceB (B){choiceBEl.innerText = B.choiceBEl;}
-        function showChoiceC (C){choiceCEl.innerText = C.choiceCEl;}
-        function showChoiceD (D){choiceDEl.innerText = D.choiceDEl;}
-        
-        console.log(userChoice);
-
         setTime();
         function setTime(){
             //Sets interval in variable
@@ -143,71 +114,39 @@ function startQuiz (){
                 endQuiz();
             }
             }
-            , 1000);
+        , 1000);
+
+        nextQuestion();
         };
     });
 };
 // ---- END START QUIZ FUNCTION-----
 
 
-
 nextBtnEl.addEventListener("click", function(event) {
     event.preventDefault();
-    if(secondsLeft <= 0 || cards.length === 10) {
-        checkAnswer();
+    if(secondsLeft <= 0 || cards.length === 0) {
         endQuiz();
     }else{
-        checkAnswer();
         spliceIndex();
-        nextQuestion();
-    };
-    
-    //Splice (remove) the i number used and create a new array
-    function spliceIndex (){
-        cards.splice(i, 1);
+        //Splice (remove) the i number used and create a new array
+        function spliceIndex (){
+            cards.splice(i, 1);
+            console.log(cards);
+            nextQuestion();
+        };
     };
 });
 
-function checkAnswer(){
-    if (userChoice === correctAnswer) {
-        theScore++;
-        responseEl.textContent = "You are CORRECT! 1 point Added."
-        responseEl.style.color = "rgb(24, 151, 56)";
-    } else{
-        secondsLeft = secondsLeft - 5;
-        responseEl.textContent = "You are WRONG! 5 Seconds deducted from Timer! The CORRECT answer was " + correctAnswer + " !";
-        responseEl.style.color = "rgb(185, 88, 88)";
-    };    
-};
 
 
-
-//End the game once there is only 1 item left in the cards array. 
-    //If I wait until 0 items are in the array, the loop breaks and does not log the answer of the last random question
-
-
-
-
-// ---- TIMER FUNCTION----- 
-// ACCEPTANCE CRITERIA: "THEN a timer starts and I am presented with a question"
-
-// ---- END TIMER FUNCTION ----- 
-
-
-// NEXT QUESTION EVENT LISTENER -> When end user clicks on a question choice, the app moves to the next question
-//ACCEPTANCE CRITERIA: WHEN I answer a question THEN I am presented with another question
-// clickNext();
-// function clickNext () {
-//     choicesEl.forEach(function (choiceIndex) {
-//         choiceIndex.addEventListener("click", () => {
-//             nextQuestion();
-//         });
-//     });
-// };
-
+//ACCEPTANCE CRITERIA: WHEN I answer a question incorrectly THEN time is subtracted from the clock
 
 //ACCEPTANCE CRITERIA: WHEN all questions are answered or the timer reaches 0 THEN the game is over
 function nextQuestion(){
+    var i = Math.floor(Math.random() * (cards.length));
+    console.log(i);
+    var correctAnswer = cards[i].answer;
 
     showQuestion(cards[i]);
     showChoiceA(cards[i]);
@@ -222,8 +161,54 @@ function nextQuestion(){
     function showChoiceC (C){choiceCEl.innerText = C.choiceCEl;}
     function showChoiceD (D){choiceDEl.innerText = D.choiceDEl;}
 
-//ACCEPTANCE CRITERIA: WHEN I answer a question incorrectly THEN time is subtracted from the clock
+    console.log(userChoice);
+
+
+    choiceAEl.onclick = function (){
+        userChoice = "A";
+        checkAnswer();
+    };
+    choiceBEl.onclick = function (){
+        userChoice = "B";
+        checkAnswer();
+    };
+    choiceCEl.onclick = function (){
+        userChoice = "C";
+        checkAnswer();
+    };
+    choiceDEl.onclick = function (){
+        userChoice = "D";
+        checkAnswer();
+    };
+
+    console.log(userChoice);
+    console.log(correctAnswer);
+    console.log(i);
 };
+
+function checkAnswer(){
+    if (userChoice === correctAnswer) {
+        theScore++;
+        responseEl.textContent = "You are CORRECT! 1 point Added."
+        responseEl.style.color = "rgb(24, 151, 56)";
+        nextBtnEl.style.display="block";
+    } else{
+        secondsLeft = secondsLeft - 5;
+        responseEl.textContent = "You are WRONG! 5 Seconds deducted from Timer! The CORRECT answer was " + correctAnswer + " !";
+        responseEl.style.color = "rgb(185, 88, 88)";
+        nextBtnEl.style.display="block";
+    };    
+    console.log(userChoice);
+    console.log(correctAnswer);
+    console.log(i);
+};
+
+
+
+
+
+
+
 
 function endQuiz (){
     //hide the cards section & show the highScore 
@@ -235,6 +220,11 @@ function endQuiz (){
     greetingEl.textContent = "Your time is done.  Your score is: " + theScore + " points!";
     instructEl.textContent= "Please save your initials. Then you will have more options appear.";
 };
+
+
+
+
+
 
 
 saveBtnEl.addEventListener("click", function (event){
@@ -330,3 +320,25 @@ tryAgainBtn2El.addEventListener("click", function (event){
     event.preventDefault();
     location.reload();
 });
+
+
+
+//End the game once there is only 1 item left in the cards array. 
+    //If I wait until 0 items are in the array, the loop breaks and does not log the answer of the last random question
+
+
+
+
+// ---- TIMER FUNCTION----- 
+// ACCEPTANCE CRITERIA: "THEN a timer starts and I am presented with a question"
+
+// ---- END TIMER FUNCTION ----- 
+
+
+// NEXT QUESTION EVENT LISTENER -> When end user clicks on a question choice, the app moves to the next question
+//ACCEPTANCE CRITERIA: WHEN I answer a question THEN I am presented with another question
+
+//         });
+//     });
+// };
+
