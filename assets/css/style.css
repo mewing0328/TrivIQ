@@ -41,7 +41,6 @@
     font-size: 3vh;
     align-items: center;
     list-style-type: none;
-    margin: 2vw 13vw;
     padding: 0 5rem;
     min-height: 3vh;
   }
@@ -115,8 +114,9 @@
   }
 
   #question {
-    padding-left: 40px;
+    margin: 40px;
     font-size: 2vh;
+    text-align: center;
   }
 
   .list {
@@ -148,7 +148,8 @@
   padding-top: 2vh;
   max-width: 50%;
   margin-left: 4vh;
-  font-size: 2vh;
+  font-size: 3vh;
+  text-align: center;
   }
 
   .start-button {

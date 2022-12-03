@@ -25,7 +25,7 @@ THEN I can save my initials and my score
 ### Screenshots
 
 ## Credit: References and Tutorials Utilized
-1. [Stack Overflow](https://stackoverflow.com/questions/70338345/when-a-user-clicks-a-button-how-do-you-store-a-variable-that-can-be-used-later): Used this approach to convert user input as a variable.
+1. [Trivia Questions](https://www.today.com/life/inspiration/trivia-questions-rcna39101): I am not creative with fun facts so reworded these trivia questions.
 2. [W3docs](): 
 3. [Image Repository Website](https://pixabay.com/): I downloaded image(s)
 4. [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random): Tutorial on how to utilize random numbers
@@ -36,6 +36,7 @@ THEN I can save my initials and my score
 9. [Stack Overflow](https://stackoverflow.com/questions/17745292/how-to-retrieve-all-localstorage-items-without-knowing-the-keys-in-advance): Utilized the advice for how to get all local storage arrays
 10. [w3 Resource](https://www.w3resource.com/javascript/form/all-letters-field.php): How to only check for letters in Javascript input.
 11. [freecodecamp.org](https://www.freecodecamp.org/news/javascript-get-current-date-todays-date-in-js/#:~:text=In%20JavaScript%2C%20we%20can%20easily,%2C%20time%2C%20and%20time%20zone.): How to obtain the current date.
+12. [Stack Overflow](https://stackoverflow.com/questions/70338345/when-a-user-clicks-a-button-how-do-you-store-a-variable-that-can-be-used-later): Used this approach to convert user input as a variable.
 
 
 

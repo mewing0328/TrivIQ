@@ -31,35 +31,27 @@ var person1El = document.querySelector("#person1");
 var pickedEl = document.querySelector("#picked");
 
 var theScore = 0;
-var userChoice = "";
-var secondsLeft = 5;
+var userChoice = "pending";
+var secondsLeft = 180;
 
 //TO DO: add a reset button option
 
 // ---- ARRAY "cards" ----
 var cards = [
     {   
-        questionEl : "INDEX 0: I am...",
-        choiceAEl : "Happy",
-        choiceBEl : "Sad",
-        choiceCEl : "Stressed",
-        choiceDEl : "Tired",   
-        answer : "A", 
+        questionEl : "What president was a licensed bartender?",
+        choiceAEl : "Bill Clinton",
+        choiceBEl : "George Washington",
+        choiceCEl : "Abraham Lincoln",
+        choiceDEl : "Donald Trump",   
+        answer : "C", 
     },
     {   
-        questionEl : "INDEX 1: I would like to eat...",
-        choiceAEl : "beef",
-        choiceBEl : "pork",
-        choiceCEl : "salad",
-        choiceDEl : "chicken",       
-        answer : "A", 
-    },
-    {   
-        questionEl : "INDEX 2: Question 3",
-        choiceAEl : "a",
-        choiceBEl : "b",
-        choiceCEl : "c",
-        choiceDEl : "d",       
+        questionEl : "How many folds are in a chef's hat?",
+        choiceAEl : "100",
+        choiceBEl : "200",
+        choiceCEl : "50",
+        choiceDEl : "150",       
         answer : "A", 
     },
     {   
@@ -71,149 +63,146 @@ var cards = [
         answer : "A", 
     },
     {   
-        questionEl : "INDEX 2: Question 3",
-        choiceAEl : "a",
-        choiceBEl : "b",
-        choiceCEl : "c",
-        choiceDEl : "d",       
-        answer : "A", 
+        questionEl : "Which city is the movie 101 Dalmatians set in?",
+        choiceAEl : "New York",
+        choiceBEl : "Munich",
+        choiceCEl : "Miami",
+        choiceDEl : "London",       
+        answer : "D", 
     },
-    {   
-        questionEl : "INDEX 2: Question 3",
-        choiceAEl : "a",
-        choiceBEl : "b",
-        choiceCEl : "c",
-        choiceDEl : "d",       
-        answer : "A", 
-    },
-    {   
-        questionEl : "INDEX 2: Question 3",
-        choiceAEl : "a",
-        choiceBEl : "b",
-        choiceCEl : "c",
-        choiceDEl : "d",       
-        answer : "A", 
-    },
-    {   
-        questionEl : "INDEX 2: Question 3",
-        choiceAEl : "a",
-        choiceBEl : "b",
-        choiceCEl : "c",
-        choiceDEl : "d",       
-        answer : "A", 
-    },
-    {   
-        questionEl : "INDEX 2: Question 3",
-        choiceAEl : "a",
-        choiceBEl : "b",
-        choiceCEl : "c",
-        choiceDEl : "d",       
-        answer : "A", 
-    },
-    {   
-        questionEl : "INDEX 2: Question 3",
-        choiceAEl : "a",
-        choiceBEl : "b",
-        choiceCEl : "c",
-        choiceDEl : "d",       
-        answer : "A", 
-    },
-    {   
-        questionEl : "INDEX 2: Question 3",
-        choiceAEl : "a",
-        choiceBEl : "b",
-        choiceCEl : "c",
-        choiceDEl : "d",       
-        answer : "A", 
-    },
-    {   
-        questionEl : "INDEX 2: Question 3",
-        choiceAEl : "a",
-        choiceBEl : "b",
-        choiceCEl : "c",
-        choiceDEl : "d",       
-        answer : "A", 
-    },
-    {   
-        questionEl : "INDEX 2: Question 3",
-        choiceAEl : "a",
-        choiceBEl : "b",
-        choiceCEl : "c",
-        choiceDEl : "d",       
-        answer : "A", 
-    },
-    {   
-        questionEl : "INDEX 2: Question 3",
-        choiceAEl : "a",
-        choiceBEl : "b",
-        choiceCEl : "c",
-        choiceDEl : "d",       
-        answer : "A", 
-    },
-    {   
-        questionEl : "INDEX 2: Question 3",
-        choiceAEl : "a",
-        choiceBEl : "b",
-        choiceCEl : "c",
-        choiceDEl : "d",       
-        answer : "A", 
-    },
-    {   
-        questionEl : "INDEX 2: Question 3",
-        choiceAEl : "a",
-        choiceBEl : "b",
-        choiceCEl : "c",
-        choiceDEl : "d",       
-        answer : "A", 
-    },
-    {   
-        questionEl : "INDEX 2: Question 3",
-        choiceAEl : "a",
-        choiceBEl : "b",
-        choiceCEl : "c",
-        choiceDEl : "d",       
-        answer : "A", 
-    },
-    {   
-        questionEl : "INDEX 2: Question 3",
-        choiceAEl : "a",
-        choiceBEl : "b",
-        choiceCEl : "c",
-        choiceDEl : "d",       
-        answer : "A", 
-    },
-    {   
-        questionEl : "INDEX 2: Question 3",
-        choiceAEl : "a",
-        choiceBEl : "b",
-        choiceCEl : "c",
-        choiceDEl : "d",       
-        answer : "A", 
-    },
-    {   
-        questionEl : "INDEX 2: Question 3",
-        choiceAEl : "a",
-        choiceBEl : "b",
-        choiceCEl : "c",
-        choiceDEl : "d",       
-        answer : "A", 
-    },
+    // {   
+    //     questionEl : "When was the first iPod released?",
+    //     choiceAEl : "1999",
+    //     choiceBEl : "2001",
+    //     choiceCEl : "2010",
+    //     choiceDEl : "1996",       
+    //     answer : "B", 
+    // },
+    // {   
+    //     questionEl : "Where is the world's largest Starbucks?",
+    //     choiceAEl : "a",
+    //     choiceBEl : "b",
+    //     choiceCEl : "c",
+    //     choiceDEl : "d",       
+    //     answer : "A", 
+    // },
+    // {   
+    //     questionEl : "INDEX 2: Question 3",
+    //     choiceAEl : "a",
+    //     choiceBEl : "b",
+    //     choiceCEl : "c",
+    //     choiceDEl : "d",       
+    //     answer : "A", 
+    // },
+    // {   
+    //     questionEl : "INDEX 2: Question 3",
+    //     choiceAEl : "a",
+    //     choiceBEl : "b",
+    //     choiceCEl : "c",
+    //     choiceDEl : "d",       
+    //     answer : "A", 
+    // },
+    // {   
+    //     questionEl : "INDEX 2: Question 3",
+    //     choiceAEl : "a",
+    //     choiceBEl : "b",
+    //     choiceCEl : "c",
+    //     choiceDEl : "d",       
+    //     answer : "A", 
+    // },
+    // {   
+    //     questionEl : "INDEX 2: Question 3",
+    //     choiceAEl : "a",
+    //     choiceBEl : "b",
+    //     choiceCEl : "c",
+    //     choiceDEl : "d",       
+    //     answer : "A", 
+    // },
+    // {   
+    //     questionEl : "INDEX 2: Question 3",
+    //     choiceAEl : "a",
+    //     choiceBEl : "b",
+    //     choiceCEl : "c",
+    //     choiceDEl : "d",       
+    //     answer : "A", 
+    // },
+    // {   
+    //     questionEl : "INDEX 2: Question 3",
+    //     choiceAEl : "a",
+    //     choiceBEl : "b",
+    //     choiceCEl : "c",
+    //     choiceDEl : "d",       
+    //     answer : "A", 
+    // },
+    // {   
+    //     questionEl : "INDEX 2: Question 3",
+    //     choiceAEl : "a",
+    //     choiceBEl : "b",
+    //     choiceCEl : "c",
+    //     choiceDEl : "d",       
+    //     answer : "A", 
+    // },
+    // {   
+    //     questionEl : "INDEX 2: Question 3",
+    //     choiceAEl : "a",
+    //     choiceBEl : "b",
+    //     choiceCEl : "c",
+    //     choiceDEl : "d",       
+    //     answer : "A", 
+    // },
+    // {   
+    //     questionEl : "INDEX 2: Question 3",
+    //     choiceAEl : "a",
+    //     choiceBEl : "b",
+    //     choiceCEl : "c",
+    //     choiceDEl : "d",       
+    //     answer : "A", 
+    // },
+    // {   
+    //     questionEl : "INDEX 2: Question 3",
+    //     choiceAEl : "a",
+    //     choiceBEl : "b",
+    //     choiceCEl : "c",
+    //     choiceDEl : "d",       
+    //     answer : "A", 
+    // },
+    // {   
+    //     questionEl : "INDEX 2: Question 3",
+    //     choiceAEl : "a",
+    //     choiceBEl : "b",
+    //     choiceCEl : "c",
+    //     choiceDEl : "d",       
+    //     answer : "A", 
+    // },
+    // {   
+    //     questionEl : "INDEX 2: Question 3",
+    //     choiceAEl : "a",
+    //     choiceBEl : "b",
+    //     choiceCEl : "c",
+    //     choiceDEl : "d",       
+    //     answer : "A", 
+    // },
+    // {   
+    //     questionEl : "INDEX 2: Question 3",
+    //     choiceAEl : "a",
+    //     choiceBEl : "b",
+    //     choiceCEl : "c",
+    //     choiceDEl : "d",       
+    //     answer : "A", 
+    // },
+    // {   
+    //     questionEl : "INDEX 2: Question 3",
+    //     choiceAEl : "a",
+    //     choiceBEl : "b",
+    //     choiceCEl : "c",
+    //     choiceDEl : "d",       
+    //     answer : "A", 
+    // },
 ];
 
 console.log(userChoice);
 
-choiceAEl.onclick = function (){
-    userChoice = "A";
-};
-choiceBEl.onclick = function (){
-    userChoice = "B";
-};
-choiceCEl.onclick = function (){
-    userChoice = "C";
-};
-choiceDEl.onclick = function (){
-    userChoice = "D";
-};
+
 
 // ---- END OF THE ARRAY "cards"
 
@@ -272,8 +261,8 @@ function clickNext () {
 
 //ACCEPTANCE CRITERIA: WHEN all questions are answered or the timer reaches 0 THEN the game is over
 function nextQuestion(){
-        var i = Math.floor(Math.random() * (cards.length));
-        var correctAnswer = cards[i].answer;
+    var i = Math.floor(Math.random() * (cards.length));
+    var correctAnswer = cards[i].answer;
        
     if(secondsLeft <= 0 || cards.length === 0) {
         endQuiz();
@@ -295,15 +284,32 @@ function nextQuestion(){
 
 //ACCEPTANCE CRITERIA: WHEN I answer a question incorrectly THEN time is subtracted from the clock
     function checkAnswer(){
-        if (userChoice === correctAnswer) {
-            theScore++;
-        } else {
-            if(userChoice === ""){ //makes sure to not remove time when the code first runs since userChoice will be "" so it will !=== correctAnswer
-              return checkAnswer;  
-            }else{
-              secondsLeft = secondsLeft - 5;
-            };    
+        choiceAEl.onclick = function (){
+            userChoice = "A";
         };
+        choiceBEl.onclick = function (){
+            userChoice = "B";
+        };
+        choiceCEl.onclick = function (){
+            userChoice = "C";
+        };
+        choiceDEl.onclick = function (){
+            userChoice = "D";
+        };
+
+        if (userChoice === "pending"){
+            return checkAnswer;
+        }else{
+            if (userChoice === correctAnswer) {
+                theScore++;
+                responseEl.textContent = "You are CORRECT! 1 point Added."
+                responseEl.style.color = "rgb(24, 151, 56)";
+            } else {
+                secondsLeft = secondsLeft - 5;
+                responseEl.textContent = "You are WRONG! 5 Seconds deducted from Timer! The CORRECT answer was " + correctAnswer + " !";
+                responseEl.style.color = "rgb(185, 88, 88)";
+            }; 
+        }
     };
 
     console.log(userChoice);
