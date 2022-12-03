@@ -343,7 +343,9 @@ saveBtnEl.addEventListener("click", function (event){
    // getPlayerData();
 
     function storePlayerData (){
-        var theInitials = userInputEl.value.trim();
+        var inputInitials = userInputEl.value.trim();
+        var theInitials = inputInitials.toUpperCase();
+
         var playerInfo = {
             score: theScore.valueOf(),
             initials: theInitials,
@@ -357,6 +359,7 @@ saveBtnEl.addEventListener("click", function (event){
             // }
             var date = new Date().toJSON().slice(0,10);
             var time = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();    
+            JSON.stringify(time);
 
             localStorage.setItem(("On " + date + " at " + time + ", Player " + theInitials + " earned a score of " + theScore), JSON.stringify(playerInfo));
             person1El.style.display="block";

@@ -8,8 +8,8 @@
     --offWhite: rgb(249, 246, 250);
     --hoverShadow: rgb(216, 170, 233);
     --gray: rgb(141, 150, 145);
-    --tryAgainBtn: rgb(185, 88, 88);
-    --saveBtn: rgb(98, 163, 114);
+    --redBtn: rgb(185, 88, 88);
+    --greenBtn: rgb(98, 163, 114);
     }
   
   body {
@@ -20,77 +20,117 @@
     min-height: 100vh;
     background: linear-gradient(0deg, var(--dark) 0%, var(--light) 70%);
   }
-  
-  header {
-    display: flex;
-    flex-direction: column;
-    margin: 0px;
-    padding: 0px;
-    background: var(--dark);
-    color: #fff;
+
+  .title {
+    font-size: 5vh;
+    color: var(--dark);
     justify-content:space-between;
-    margin: 2vh;
     border-radius: 8px;
     border-color: var(--dark);
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    align-items: center;
   }
   
-  header ul {
+  .score-time {
+    color: var(--dark);
+    font-weight: bold;
     display: flex;
     justify-content: space-between;
-    font-size: 1rem;
+    font-size: 3vh;
     align-items: center;
     list-style-type: none;
-    margin: 0;
-    padding: 0 3rem;
-    min-height: 5vh;
-    background-color: var(--dark);
+    margin: 2vw 13vw;
+    padding: 0 5rem;
+    min-height: 3vh;
   }
 
+  .instructions {
+    color: var(--gray);
+    font-size: 2vh;
+    font-style: italic;
+    text-align:center;
+  }
+    
   main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
   }
 
-  .title {
-    font-size: 3em;
-    text-align:center;
-  }
-
-  .instructions {
-    font-size: 1em;
-    font-style: italic;
-    text-align:center;
-    line-height: 25px;
-  }
-
-  section {
+  #card {
     display: block;
     background-color:var(--offWhite);
-    border-radius: 8px;
-    border-color: var(--dark);
-    border-width: 10px;
-    min-width: 80%;
-    min-height: 50vh;
+    border: solid 5px var(--dark);
+    border-radius: 30px;
+    width: 70%;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     text-align: left;
     align-items: center;
   }
 
-  #question,
-  #greeting,
-  #instruct {
+  
+  #cardEndQuiz {
+    display: block;
+    background-color:var(--offWhite);
+    border: solid 5px var(--dark);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    padding: 2vw;
+  }
+
+  #greeting{
+    font-size: 2.5vh;
+  }
+
+  #instruct{
+    font-size: 2vh;
+  }
+
+  h3 {
+    font-size: 2vh;
+  }
+
+  textarea {
+    font-size: 4vh;
+    text-align: center;
+  }
+
+  #cardHighScores {
+    display: block;
+    background-color:var(--offWhite);
+    border: solid 5px var(--dark);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    align-items: center;
+  }
+
+  #question {
     padding-left: 40px;
     font-size: 2vh;
   }
 
-  .list,
-  .highScoreList {
+  .list {
     font-size: 4vh;
     min-width: 90%;
     text-align: left;
     font-weight: bold;
+  }
+
+  .highScoresList li {
+    font-size: 2vh;
+    list-style: none;
+    padding: 2px 5px;
+    margin: 5px 50px 5px 0px;
   }
 
   .choice,
@@ -129,25 +169,37 @@
     margin-top: 0.6em;
   }
 
-  .saveButton,
-  .tryAgainButton {
+  .center {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+  }
+
+  .btn {
     border-radius: 8px;
+    border: solid 2px black;
     color: var(--offWhite);
     cursor: pointer;
-    font-size: 20px;
+    font-size: 2vh;
     padding: 20px 52px;
     margin: 20px;
-
   }
 
   .saveButton {
-    background-color: var(--saveBtn)
+    background-color: var(--greenBtn);
   }
 
-  .tryAgainButton {
-    background-color: var(--tryAgainBtn) ;
+  .clearHighScores {
+    background-color: var(--gray);
+  }
+
+  .viewAllHighScores {
+    color: black;
+    background-color: rgba(247, 247, 173, 0.959);
+  }
+
+  .tryAgainButton,
+  .tryAgainButton2 {
+    background-color: var(--redBtn);
   }
   
   /* ----- PSUEDO SELECTORS ----- */

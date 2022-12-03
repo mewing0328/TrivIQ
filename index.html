@@ -30,29 +30,32 @@
         <p id="response">Placeholder where "Correct" or "Wrong" is displayed</p>
         </section>
 
-        <section id="cardEndQuiz" style="display: none">
-          <p id="greeting"></p>
-          <p id="instruct"></p>
-
-          <form id="myForm" onsubmit="return false;">
-            <p>Enter your Initials here</p>
+        <section class="center" id="cardEndQuiz" style="display: none">
+          <h1 id="greeting"></h1>
+          <h2 id="instruct"></h2>
+          <h3>Enter your Initials here</h3>
+          <form id="myForm" class="center" onsubmit="return false;">
             <textarea type="text" id="userInput"></textarea>
           </form>
-          <button class="saveButton">Save My Score</button>
-          <button class="viewAllHighScores" style="display: none">View All Scores</button>
-          <button class="tryAgainButton" style="display: none">Try Quiz Again</button>
+          <div class="center">
+            <button class="btn saveButton">Save My Score</button>
+            <button class="btn viewAllHighScores" style="display: none">View All Scores</button>
+            <button class="btn tryAgainButton" style="display: none">Try Quiz Again</button>
+          </div>
         </section>
 
         <section id="cardHighScores" style="display: none;">
           <ul class="highScoresList">
               <li class="highS" id="person1"></li>
           </ul>
-          <button class="tryAgainButton2">Try Quiz Again</button>
-          <button class="clearHighScores">Clear High Scores</button>
-        </section>
+          <div class="center">
+            <button class="btn tryAgainButton2">Try Quiz Again</button>
+            <button class="btn clearHighScores">Clear High Scores</button>
+          </div>
+          </section>
 
 
-        <button class="start-button">Start Quiz</button>
+        <button class="btn start-button">Start Quiz</button>
 <!-- <section class="highScoresStorage"> style="display: none" -->
     
 
