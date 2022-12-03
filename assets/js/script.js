@@ -31,8 +31,19 @@ var person1El = document.querySelector("#person1");
 var pickedEl = document.querySelector("#picked");
 
 var theScore = 0;
-var userChoice = "pending";
 var secondsLeft = 180;
+choiceAEl.onclick = function (){
+    userChoice = "A";
+};
+choiceBEl.onclick = function (){
+    userChoice = "B";
+};
+choiceCEl.onclick = function (){
+    userChoice = "C";
+};
+choiceDEl.onclick = function (){
+    userChoice = "D"        
+};
 
 //TO DO: add a reset button option
 
@@ -200,7 +211,6 @@ var cards = [
     // },
 ];
 
-console.log(userChoice);
 
 
 
@@ -221,11 +231,20 @@ function startQuiz (){
         cardEl.style.display="block";
 
         //run these functions
-        nextQuestion(); // SOLVE REMOVE SPLICE IN THIS INSTANCE
+        
+
+        
+        if(userChoice = ""){
+            checkAnswer();
+        } else {
+            nextQuestion();
+        };
+
         setTime();
         });
 }
 // ---- END START QUIZ FUNCTION-----
+
 
 
 // ---- TIMER FUNCTION----- 
@@ -263,7 +282,7 @@ function clickNext () {
 function nextQuestion(){
     var i = Math.floor(Math.random() * (cards.length));
     var correctAnswer = cards[i].answer;
-       
+
     if(secondsLeft <= 0 || cards.length === 0) {
         endQuiz();
     }else{
@@ -281,23 +300,38 @@ function nextQuestion(){
     function showChoiceC (C){choiceCEl.innerText = C.choiceCEl;}
     function showChoiceD (D){choiceDEl.innerText = D.choiceDEl;}
 
+ 
 
-//ACCEPTANCE CRITERIA: WHEN I answer a question incorrectly THEN time is subtracted from the clock
+    //End the game once there is only 1 item left in the cards array. 
+        //If I wait until 0 items are in the array, the loop breaks and does not log the answer of the last random question
+    
+    function firstResponse(){
+
+    };
+    
+    if (userChoice === "") {
+;
+    } else {
+        if(secondsLeft <= 0 || cards.length === 10) {
+            checkAnswer();
+            endQuiz();
+        }else{
+            checkAnswer();
+            spliceIndex();
+        };
+    };
+
+  
+    
+    //Splice (remove) the i number used and create a new array
+    function spliceIndex (){
+        cards.splice(i, 1);
+    };
+
+    //ACCEPTANCE CRITERIA: WHEN I answer a question incorrectly THEN time is subtracted from the clock
     function checkAnswer(){
-        choiceAEl.onclick = function (){
-            userChoice = "A";
-        };
-        choiceBEl.onclick = function (){
-            userChoice = "B";
-        };
-        choiceCEl.onclick = function (){
-            userChoice = "C";
-        };
-        choiceDEl.onclick = function (){
-            userChoice = "D";
-        };
 
-        if (userChoice === "pending"){
+        if (userChoice === ""){
             return checkAnswer;
         }else{
             if (userChoice === correctAnswer) {
@@ -314,21 +348,6 @@ function nextQuestion(){
 
     console.log(userChoice);
     console.log(correctAnswer);
-
-    //End the game once there is only 1 item left in the cards array. 
-        //If I wait until 0 items are in the array, the loop breaks and does not log the answer of the last random question
-    if(secondsLeft <= 0 || cards.length === 10) {
-        checkAnswer();
-        endQuiz();
-    }else{
-        checkAnswer();
-        spliceIndex();
-    };
-    
-    //Splice (remove) the i number used and create a new array
-    function spliceIndex (){
-        cards.splice(i, 1);
-    };
 };
 
 function endQuiz (){
