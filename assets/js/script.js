@@ -17,6 +17,7 @@ var currentScoreEl = document.querySelector("#currentScore");
 var saveBtnEl = document.querySelector(".saveButton");
 var tryAgainBtnEl = document.querySelector(".tryAgainButton");
 var tryAgainBtn2El = document.querySelector(".tryAgainButton2");
+var nextBtnEl = document.querySelector(".nextButton");
 
 var clearHighScoresEl = document.querySelector(".clearHighScores");
 var viewAllHSEl = document.querySelector(".viewAllHighScores");
@@ -31,19 +32,9 @@ var person1El = document.querySelector("#person1");
 var pickedEl = document.querySelector("#picked");
 
 var theScore = 0;
+var userChoice = "pending";
 var secondsLeft = 180;
-choiceAEl.onclick = function (){
-    userChoice = "A";
-};
-choiceBEl.onclick = function (){
-    userChoice = "B";
-};
-choiceCEl.onclick = function (){
-    userChoice = "C";
-};
-choiceDEl.onclick = function (){
-    userChoice = "D"        
-};
+
 
 //TO DO: add a reset button option
 
@@ -66,14 +57,6 @@ var cards = [
         answer : "A", 
     },
     {   
-        questionEl : "INDEX 2: Question 3",
-        choiceAEl : "a",
-        choiceBEl : "b",
-        choiceCEl : "c",
-        choiceDEl : "d",       
-        answer : "A", 
-    },
-    {   
         questionEl : "Which city is the movie 101 Dalmatians set in?",
         choiceAEl : "New York",
         choiceBEl : "Munich",
@@ -81,136 +64,40 @@ var cards = [
         choiceDEl : "London",       
         answer : "D", 
     },
-    // {   
-    //     questionEl : "When was the first iPod released?",
-    //     choiceAEl : "1999",
-    //     choiceBEl : "2001",
-    //     choiceCEl : "2010",
-    //     choiceDEl : "1996",       
-    //     answer : "B", 
-    // },
-    // {   
-    //     questionEl : "Where is the world's largest Starbucks?",
-    //     choiceAEl : "a",
-    //     choiceBEl : "b",
-    //     choiceCEl : "c",
-    //     choiceDEl : "d",       
-    //     answer : "A", 
-    // },
-    // {   
-    //     questionEl : "INDEX 2: Question 3",
-    //     choiceAEl : "a",
-    //     choiceBEl : "b",
-    //     choiceCEl : "c",
-    //     choiceDEl : "d",       
-    //     answer : "A", 
-    // },
-    // {   
-    //     questionEl : "INDEX 2: Question 3",
-    //     choiceAEl : "a",
-    //     choiceBEl : "b",
-    //     choiceCEl : "c",
-    //     choiceDEl : "d",       
-    //     answer : "A", 
-    // },
-    // {   
-    //     questionEl : "INDEX 2: Question 3",
-    //     choiceAEl : "a",
-    //     choiceBEl : "b",
-    //     choiceCEl : "c",
-    //     choiceDEl : "d",       
-    //     answer : "A", 
-    // },
-    // {   
-    //     questionEl : "INDEX 2: Question 3",
-    //     choiceAEl : "a",
-    //     choiceBEl : "b",
-    //     choiceCEl : "c",
-    //     choiceDEl : "d",       
-    //     answer : "A", 
-    // },
-    // {   
-    //     questionEl : "INDEX 2: Question 3",
-    //     choiceAEl : "a",
-    //     choiceBEl : "b",
-    //     choiceCEl : "c",
-    //     choiceDEl : "d",       
-    //     answer : "A", 
-    // },
-    // {   
-    //     questionEl : "INDEX 2: Question 3",
-    //     choiceAEl : "a",
-    //     choiceBEl : "b",
-    //     choiceCEl : "c",
-    //     choiceDEl : "d",       
-    //     answer : "A", 
-    // },
-    // {   
-    //     questionEl : "INDEX 2: Question 3",
-    //     choiceAEl : "a",
-    //     choiceBEl : "b",
-    //     choiceCEl : "c",
-    //     choiceDEl : "d",       
-    //     answer : "A", 
-    // },
-    // {   
-    //     questionEl : "INDEX 2: Question 3",
-    //     choiceAEl : "a",
-    //     choiceBEl : "b",
-    //     choiceCEl : "c",
-    //     choiceDEl : "d",       
-    //     answer : "A", 
-    // },
-    // {   
-    //     questionEl : "INDEX 2: Question 3",
-    //     choiceAEl : "a",
-    //     choiceBEl : "b",
-    //     choiceCEl : "c",
-    //     choiceDEl : "d",       
-    //     answer : "A", 
-    // },
-    // {   
-    //     questionEl : "INDEX 2: Question 3",
-    //     choiceAEl : "a",
-    //     choiceBEl : "b",
-    //     choiceCEl : "c",
-    //     choiceDEl : "d",       
-    //     answer : "A", 
-    // },
-    // {   
-    //     questionEl : "INDEX 2: Question 3",
-    //     choiceAEl : "a",
-    //     choiceBEl : "b",
-    //     choiceCEl : "c",
-    //     choiceDEl : "d",       
-    //     answer : "A", 
-    // },
-    // {   
-    //     questionEl : "INDEX 2: Question 3",
-    //     choiceAEl : "a",
-    //     choiceBEl : "b",
-    //     choiceCEl : "c",
-    //     choiceDEl : "d",       
-    //     answer : "A", 
-    // },
-    // {   
-    //     questionEl : "INDEX 2: Question 3",
-    //     choiceAEl : "a",
-    //     choiceBEl : "b",
-    //     choiceCEl : "c",
-    //     choiceDEl : "d",       
-    //     answer : "A", 
-    // },
-    // {   
-    //     questionEl : "INDEX 2: Question 3",
-    //     choiceAEl : "a",
-    //     choiceBEl : "b",
-    //     choiceCEl : "c",
-    //     choiceDEl : "d",       
-    //     answer : "A", 
-    // },
+    {   
+        questionEl : "When was the first iPod released?",
+        choiceAEl : "1999",
+        choiceBEl : "2001",
+        choiceCEl : "2010",
+        choiceDEl : "1996",       
+        answer : "B", 
+    },
+    {   
+        questionEl : "Where is the world's largest Starbucks?",
+        choiceAEl : "a",
+        choiceBEl : "b",
+        choiceCEl : "c",
+        choiceDEl : "d",       
+        answer : "A", 
+    },
 ];
 
+console.log(userChoice);
+
+var i = Math.floor(Math.random() * (cards.length));
+var correctAnswer = cards[i].answer;
+choiceAEl.onclick = function (){
+    userChoice = "A";
+};
+choiceBEl.onclick = function (){
+    userChoice = "B";
+};
+choiceCEl.onclick = function (){
+    userChoice = "C";
+};
+choiceDEl.onclick = function (){
+    userChoice = "D";
+};
 
 
 
@@ -226,73 +113,108 @@ function startQuiz (){
         //hide the start button when clicked
         startBtnEl.disabled = true;
         startBtnEl.style.display="none";
-
         //show the card of cards
         cardEl.style.display="block";
 
-        //run these functions
-        
-
-        
-        if(userChoice = ""){
-            checkAnswer();
-        } else {
-            nextQuestion();
-        };
-
-        setTime();
-        });
-}
-// ---- END START QUIZ FUNCTION-----
-
-
-
-// ---- TIMER FUNCTION----- 
-// ACCEPTANCE CRITERIA: "THEN a timer starts and I am presented with a question"
-function setTime(){
-    //Sets interval in variable
-    var timerInterval = setInterval(function(){
-    secondsLeft--;
-    timerEl.textContent = "Time Remaining: " + secondsLeft;
-    currentScoreEl.textContent = "Your current score is " + theScore;
-    
-    if(secondsLeft <= 0) {
-        clearInterval(timerInterval);
-        endQuiz();
-    }
-    }
-    , 1000);
-};
-// ---- END TIMER FUNCTION ----- 
-
-
-// NEXT QUESTION EVENT LISTENER -> When end user clicks on a question choice, the app moves to the next question
-//ACCEPTANCE CRITERIA: WHEN I answer a question THEN I am presented with another question
-clickNext();
-function clickNext () {
-    choicesEl.forEach(function (choiceIndex) {
-        choiceIndex.addEventListener("click", () => {
-            nextQuestion();
-        });
-    });
-};
-
-
-//ACCEPTANCE CRITERIA: WHEN all questions are answered or the timer reaches 0 THEN the game is over
-function nextQuestion(){
-    var i = Math.floor(Math.random() * (cards.length));
-    var correctAnswer = cards[i].answer;
-
-    if(secondsLeft <= 0 || cards.length === 0) {
-        endQuiz();
-    }else{
         showQuestion(cards[i]);
         showChoiceA(cards[i]);
         showChoiceB(cards[i]);
         showChoiceC(cards[i]);
         showChoiceD(cards[i]);
-    };
+        
+        function showQuestion (question){questionEl.innerText = question.questionEl;}
+        function showChoiceA (A){choiceAEl.innerText = A.choiceAEl;}
+        function showChoiceB (B){choiceBEl.innerText = B.choiceBEl;}
+        function showChoiceC (C){choiceCEl.innerText = C.choiceCEl;}
+        function showChoiceD (D){choiceDEl.innerText = D.choiceDEl;}
+        
+        console.log(userChoice);
 
+        setTime();
+        function setTime(){
+            //Sets interval in variable
+            var timerInterval = setInterval(function(){
+            secondsLeft--;
+            timerEl.textContent = "Time Remaining: " + secondsLeft;
+            currentScoreEl.textContent = "Your current score is " + theScore;
+            
+            if(secondsLeft <= 0) {
+                clearInterval(timerInterval);
+                endQuiz();
+            }
+            }
+            , 1000);
+        };
+    });
+};
+// ---- END START QUIZ FUNCTION-----
+
+
+
+nextBtnEl.addEventListener("click", function(event) {
+    event.preventDefault();
+    if(secondsLeft <= 0 || cards.length === 10) {
+        checkAnswer();
+        endQuiz();
+    }else{
+        checkAnswer();
+        spliceIndex();
+        nextQuestion();
+    };
+    
+    //Splice (remove) the i number used and create a new array
+    function spliceIndex (){
+        cards.splice(i, 1);
+    };
+});
+
+function checkAnswer(){
+    if (userChoice === correctAnswer) {
+        theScore++;
+        responseEl.textContent = "You are CORRECT! 1 point Added."
+        responseEl.style.color = "rgb(24, 151, 56)";
+    } else{
+        secondsLeft = secondsLeft - 5;
+        responseEl.textContent = "You are WRONG! 5 Seconds deducted from Timer! The CORRECT answer was " + correctAnswer + " !";
+        responseEl.style.color = "rgb(185, 88, 88)";
+    };    
+};
+
+
+
+//End the game once there is only 1 item left in the cards array. 
+    //If I wait until 0 items are in the array, the loop breaks and does not log the answer of the last random question
+
+
+
+
+// ---- TIMER FUNCTION----- 
+// ACCEPTANCE CRITERIA: "THEN a timer starts and I am presented with a question"
+
+// ---- END TIMER FUNCTION ----- 
+
+
+// NEXT QUESTION EVENT LISTENER -> When end user clicks on a question choice, the app moves to the next question
+//ACCEPTANCE CRITERIA: WHEN I answer a question THEN I am presented with another question
+// clickNext();
+// function clickNext () {
+//     choicesEl.forEach(function (choiceIndex) {
+//         choiceIndex.addEventListener("click", () => {
+//             nextQuestion();
+//         });
+//     });
+// };
+
+
+//ACCEPTANCE CRITERIA: WHEN all questions are answered or the timer reaches 0 THEN the game is over
+function nextQuestion(){
+
+    showQuestion(cards[i]);
+    showChoiceA(cards[i]);
+    showChoiceB(cards[i]);
+    showChoiceC(cards[i]);
+    showChoiceD(cards[i]);
+        
         //functions to replace the innerText in html with the array elements in js
     function showQuestion (question){questionEl.innerText = question.questionEl;}
     function showChoiceA (A){choiceAEl.innerText = A.choiceAEl;}
@@ -300,54 +222,7 @@ function nextQuestion(){
     function showChoiceC (C){choiceCEl.innerText = C.choiceCEl;}
     function showChoiceD (D){choiceDEl.innerText = D.choiceDEl;}
 
- 
-
-    //End the game once there is only 1 item left in the cards array. 
-        //If I wait until 0 items are in the array, the loop breaks and does not log the answer of the last random question
-    
-    function firstResponse(){
-
-    };
-    
-    if (userChoice === "") {
-;
-    } else {
-        if(secondsLeft <= 0 || cards.length === 10) {
-            checkAnswer();
-            endQuiz();
-        }else{
-            checkAnswer();
-            spliceIndex();
-        };
-    };
-
-  
-    
-    //Splice (remove) the i number used and create a new array
-    function spliceIndex (){
-        cards.splice(i, 1);
-    };
-
-    //ACCEPTANCE CRITERIA: WHEN I answer a question incorrectly THEN time is subtracted from the clock
-    function checkAnswer(){
-
-        if (userChoice === ""){
-            return checkAnswer;
-        }else{
-            if (userChoice === correctAnswer) {
-                theScore++;
-                responseEl.textContent = "You are CORRECT! 1 point Added."
-                responseEl.style.color = "rgb(24, 151, 56)";
-            } else {
-                secondsLeft = secondsLeft - 5;
-                responseEl.textContent = "You are WRONG! 5 Seconds deducted from Timer! The CORRECT answer was " + correctAnswer + " !";
-                responseEl.style.color = "rgb(185, 88, 88)";
-            }; 
-        }
-    };
-
-    console.log(userChoice);
-    console.log(correctAnswer);
+//ACCEPTANCE CRITERIA: WHEN I answer a question incorrectly THEN time is subtracted from the clock
 };
 
 function endQuiz (){

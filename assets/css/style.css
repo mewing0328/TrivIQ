@@ -186,7 +186,8 @@
   }
 
   .saveButton,
-  .tryAgainButton2 {
+  .tryAgainButton2,
+  .nextButton {
     background-color: var(--greenBtn);
   }
 
