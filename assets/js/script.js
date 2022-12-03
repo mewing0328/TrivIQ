@@ -123,20 +123,6 @@ function startQuiz (){
 // ---- END START QUIZ FUNCTION-----
 
 
-nextBtnEl.addEventListener("click", function(event) {
-    event.preventDefault();
-    if(secondsLeft <= 0 || cards.length === 0) {
-        endQuiz();
-    }else{
-        spliceIndex();
-        //Splice (remove) the i number used and create a new array
-        function spliceIndex (){
-            cards.splice(i, 1);
-            console.log(cards);
-            nextQuestion();
-        };
-    };
-});
 
 
 
@@ -146,7 +132,9 @@ nextBtnEl.addEventListener("click", function(event) {
 function nextQuestion(){
     var i = Math.floor(Math.random() * (cards.length));
     console.log(i);
+
     var correctAnswer = cards[i].answer;
+    console.log(correctAnswer);
 
     showQuestion(cards[i]);
     showChoiceA(cards[i]);
@@ -160,8 +148,6 @@ function nextQuestion(){
     function showChoiceB (B){choiceBEl.innerText = B.choiceBEl;}
     function showChoiceC (C){choiceCEl.innerText = C.choiceCEl;}
     function showChoiceD (D){choiceDEl.innerText = D.choiceDEl;}
-
-    console.log(userChoice);
 
 
     choiceAEl.onclick = function (){
@@ -181,27 +167,54 @@ function nextQuestion(){
         checkAnswer();
     };
 
-    console.log(userChoice);
-    console.log(correctAnswer);
-    console.log(i);
+
+    function checkAnswer(){
+        console.log(userChoice);
+        console.log(correctAnswer);
+        console.log(i);
+    
+        if (userChoice === correctAnswer) {
+            theScore++;
+            responseEl.textContent = "You are CORRECT! 1 point Added."
+            responseEl.style.color = "rgb(24, 151, 56)";
+            nextBtnEl.style.display="block";
+        } else{
+            secondsLeft = secondsLeft - 5;
+            responseEl.textContent = "You are WRONG! 5 Seconds deducted from Timer! The CORRECT answer was " + correctAnswer + " !";
+            responseEl.style.color = "rgb(185, 88, 88)";
+            nextBtnEl.style.display="block";
+        };    
+    
+    };
+
+
+    nextBtnEl.addEventListener("click", function(event) {
+        event.preventDefault();
+        if(secondsLeft <= 0 || cards.length === 0) {
+            endQuiz();
+        }else{
+            spliceIndex();
+            //Splice (remove) the i number used and create a new array
+            function spliceIndex (){
+                cards.splice(i, 1);
+                console.log(cards);
+                nextQuestion();
+            };
+        };
+    
+        // clickNext();
+        // function clickNext () {
+        //     choicesEl.forEach(function (choiceIndex) {
+        //         choiceIndex.addEventListener("click", () => {
+        //             checkAnswer();
+        //         });
+        //     });
+        // };
+    });
+    
 };
 
-function checkAnswer(){
-    if (userChoice === correctAnswer) {
-        theScore++;
-        responseEl.textContent = "You are CORRECT! 1 point Added."
-        responseEl.style.color = "rgb(24, 151, 56)";
-        nextBtnEl.style.display="block";
-    } else{
-        secondsLeft = secondsLeft - 5;
-        responseEl.textContent = "You are WRONG! 5 Seconds deducted from Timer! The CORRECT answer was " + correctAnswer + " !";
-        responseEl.style.color = "rgb(185, 88, 88)";
-        nextBtnEl.style.display="block";
-    };    
-    console.log(userChoice);
-    console.log(correctAnswer);
-    console.log(i);
-};
+
 
 
 
