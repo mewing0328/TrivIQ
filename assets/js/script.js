@@ -357,11 +357,13 @@ saveBtnEl.addEventListener("click", function (event){
             // function getRandomInt(max){
             //     return JSON.stringify(Math.floor(Math.random()*max));
             // }
-            var date = new Date().toJSON().slice(0,10);
-            var time = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();    
-            JSON.stringify(time);
+            var date = new Date();
+            // .toJSON().slice(0,10);
+            // var time = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();    
+            // JSON.stringify(time);
+            // localStorage.setItem(("On " + date + " at " + time + ", Player " + theInitials + " earned a score of " + theScore), JSON.stringify(playerInfo));
 
-            localStorage.setItem(("On " + date + " at " + time + ", Player " + theInitials + " earned a score of " + theScore), JSON.stringify(playerInfo));
+            localStorage.setItem(("Player " + theInitials + " earned a score of " + theScore + " on " + date), JSON.stringify(playerInfo));
             person1El.style.display="block";
             person1El.textContent=theInitials.value;
             alert("Your score has been saved! \n Click on 'View All High Scores button' to see how you compare with other players.")

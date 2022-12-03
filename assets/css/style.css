@@ -184,7 +184,8 @@
     margin: 20px;
   }
 
-  .saveButton {
+  .saveButton,
+  .tryAgainButton2 {
     background-color: var(--greenBtn);
   }
 
@@ -197,8 +198,7 @@
     background-color: rgba(247, 247, 173, 0.959);
   }
 
-  .tryAgainButton,
-  .tryAgainButton2 {
+  .tryAgainButton{
     background-color: var(--redBtn);
   }
   
