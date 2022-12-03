@@ -119,6 +119,12 @@
     text-align: center;
   }
 
+  #outcomeAlert{
+    border-top: solid 5px var(--gray);
+    display: flex;
+    flex-direction: column;
+  }
+
   .list {
     font-size: 4vh;
     min-width: 90%;
@@ -144,12 +150,8 @@
   }
 
   #response {
-  border-top: solid 5px var(--gray);
-  padding-top: 2vh;
-  max-width: 50%;
-  margin-left: 4vh;
-  font-size: 3vh;
-  text-align: center;
+  margin: 1vh 4vh;
+  font-size: 2.5vh;
   }
 
   .start-button {
@@ -189,6 +191,11 @@
   .tryAgainButton2,
   .nextButton {
     background-color: var(--greenBtn);
+  }
+
+  .nextButton{
+    max-width: 30%;
+    margin-left: 4vh;
   }
 
   .clearHighScores {

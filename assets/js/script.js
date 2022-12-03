@@ -32,7 +32,7 @@ var person1El = document.querySelector("#person1");
 var pickedEl = document.querySelector("#picked");
 
 var theScore = 0;
-var userChoice = "pending";
+var userChoice = "";
 var secondsLeft = 180;
 
 
@@ -130,87 +130,87 @@ function startQuiz (){
 
 //ACCEPTANCE CRITERIA: WHEN all questions are answered or the timer reaches 0 THEN the game is over
 function nextQuestion(){
-    var i = Math.floor(Math.random() * (cards.length));
-    console.log(i);
-
-    var correctAnswer = cards[i].answer;
-    console.log(correctAnswer);
-
-    showQuestion(cards[i]);
-    showChoiceA(cards[i]);
-    showChoiceB(cards[i]);
-    showChoiceC(cards[i]);
-    showChoiceD(cards[i]);
-        
-        //functions to replace the innerText in html with the array elements in js
-    function showQuestion (question){questionEl.innerText = question.questionEl;}
-    function showChoiceA (A){choiceAEl.innerText = A.choiceAEl;}
-    function showChoiceB (B){choiceBEl.innerText = B.choiceBEl;}
-    function showChoiceC (C){choiceCEl.innerText = C.choiceCEl;}
-    function showChoiceD (D){choiceDEl.innerText = D.choiceDEl;}
-
-
-    choiceAEl.onclick = function (){
-        userChoice = "A";
-        checkAnswer();
-    };
-    choiceBEl.onclick = function (){
-        userChoice = "B";
-        checkAnswer();
-    };
-    choiceCEl.onclick = function (){
-        userChoice = "C";
-        checkAnswer();
-    };
-    choiceDEl.onclick = function (){
-        userChoice = "D";
-        checkAnswer();
-    };
-
-
-    function checkAnswer(){
-        console.log(userChoice);
-        console.log(correctAnswer);
+    if(secondsLeft <= 0 || cards.length === 0) {
+        endQuiz();
+    } else {
+        var i = (cards.length - 1);
         console.log(i);
-    
-        if (userChoice === correctAnswer) {
-            theScore++;
-            responseEl.textContent = "You are CORRECT! 1 point Added."
-            responseEl.style.color = "rgb(24, 151, 56)";
-            nextBtnEl.style.display="block";
-        } else{
-            secondsLeft = secondsLeft - 5;
-            responseEl.textContent = "You are WRONG! 5 Seconds deducted from Timer! The CORRECT answer was " + correctAnswer + " !";
-            responseEl.style.color = "rgb(185, 88, 88)";
-            nextBtnEl.style.display="block";
-        };    
-    
-    };
+        var correctAnswer = cards[i].answer;
+
+        showQuestion(cards[i]);
+        showChoiceA(cards[i]);
+        showChoiceB(cards[i]);
+        showChoiceC(cards[i]);
+        showChoiceD(cards[i]);
+            
+            //functions to replace the innerText in html with the array elements in js
+        function showQuestion (question){questionEl.innerText = question.questionEl;}
+        function showChoiceA (A){choiceAEl.innerText = A.choiceAEl;}
+        function showChoiceB (B){choiceBEl.innerText = B.choiceBEl;}
+        function showChoiceC (C){choiceCEl.innerText = C.choiceCEl;}
+        function showChoiceD (D){choiceDEl.innerText = D.choiceDEl;}
 
 
-    nextBtnEl.addEventListener("click", function(event) {
-        event.preventDefault();
-        if(secondsLeft <= 0 || cards.length === 0) {
-            endQuiz();
-        }else{
-            spliceIndex();
-            //Splice (remove) the i number used and create a new array
-            function spliceIndex (){
+        choiceAEl.onclick = function (){
+            userChoice = "A";
+            checkAnswer();
+        };
+        choiceBEl.onclick = function (){
+            userChoice = "B";
+            checkAnswer();
+        };
+        choiceCEl.onclick = function (){
+            userChoice = "C";
+            checkAnswer();
+        };
+        choiceDEl.onclick = function (){
+            userChoice = "D";
+            checkAnswer();
+        };
+
+
+        function checkAnswer(){       
+            if (userChoice === correctAnswer) {
+                theScore++;
+                responseEl.style.display="block";
+                responseEl.textContent = "You are CORRECT! 1 point Added."
+                responseEl.style.color = "rgb(24, 151, 56)";
+                nextBtnEl.style.display="block";
+            } else{
+                secondsLeft = secondsLeft - 5;
+                responseEl.style.display="block";
+                responseEl.textContent = "You are WRONG! 5 Seconds deducted from Timer! The CORRECT answer was " + correctAnswer + " !";
+                responseEl.style.color = "rgb(185, 88, 88)";
+                nextBtnEl.style.display="block";
+            };    
+        };
+
+
+        nextBtnEl.addEventListener("click", function(event) {
+            event.preventDefault();
+            responseEl.style.display="none";
+            nextBtnEl.style.display="none";
+
+            if(secondsLeft <= 0 || cards.length === 0) {
+                endQuiz();
+            }else{
+                //Splice (remove) the i number used and create a new array
                 cards.splice(i, 1);
                 console.log(cards);
                 nextQuestion();
             };
-        };
-    
-        // clickNext();
-        // function clickNext () {
-        //     choicesEl.forEach(function (choiceIndex) {
-        //         choiceIndex.addEventListener("click", () => {
-        //             checkAnswer();
-        //         });
-        //     });
-        // };
-    });
+        
+            // clickNext();
+            // function clickNext () {
+            //     choicesEl.forEach(function (choiceIndex) {
+            //         choiceIndex.addEventListener("click", () => {
+            //             checkAnswer();
+            //         });
+            //     });
+            // };
+        });
+
+    };
     
 };
 
@@ -274,14 +274,10 @@ saveBtnEl.addEventListener("click", function (event){
             saveBtnEl.disabled = true;
             viewAllHSEl.style.display="block";
             tryAgainBtnEl.style.display="block";
+            saveBtnEl.style.display="none";
         }else{
             alert("Initials need to be letters and has to be 2 letters");
         };
-
-
-
-
-
 
         // the key is the name you designated in the "string" below so to add multiple arrays, change the name of the key
         // make sure to look up how to alert the new user when an initial has been already stored in local storage
@@ -304,8 +300,6 @@ viewAllHSEl.addEventListener("click", function (event){
             var key = localStorage.key(i);
 
             var value = JSON.parse(localStorage.getItem(key));
-
-            console.log(key + ", Value: " + value);
             
             var list = document.createElement("li");
             var textForList = document.createTextNode(key);

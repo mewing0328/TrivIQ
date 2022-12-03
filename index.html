@@ -20,15 +20,17 @@
     <main>
 
        <section id="card" style="display: none">
-            <div id="question"></div>
+          <div id="question"></div>
             <ul class="list">
                 <button class="choice" id="A" onclick="A">a</button>
                 <button class="choice" id="B" onclick="B">b</button>
                 <button class="choice" id="C" onclick="C">c</button>
                 <button class="choice" id="D" onclick="D">d</button>
             </ul>
-        <p id="response"></p>
-        <button class="btn nextButton" style="display: none">Next Question</button>
+          <div id="outcomeAlert">
+            <p id="response" style="display: none"></p>
+            <button class="btn nextButton" style="display: none">Click for <br> Next Question</button>
+          </div>
         </section> 
 
         <section class="center" id="cardEndQuiz" style="display: none">
@@ -39,7 +41,7 @@
             <textarea type="text" id="userInput"></textarea>
           </form>
           <div class="center">
-            <button class="btn saveButton">Save My Score</button>
+            <button class="btn saveButton" style="display: block">Save My Score</button>
             <button class="btn viewAllHighScores" style="display: none">View All Scores</button>
             <button class="btn tryAgainButton" style="display: none">Try Quiz Again</button>
           </div>
