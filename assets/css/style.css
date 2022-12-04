@@ -61,7 +61,7 @@
     background-color:var(--offWhite);
     border: solid 5px var(--dark);
     border-radius: 30px;
-    width: 80%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -119,11 +119,12 @@
 
   .list {
     font-size: 4vh;
-    min-width: 90%;
     text-align: left;
     font-weight: bold;
     margin: 1vh;
     padding-inline-start: 2px;
+    display: flex;
+    flex-direction: column;
   }
 
   .highScoresList li {
@@ -144,6 +145,7 @@
 
   .choice{
     border: solid 2px black;
+    margin: 1vh 1vh;
   }
 
 
@@ -191,7 +193,7 @@
   }
 
   .nextButton{
-    margin-left: 40px;
+    padding: 2px 4px;
     background-color: var(--offWhite);
     color: var(--dark);
     font-size: 2vh;
