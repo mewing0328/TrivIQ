@@ -31,36 +31,30 @@ JavaScript:
 ### GIFS 
 The following GIFs demonstrate the web application's appearance and functionality:
 
-#### Demo 1 Below: From start of quiz to end. 
-    For this demo, the chosen number of characters is 20 characters long for the demo 
-    and character types are special and uppercase characters.
-    - Prompts end-user through different character type choices for password
-    - Prompt buttons are defined and inputs are confirmed with alerts
-    - Password is shown on the page replacing the placeholder text
+#### TrivIQ Demo Below: From start of quiz to end. 
+    For this GIF demo, I demonstrate the following:
+    - Buttons are functional.
+    - Timer is functional.
+    - End-user can only choose one choice for each question. Buttons disable after choice is made.
+    - Custom replies for each question are shown after each question.
+    - Correct and Incorrect answers are providing input logic to score and timer.
+    - Alerts when user does not meet initials criteria.
+    - Initials, score, date, and time are stored in local storage as unique keys.
+    - The local storage keys are displayed on the application when the end-user clicks the designated button.
+    - The local storage clears when the end-user clicks the designated button.
 
-<img src=# style="width:50rem">
+<img src=./assets/media/TrivIQ.gif style="width:50rem">
 <br></br>
 
-#### Demo 2 Below: From start of quiz to end. 
-    For this demo, the chosen number of characters is 20 characters long for the demo 
-    and character types are special and uppercase characters.
-    - Prompts end-user through different character type choices for password
-    - Prompt buttons are defined and inputs are confirmed with alerts
-    - Password is shown on the page replacing the placeholder text
-
-<img src=# style="width:50rem">
+### TrivIQ Screenshots
+The web application on the browser
 <br></br>
-
-
-
-### Screenshots
-The PEZword application on the browser
-<br></br>
-<img src=# style="width:50rem">
-
+<img src=./assets/media/Question.jpg style="height:20rem">
+<img src=./assets/media/Save.jpg style="height:20rem">
+<img src=./assets/media/ScoreList.jpg style="height:20rem">
 
 ## Credit: References and Tutorials Utilized
-1. [Trivia Questions](https://www.today.com/life/inspiration/trivia-questions-rcna39101): I am not creative with fun facts so reworded these trivia questions.
+1. [Trivia Questions](https://www.today.com/life/inspiration/trivia-questions-rcna39101): I am not creative with fun facts so used these trivia questions.
 2. [W3docs](https://www.w3docs.com/): Referenced multiple sources in w3docs for javascript.
 3. [Image Repository Website](https://pixabay.com/): I downloaded image(s)
 4. [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random): Tutorial on how to utilize random numbers
@@ -74,7 +68,6 @@ The PEZword application on the browser
 12. [Stack Overflow](https://stackoverflow.com/questions/70338345/when-a-user-clicks-a-button-how-do-you-store-a-variable-that-can-be-used-later): Used this approach to convert user input as a variable.
 
 <br></br>
-
 ## Future Contributions
 Pull requests are welcome for recommendations for optimizing my JavaScript file. 
 Do you have recommendations for functions that will reduce the number of functions and methods I utilized?

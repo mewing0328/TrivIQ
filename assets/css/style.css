@@ -103,6 +103,7 @@
     justify-content: center;
     text-align: left;
     align-items: center;
+    margin: 1rem 3rem;
   }
 
   #question {

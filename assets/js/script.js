@@ -232,6 +232,7 @@ function endQuiz (){
 
 saveBtnEl.addEventListener("click", function (event){
     event.preventDefault();
+    timerEl.remove();
     storePlayerData();
 
     function storePlayerData (){
@@ -263,6 +264,7 @@ saveBtnEl.addEventListener("click", function (event){
 
 viewAllHSEl.addEventListener("click", function (event){
     event.preventDefault();
+    timerEl.remove();
     cardHighScoresEl.style.display="block";
     cardEndQuizEl.style.display="none";
 
@@ -281,16 +283,19 @@ viewAllHSEl.addEventListener("click", function (event){
 
 clearHighScoresEl.addEventListener("click", function (event){
     event.preventDefault();
+    timerEl.remove();
     localStorage.clear();
     highScoresListEl.style.display="none";
 });
 
 tryAgainBtnEl.addEventListener("click", function (event){
     event.preventDefault();
+    timerEl.remove();
     location.reload();
 });
 
 tryAgainBtn2El.addEventListener("click", function (event){
     event.preventDefault();
+    timerEl.remove();
     location.reload();
 });
