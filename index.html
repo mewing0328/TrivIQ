@@ -10,7 +10,7 @@
 
     <header>    
         <h1 class= "title">IQ API</h1>
-        <h2 class= "instructions">Instructions: You will be asked random FUN FACTS questions <br> within an alloted time. Try to answer as many as you can. <br> CORRECT is +1 point! WRONG will DEDUCT SECONDS from timer!</h2>
+        <h2 class= "instructions">You will be asked Fun Facts questions. <br> <br> Correct answers will add 1 point! <br>Wrong answers will deduct time. </h2> 
         <ul class="score-time">
           <li id="currentScore"></li>
           <li class="timer-count"></li>
@@ -27,11 +27,10 @@
                 <button class="choice" id="C" onclick="C">c</button>
                 <button class="choice" id="D" onclick="D">d</button>
             </ul>
-          <div id="outcomeAlert">
             <p id="response" style="display: none"></p>
             <button class="btn nextButton" style="display: none">Click for <br> Next Question</button>
-          </div>
         </section> 
+
 
         <section class="center" id="cardEndQuiz" style="display: none">
           <h1 id="greeting"></h1>
@@ -49,7 +48,6 @@
 
         <section id="cardHighScores" style="display: none;">
           <ul class="highScoresList">
-              <li class="highS" id="person1"></li>
           </ul>
           <div class="center">
             <button class="btn tryAgainButton2">Try Quiz Again</button>
@@ -64,6 +62,9 @@
 
 
     </main>
+
+    <footer>
+    </footer>
 
 
     <script src="./assets/js/script.js"></script>

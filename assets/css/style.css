@@ -34,22 +34,20 @@
   }
   
   .score-time {
-    color: var(--dark);
-    font-weight: bold;
     display: flex;
-    justify-content: space-between;
-    font-size: 3vh;
-    align-items: center;
+    justify-content: space-around;
+    font-size: 2vh;
     list-style-type: none;
     padding: 0 5rem;
-    min-height: 3vh;
+    flex-wrap: wrap;
   }
 
   .instructions {
     color: var(--gray);
-    font-size: 2vh;
+    font-size: 15px;
     font-style: italic;
     text-align:center;
+    flex-wrap: wrap;
   }
     
   main {
@@ -63,8 +61,7 @@
     background-color:var(--offWhite);
     border: solid 5px var(--dark);
     border-radius: 30px;
-    width: 70%;
-    height: 50vh;
+    width: 80%;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -114,15 +111,10 @@
   }
 
   #question {
-    margin: 40px;
-    font-size: 2vh;
-    text-align: center;
-  }
-
-  #outcomeAlert{
-    border-top: solid 5px var(--gray);
-    display: flex;
-    flex-direction: column;
+    margin-top: 4vh;
+    font-size: 3vh;
+    text-align: left;
+    padding-left: 2rem;
   }
 
   .list {
@@ -130,6 +122,8 @@
     min-width: 90%;
     text-align: left;
     font-weight: bold;
+    margin: 1vh;
+    padding-inline-start: 2px;
   }
 
   .highScoresList li {
@@ -146,8 +140,12 @@
     flex-direction: column;
     text-align: left;
     min-width: 50%;
-    background-color: var(--offWhite);
   }
+
+  .choice{
+    border: solid 2px black;
+  }
+
 
   #response {
   margin: 1vh 4vh;
@@ -188,14 +186,15 @@
   }
 
   .saveButton,
-  .tryAgainButton2,
-  .nextButton {
+  .tryAgainButton2 {
     background-color: var(--greenBtn);
   }
 
   .nextButton{
-    max-width: 30%;
-    margin-left: 4vh;
+    margin-left: 40px;
+    background-color: var(--offWhite);
+    color: var(--dark);
+    font-size: 2vh;
   }
 
   .clearHighScores {

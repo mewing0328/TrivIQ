@@ -1,104 +1,80 @@
-var startBtnEl = document.querySelector(".start-button");
 var questionEl = document.querySelector("#question");
-var choicesEl = document.querySelectorAll(".choice");
 var choiceAEl = document.querySelector("#A");
 var choiceBEl = document.querySelector("#B");
 var choiceCEl = document.querySelector("#C");
 var choiceDEl = document.querySelector("#D");
-var nextBtnEl = document.querySelector("nextBtn");
-
-var cardEl = document.querySelector("#card");
-var cardEndQuizEl = document.querySelector("#cardEndQuiz");
-var cardHighScoresEl = document.querySelector("#cardHighScores");
-
-var highScoresListEl = document.querySelector(".highScoresList");
-var timerEl = document.querySelector(".timer-count");
-var currentScoreEl = document.querySelector("#currentScore");
+var responseEl = document.querySelector("#response");
+var startBtnEl = document.querySelector(".start-button");
 var saveBtnEl = document.querySelector(".saveButton");
 var tryAgainBtnEl = document.querySelector(".tryAgainButton");
 var tryAgainBtn2El = document.querySelector(".tryAgainButton2");
 var nextBtnEl = document.querySelector(".nextButton");
-
-var clearHighScoresEl = document.querySelector(".clearHighScores");
-var viewAllHSEl = document.querySelector(".viewAllHighScores");
+var cardEl = document.querySelector("#card");
+var cardEndQuizEl = document.querySelector("#cardEndQuiz");
+var cardHighScoresEl = document.querySelector("#cardHighScores");
 var greetingEl = document.querySelector("#greeting");
 var instructEl = document.querySelector("#instruct");
-
+var timerEl = document.querySelector(".timer-count");
+var currentScoreEl = document.querySelector("#currentScore");
+var highScoresListEl = document.querySelector(".highScoresList");
+var clearHighScoresEl = document.querySelector(".clearHighScores");
+var viewAllHSEl = document.querySelector(".viewAllHighScores");
 var myFormEl = document.querySelector("#myForm");
 var userInitialsEl = document.querySelector("#userInitials");
 var userInputEl = document.querySelector("#userInput");
-var responseEl = document.querySelector("#response");
-var person1El = document.querySelector("#person1");
 var pickedEl = document.querySelector("#picked");
-
 var theScore = 0;
 var userChoice = "";
-var secondsLeft = 180;
-
-
-//TO DO: add a reset button option
+var secondsLeft = 120;
 
 // ---- ARRAY "cards" ----
 var cards = [
-    {   
-        questionEl : "What president was a licensed bartender?",
-        choiceAEl : "Bill Clinton",
-        choiceBEl : "George Washington",
-        choiceCEl : "Abraham Lincoln",
-        choiceDEl : "Donald Trump",   
+    {questionEl : "What president was a licensed bartender?",
+        choiceAEl : "A) Bill Clinton",
+        choiceBEl : "B) George Washington",
+        choiceCEl : "C) Abraham Lincoln",
+        choiceDEl : "D) Donald Trump",   
         answer : "C", 
     },
-    {   
-        questionEl : "How many folds are in a chef's hat?",
-        choiceAEl : "100",
-        choiceBEl : "200",
-        choiceCEl : "50",
-        choiceDEl : "150",       
+    {questionEl : "How many folds are in a chef's hat?",
+        choiceAEl : "A) 100",
+        choiceBEl : "B) 200",
+        choiceCEl : "C) 50",
+        choiceDEl : "D) 150",       
         answer : "A", 
     },
-    {   
-        questionEl : "Which city is the movie 101 Dalmatians set in?",
-        choiceAEl : "New York",
-        choiceBEl : "Munich",
-        choiceCEl : "Miami",
-        choiceDEl : "London",       
+    {questionEl : "Which city is the movie 101 Dalmatians set in?",
+        choiceAEl : "A) New York",
+        choiceBEl : "B) Munich",
+        choiceCEl : "C) Miami",
+        choiceDEl : "D) London",       
         answer : "D", 
     },
-    {   
-        questionEl : "When was the first iPod released?",
-        choiceAEl : "1999",
-        choiceBEl : "2001",
-        choiceCEl : "2010",
-        choiceDEl : "1996",       
+    {questionEl : "When was the first iPod released?",
+        choiceAEl : "A) 1999",
+        choiceBEl : "B) 2001",
+        choiceCEl : "C) 2010",
+        choiceDEl : "D) 1996",       
         answer : "B", 
     },
-    {   
-        questionEl : "Where is the world's largest Starbucks?",
-        choiceAEl : "a",
-        choiceBEl : "b",
-        choiceCEl : "c",
-        choiceDEl : "d",       
+    {questionEl : "Where is the world's largest Starbucks?",
+        choiceAEl : "A) ",
+        choiceBEl : "B) ",
+        choiceCEl : "C) ",
+        choiceDEl : "D) ",       
         answer : "A", 
     },
 ];
-
-
-
-
-
 // ---- END OF THE ARRAY "cards"
 
-// ---- START QUIZ FUNCTION----- 
 // ACCEPTANCE CRITERIA: WHEN I click the start button THEN a timer starts and I am presented with a question
 startQuiz();
 function startQuiz (){
-    //Event Listener: when start button clicked -> initiate these below
     startBtnEl.addEventListener("click", function(event) {
         event.preventDefault();
-        //hide the start button when clicked
+        //hide the start button when clicked & show the questions card
         startBtnEl.disabled = true;
         startBtnEl.style.display="none";
-        //show the card of cards
         cardEl.style.display="block";
 
         setTime();
@@ -151,6 +127,7 @@ function nextQuestion(){
         function showChoiceD (D){choiceDEl.innerText = D.choiceDEl;}
 
 
+
         choiceAEl.onclick = function (){
             userChoice = "A";
             checkAnswer();
@@ -169,20 +146,30 @@ function nextQuestion(){
         };
 
 
-        function checkAnswer(){       
+        function checkAnswer(){     
+
             if (userChoice === correctAnswer) {
                 theScore++;
                 responseEl.style.display="block";
-                responseEl.textContent = "You are CORRECT! 1 point Added."
+                responseEl.textContent = "CORRECT = 1 point added"
                 responseEl.style.color = "rgb(24, 151, 56)";
                 nextBtnEl.style.display="block";
+                disableChoices();
             } else{
                 secondsLeft = secondsLeft - 5;
                 responseEl.style.display="block";
-                responseEl.textContent = "You are WRONG! 5 Seconds deducted from Timer! The CORRECT answer was " + correctAnswer + " !";
+                responseEl.textContent = "Wrong = 5 Seconds deducted. The correct answer is " + correctAnswer + "!";
                 responseEl.style.color = "rgb(185, 88, 88)";
                 nextBtnEl.style.display="block";
+                disableChoices();
             };    
+
+            function disableChoices(){
+                choiceAEl.disabled = true;
+                choiceBEl.disabled = true;
+                choiceCEl.disabled = true;
+                choiceDEl.disabled = true;
+            }
         };
 
 
@@ -197,40 +184,25 @@ function nextQuestion(){
                 //Splice (remove) the i number used and create a new array
                 cards.splice(i, 1);
                 console.log(cards);
+                choiceAEl.disabled = false;
+                choiceBEl.disabled = false;
+                choiceCEl.disabled = false;
+                choiceDEl.disabled = false;
                 nextQuestion();
             };
-        
-            // clickNext();
-            // function clickNext () {
-            //     choicesEl.forEach(function (choiceIndex) {
-            //         choiceIndex.addEventListener("click", () => {
-            //             checkAnswer();
-            //         });
-            //     });
-            // };
         });
-
     };
-    
 };
-
-
-
-
-
-
-
-
 
 
 function endQuiz (){
     //hide the cards section & show the highScore 
+    timerEl.remove();
     cardEl.style.display="none";    
     currentScoreEl.style.display="none";  
     cardEndQuizEl.style.display="block";
     timerEl.style.display = "none";
-    person1El.style.display="none";
-    greetingEl.textContent = "Your time is done.  Your score is: " + theScore + " points!";
+    greetingEl.textContent = "Quiz Ended.  Your score is: " + theScore + " points!";
     instructEl.textContent= "Please save your initials. Then you will have more options appear.";
 };
 
@@ -267,8 +239,6 @@ saveBtnEl.addEventListener("click", function (event){
             // localStorage.setItem(("On " + date + " at " + time + ", Player " + theInitials + " earned a score of " + theScore), JSON.stringify(playerInfo));
 
             localStorage.setItem(("Player " + theInitials + " earned a score of " + theScore + " on " + date), JSON.stringify(playerInfo));
-            person1El.style.display="block";
-            person1El.textContent=theInitials.value;
             alert("Your score has been saved! \n Click on 'View All High Scores button' to see how you compare with other players.")
             // After player enters their score, they cannot resubmit - prevents multiple sets in local storage
             saveBtnEl.disabled = true;
@@ -297,10 +267,7 @@ viewAllHSEl.addEventListener("click", function (event){
     function getPlayerData (){
         //Get all players data
         for (var i = 0; i <localStorage.length; i++){
-            var key = localStorage.key(i);
-
-            var value = JSON.parse(localStorage.getItem(key));
-            
+            var key = localStorage.key(i);            
             var list = document.createElement("li");
             var textForList = document.createTextNode(key);
             list.appendChild(textForList);
