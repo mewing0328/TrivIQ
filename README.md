@@ -5,30 +5,59 @@ A timed coding quiz with multiple-choice questions to test an end-user's knowled
 The end-user (quiz taker) will be provided a timed quiz application that will store scores so (s)he can gauge his/her progress with peers.
 
 ### Usage
+A fun application for the end-user and an application to display my Javascript capabilities.
 
 ### Tasks Completed
 ```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and my score
+HTML & CSS: 
+* Created new HTML and CSS files
+
+JavaScript:
+*Activated the quiz when end-user clicks the Start button
+*Enabled cards to display questions after every end-user choice
+*Included a timer which starts after end-user clicks Start button 
+*Enhanced the timer which is reactive to answer choices: an incorrect answer will reduce the timer
+*Replaced questions with next question after answers are evaluated
+*Included a score tracker for correct answers
+*Instructed JavaScript to present multiple options after end of quiz - save score, view past scores, clear local storage of scores, start quiz again
 ```
 
 ## Links
+[My Deployed Website](https://mewing0328.github.io/TrivIQ/)
+
+[My Code Repository](https://github.com/mewing0328/TrivIQ)
 
 ## Demonstration 
 ### GIFS 
+The following GIFs demonstrate the web application's appearance and functionality:
 
-#### Demo 1
+#### Demo 1 Below: From start of quiz to end. 
+    For this demo, the chosen number of characters is 20 characters long for the demo 
+    and character types are special and uppercase characters.
+    - Prompts end-user through different character type choices for password
+    - Prompt buttons are defined and inputs are confirmed with alerts
+    - Password is shown on the page replacing the placeholder text
+
+<img src=# style="width:50rem">
+<br></br>
+
+#### Demo 2 Below: From start of quiz to end. 
+    For this demo, the chosen number of characters is 20 characters long for the demo 
+    and character types are special and uppercase characters.
+    - Prompts end-user through different character type choices for password
+    - Prompt buttons are defined and inputs are confirmed with alerts
+    - Password is shown on the page replacing the placeholder text
+
+<img src=# style="width:50rem">
+<br></br>
+
+
 
 ### Screenshots
+The PEZword application on the browser
+<br></br>
+<img src=# style="width:50rem">
+
 
 ## Credit: References and Tutorials Utilized
 1. [Trivia Questions](https://www.today.com/life/inspiration/trivia-questions-rcna39101): I am not creative with fun facts so reworded these trivia questions.
@@ -44,18 +73,35 @@ THEN I can save my initials and my score
 11. [freecodecamp.org](https://www.freecodecamp.org/news/javascript-get-current-date-todays-date-in-js/#:~:text=In%20JavaScript%2C%20we%20can%20easily,%2C%20time%2C%20and%20time%20zone.): How to obtain the current date.
 12. [Stack Overflow](https://stackoverflow.com/questions/70338345/when-a-user-clicks-a-button-how-do-you-store-a-variable-that-can-be-used-later): Used this approach to convert user input as a variable.
 
-
-
-## Contributed
-
 <br></br>
 
 ## Future Contributions
-
+Pull requests are welcome for recommendations for optimizing my JavaScript file. 
+Do you have recommendations for functions that will reduce the number of functions and methods I utilized?
 <br></br>
 
 ## License
+MIT License
 
+Copyright (c) 2022 M. Ewing
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 
 

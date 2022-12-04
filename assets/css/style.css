@@ -22,7 +22,7 @@
   }
 
   .title {
-    font-size: 5vh;
+    font-size: 5vw;
     color: var(--dark);
     justify-content:space-between;
     border-radius: 8px;
@@ -36,7 +36,7 @@
   .score-time {
     display: flex;
     justify-content: space-around;
-    font-size: 2vh;
+    font-size: 2vw;
     list-style-type: none;
     padding: 0 5rem;
     flex-wrap: wrap;
@@ -44,7 +44,7 @@
 
   .instructions {
     color: var(--gray);
-    font-size: 15px;
+    font-size: 1.5vw;
     font-style: italic;
     text-align:center;
     flex-wrap: wrap;
@@ -82,19 +82,19 @@
   }
 
   #greeting{
-    font-size: 2.5vh;
+    font-size: 2.5vw;
   }
 
   #instruct{
-    font-size: 2vh;
+    font-size: 2vw;
   }
 
   h3 {
-    font-size: 2vh;
+    font-size: 2vw;
   }
 
   textarea {
-    font-size: 4vh;
+    font-size: 4vw;
     text-align: center;
   }
 
@@ -112,13 +112,13 @@
 
   #question {
     margin-top: 4vh;
-    font-size: 3vh;
+    font-size: 4vw;
     text-align: left;
     padding-left: 2rem;
   }
 
   .list {
-    font-size: 4vh;
+    font-size: 4vw;
     text-align: left;
     font-weight: bold;
     margin: 1vh;
@@ -128,7 +128,7 @@
   }
 
   .highScoresList li {
-    font-size: 2vh;
+    font-size: 2vw;
     list-style: none;
     padding: 2px 5px;
     margin: 5px 50px 5px 0px;
@@ -136,7 +136,7 @@
 
   .choice,
   .highS {
-    font-size: 3vh;
+    font-size: 3vw;
     margin: 0vh 1vh;
     flex-direction: column;
     text-align: left;
@@ -151,7 +151,7 @@
 
   #response {
   margin: 1vh 4vh;
-  font-size: 2.5vh;
+  font-size: 2.5vw;
   }
 
   .start-button {
@@ -182,7 +182,7 @@
     border: solid 2px black;
     color: var(--offWhite);
     cursor: pointer;
-    font-size: 2vh;
+    font-size: 2vw;
     padding: 20px 52px;
     margin: 20px;
   }
@@ -196,7 +196,7 @@
     padding: 2px 4px;
     background-color: var(--offWhite);
     color: var(--dark);
-    font-size: 2vh;
+    font-size: 2vw;
   }
 
   .clearHighScores {
@@ -220,8 +220,8 @@
     font-weight: bold;
   }
   
-  @media screen and (max-width: 504px) {
+  @media screen and (max-width: 318px) {
     body {
-        font-size: smaller;
+        font-size: larger;
     }
 }
