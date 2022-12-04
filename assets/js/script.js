@@ -176,14 +176,14 @@ function nextQuestion(){
             if (userChoice === correctAnswer) {
                 theScore++;
                 responseEl.style.display="block";
-                responseEl.textContent = "Correct: Point added!"
+                responseEl.textContent = "Correct!"
                 responseEl.style.color = "rgb(24, 151, 56)";
                 nextBtnEl.style.display="block";
                 disableChoices();
             } else{
                 secondsLeft = secondsLeft - 5;
                 responseEl.style.display="block";
-                responseEl.textContent = "Wrong: Timer reduced. Correct answer: " + correctAnswer + "!";
+                responseEl.textContent = "Wrong! Correct answer: " + correctAnswer + "!";
                 responseEl.style.color = "rgb(185, 88, 88)";
                 nextBtnEl.style.display="block";
                 disableChoices();

@@ -31,6 +31,7 @@
     flex-direction: column;
     text-align: justify;
     align-items: center;
+    margin-bottom: 2vh;;
   }
   
   .score-time {
@@ -44,7 +45,7 @@
 
   .instructions {
     color: var(--gray);
-    font-size: 1.5vw;
+    font-size: 2vw;
     font-style: italic;
     text-align:center;
     flex-wrap: wrap;
@@ -81,20 +82,14 @@
     padding: 2vw;
   }
 
-  #greeting{
-    font-size: 2.5vw;
-  }
-
-  #instruct{
-    font-size: 2vw;
-  }
-
-  h3 {
+  #greeting,
+  #instruct,
+  h3{
     font-size: 2vw;
   }
 
   textarea {
-    font-size: 4vw;
+    font-size: 3vw;
     text-align: center;
   }
 
@@ -112,13 +107,13 @@
 
   #question {
     margin-top: 4vh;
-    font-size: 4vw;
+    font-size: 3vw;
     text-align: left;
     padding-left: 2rem;
   }
 
   .list {
-    font-size: 4vw;
+    font-size: 3vw;
     text-align: left;
     font-weight: bold;
     margin: 1vh;
@@ -136,7 +131,7 @@
 
   .choice,
   .highS {
-    font-size: 3vw;
+    font-size: 2vw;
     margin: 0vh 1vh;
     flex-direction: column;
     text-align: left;
@@ -151,7 +146,7 @@
 
   #response {
   margin: 1vh 4vh;
-  font-size: 2.5vw;
+  font-size: 2vw;
   }
 
   .start-button {
