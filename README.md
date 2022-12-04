@@ -49,9 +49,9 @@ The following GIFs demonstrate the web application's appearance and functionalit
 ### TrivIQ Screenshots
 The web application on the browser
 <br></br>
-<img src=./assets/media/Question.jpg style="height:20rem">
-<img src=./assets/media/Save.jpg style="height:20rem">
-<img src=./assets/media/ScoreList.jpg style="height:20rem">
+<img src=./assets/media/Question.jpg style="width:20rem">
+<img src=./assets/media/Save.jpg style="width:20rem">
+<img src=./assets/media/ScoreList.jpg style="width:20rem">
 
 ## Credit: References and Tutorials Utilized
 1. [Trivia Questions](https://www.today.com/life/inspiration/trivia-questions-rcna39101): I am not creative with fun facts so used these trivia questions.

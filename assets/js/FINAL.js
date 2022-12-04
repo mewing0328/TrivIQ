@@ -4,13 +4,11 @@ var choiceBEl = document.querySelector("#B");
 var choiceCEl = document.querySelector("#C");
 var choiceDEl = document.querySelector("#D");
 var responseEl = document.querySelector("#response");
-
 var startBtnEl = document.querySelector(".start-button");
 var saveBtnEl = document.querySelector(".saveButton");
 var tryAgainBtnEl = document.querySelector(".tryAgainButton");
 var tryAgainBtn2El = document.querySelector(".tryAgainButton2");
 var nextBtnEl = document.querySelector(".nextButton");
-
 var cardEl = document.querySelector("#card");
 var cardEndQuizEl = document.querySelector("#cardEndQuiz");
 var cardHighScoresEl = document.querySelector("#cardHighScores");
@@ -18,90 +16,104 @@ var greetingEl = document.querySelector("#greeting");
 var instructEl = document.querySelector("#instruct");
 var timerEl = document.querySelector(".timer-count");
 var currentScoreEl = document.querySelector("#currentScore");
-
 var highScoresListEl = document.querySelector(".highScoresList");
 var clearHighScoresEl = document.querySelector(".clearHighScores");
 var viewAllHSEl = document.querySelector(".viewAllHighScores");
-
-
 var myFormEl = document.querySelector("#myForm");
 var userInitialsEl = document.querySelector("#userInitials");
 var userInputEl = document.querySelector("#userInput");
 var pickedEl = document.querySelector("#picked");
-
 var theScore = 0;
 var userChoice = "";
 var secondsLeft = 120;
 
-
-//TO DO: add a reset button option
-
 // ---- ARRAY "cards" ----
 var cards = [
-    {   
-        questionEl : "What president was a licensed bartender?",
+    {questionEl : "What president was a licensed bartender?",
         choiceAEl : "A) Bill Clinton",
         choiceBEl : "B) George Washington",
         choiceCEl : "C) Abraham Lincoln",
         choiceDEl : "D) Donald Trump",   
         answer : "C", 
     },
-    {   
-        questionEl : "How many folds are in a chef's hat?",
+    {questionEl : "How many folds are in a chef's hat?",
         choiceAEl : "A) 100",
         choiceBEl : "B) 200",
         choiceCEl : "C) 50",
         choiceDEl : "D) 150",       
         answer : "A", 
     },
-    {   
-        questionEl : "Which city is the movie 101 Dalmatians set in?",
+    {questionEl : "Which city is the movie 101 Dalmatians set in?",
         choiceAEl : "A) New York",
         choiceBEl : "B) Munich",
-        choiceCEl : "C) Miami",
+        choiceCEl : "C) Paris",
         choiceDEl : "D) London",       
         answer : "D", 
     },
-    {   
-        questionEl : "When was the first iPod released?",
+    {questionEl : "When was the first iPod released?",
         choiceAEl : "A) 1999",
         choiceBEl : "B) 2001",
         choiceCEl : "C) 2010",
         choiceDEl : "D) 1996",       
         answer : "B", 
     },
-    {   
-        questionEl : "Where is the world's largest Starbucks?",
-        choiceAEl : "A) ",
-        choiceBEl : "B) ",
-        choiceCEl : "C) ",
-        choiceDEl : "D) ",       
+    {questionEl : "Where is the world's largest Starbucks?",
+        choiceAEl : "A) Chicago",
+        choiceBEl : "B) New York",
+        choiceCEl : "C) Beijing",
+        choiceDEl : "D) Tokyo",       
         answer : "A", 
     },
+    {questionEl : "How many colors are in a rainbow?",
+    choiceAEl : "A) 5",
+    choiceBEl : "B) 10",
+    choiceCEl : "C) 8",
+    choiceDEl : "D) 7",       
+    answer : "D", 
+    },
+    {questionEl : "What year was the first Barbie doll released?",
+    choiceAEl : "A) 1965",
+    choiceBEl : "B) 1959",
+    choiceCEl : "C) 1998",
+    choiceDEl : "D) 1977",       
+    answer : "B", 
+    },
+    {questionEl : "In football, how many points does a touchdown have?",
+    choiceAEl : "A) 3",
+    choiceBEl : "B) 7",
+    choiceCEl : "C) 6",
+    choiceDEl : "D) 5",       
+    answer : "C", 
+    },
+    {questionEl : "What U.S. state grows coffee beans?",
+    choiceAEl : "A) Hawaii",
+    choiceBEl : "B) California",
+    choiceCEl : "C) Florida",
+    choiceDEl : "D) Virginia",       
+    answer : "A", 
+    },
+    {questionEl : "How many floors does the Eiffel Tower have?",
+    choiceAEl : "A) Twelve",
+    choiceBEl : "B) Nine",
+    choiceCEl : "C) Six",
+    choiceDEl : "D) Three",       
+    answer : "D", 
+    },
 ];
-
-
-
-
-
 // ---- END OF THE ARRAY "cards"
 
-// ---- START QUIZ FUNCTION----- 
 // ACCEPTANCE CRITERIA: WHEN I click the start button THEN a timer starts and I am presented with a question
 startQuiz();
 function startQuiz (){
-    //Event Listener: when start button clicked -> initiate these below
     startBtnEl.addEventListener("click", function(event) {
         event.preventDefault();
-        //hide the start button when clicked
+        //hide the start button when clicked & show the questions card
         startBtnEl.disabled = true;
         startBtnEl.style.display="none";
-        //show the card of cards
         cardEl.style.display="block";
 
         setTime();
         function setTime(){
-            //Sets interval in variable
             var timerInterval = setInterval(function(){
             secondsLeft--;
             timerEl.textContent = "Time Remaining: " + secondsLeft;
@@ -118,15 +130,10 @@ function startQuiz (){
         };
     });
 };
-// ---- END START QUIZ FUNCTION-----
 
-
-
-
-
-//ACCEPTANCE CRITERIA: WHEN I answer a question incorrectly THEN time is subtracted from the clock
-
-//ACCEPTANCE CRITERIA: WHEN all questions are answered or the timer reaches 0 THEN the game is over
+// FUNCTION nextQuestion satisfies these ACCEPTANCE CRITERIA: WHEN I answer a question THEN I am presented with another question 
+// && WHEN all questions are answered or the timer reaches 0 THEN the game is over
+// && WHEN I answer a question incorrectly THEN time is subtracted from the clock
 function nextQuestion(){
     if(secondsLeft <= 0 || cards.length === 0) {
         endQuiz();
@@ -141,14 +148,12 @@ function nextQuestion(){
         showChoiceC(cards[i]);
         showChoiceD(cards[i]);
             
-            //functions to replace the innerText in html with the array elements in js
+        //functions to replace the innerText in html with the array elements in js
         function showQuestion (question){questionEl.innerText = question.questionEl;}
         function showChoiceA (A){choiceAEl.innerText = A.choiceAEl;}
         function showChoiceB (B){choiceBEl.innerText = B.choiceBEl;}
         function showChoiceC (C){choiceCEl.innerText = C.choiceCEl;}
         function showChoiceD (D){choiceDEl.innerText = D.choiceDEl;}
-
-
 
         choiceAEl.onclick = function (){
             userChoice = "A";
@@ -167,20 +172,18 @@ function nextQuestion(){
             checkAnswer();
         };
 
-
         function checkAnswer(){     
-
             if (userChoice === correctAnswer) {
                 theScore++;
                 responseEl.style.display="block";
-                responseEl.textContent = "CORRECT = 1 point added"
+                responseEl.textContent = "Correct!"
                 responseEl.style.color = "rgb(24, 151, 56)";
                 nextBtnEl.style.display="block";
                 disableChoices();
             } else{
                 secondsLeft = secondsLeft - 5;
                 responseEl.style.display="block";
-                responseEl.textContent = "Wrong = 5 Seconds deducted. The correct answer is " + correctAnswer + "!";
+                responseEl.textContent = "Wrong! Correct answer: " + correctAnswer + "!";
                 responseEl.style.color = "rgb(185, 88, 88)";
                 nextBtnEl.style.display="block";
                 disableChoices();
@@ -193,7 +196,6 @@ function nextQuestion(){
                 choiceDEl.disabled = true;
             }
         };
-
 
         nextBtnEl.addEventListener("click", function(event) {
             event.preventDefault();
@@ -216,7 +218,7 @@ function nextQuestion(){
     };
 };
 
-
+//ACCEPTANCE CRITERIA: WHEN the game is over THEN I can save my initials and my score
 function endQuiz (){
     //hide the cards section & show the highScore 
     timerEl.remove();
@@ -228,16 +230,10 @@ function endQuiz (){
     instructEl.textContent= "Please save your initials. Then you will have more options appear.";
 };
 
-
-
-
-
-
-
 saveBtnEl.addEventListener("click", function (event){
     event.preventDefault();
+    timerEl.remove();
     storePlayerData();
-   // getPlayerData();
 
     function storePlayerData (){
         var inputInitials = userInputEl.value.trim();
@@ -249,19 +245,12 @@ saveBtnEl.addEventListener("click", function (event){
         };
         var letters = /^[A-Za-z]+$/;
 
-
         if (theInitials.length === 2 && theInitials.match(letters)){
-            // function getRandomInt(max){
-            //     return JSON.stringify(Math.floor(Math.random()*max));
-            // }
             var date = new Date();
-            // .toJSON().slice(0,10);
-            // var time = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();    
-            // JSON.stringify(time);
-            // localStorage.setItem(("On " + date + " at " + time + ", Player " + theInitials + " earned a score of " + theScore), JSON.stringify(playerInfo));
 
             localStorage.setItem(("Player " + theInitials + " earned a score of " + theScore + " on " + date), JSON.stringify(playerInfo));
             alert("Your score has been saved! \n Click on 'View All High Scores button' to see how you compare with other players.")
+            
             // After player enters their score, they cannot resubmit - prevents multiple sets in local storage
             saveBtnEl.disabled = true;
             viewAllHSEl.style.display="block";
@@ -270,18 +259,12 @@ saveBtnEl.addEventListener("click", function (event){
         }else{
             alert("Initials need to be letters and has to be 2 letters");
         };
-
-        // the key is the name you designated in the "string" below so to add multiple arrays, change the name of the key
-        // make sure to look up how to alert the new user when an initial has been already stored in local storage
-
-        //random number generated to give players so if the same initials are used, it won't override any object existing in local Storage already
-
     };
 });
 
-
 viewAllHSEl.addEventListener("click", function (event){
     event.preventDefault();
+    timerEl.remove();
     cardHighScoresEl.style.display="block";
     cardEndQuizEl.style.display="none";
 
@@ -298,43 +281,21 @@ viewAllHSEl.addEventListener("click", function (event){
     };
 });
 
-
-
-
 clearHighScoresEl.addEventListener("click", function (event){
     event.preventDefault();
+    timerEl.remove();
     localStorage.clear();
     highScoresListEl.style.display="none";
 });
 
 tryAgainBtnEl.addEventListener("click", function (event){
     event.preventDefault();
+    timerEl.remove();
     location.reload();
 });
 
 tryAgainBtn2El.addEventListener("click", function (event){
     event.preventDefault();
+    timerEl.remove();
     location.reload();
 });
-
-
-
-//End the game once there is only 1 item left in the cards array. 
-    //If I wait until 0 items are in the array, the loop breaks and does not log the answer of the last random question
-
-
-
-
-// ---- TIMER FUNCTION----- 
-// ACCEPTANCE CRITERIA: "THEN a timer starts and I am presented with a question"
-
-// ---- END TIMER FUNCTION ----- 
-
-
-// NEXT QUESTION EVENT LISTENER -> When end user clicks on a question choice, the app moves to the next question
-//ACCEPTANCE CRITERIA: WHEN I answer a question THEN I am presented with another question
-
-//         });
-//     });
-// };
-

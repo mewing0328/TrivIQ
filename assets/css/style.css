@@ -31,13 +31,12 @@
     flex-direction: column;
     text-align: justify;
     align-items: center;
-    margin-bottom: 2vh;;
   }
   
   .score-time {
     display: flex;
     justify-content: space-around;
-    font-size: 2vw;
+    font-size: 1rem;
     list-style-type: none;
     padding: 0 5rem;
     flex-wrap: wrap;
@@ -45,7 +44,7 @@
 
   .instructions {
     color: var(--gray);
-    font-size: 2vw;
+    font-size: 1rem;
     font-style: italic;
     text-align:center;
     flex-wrap: wrap;
@@ -85,7 +84,7 @@
   #greeting,
   #instruct,
   h3{
-    font-size: 2vw;
+    font-size: 1rem;
   }
 
   textarea {
@@ -107,8 +106,8 @@
   }
 
   #question {
-    margin-top: 4vh;
-    font-size: 3vw;
+    margin-top: 2vh;
+    font-size: 1rem;
     text-align: left;
     padding-left: 2rem;
   }
@@ -124,7 +123,7 @@
   }
 
   .highScoresList li {
-    font-size: 2vw;
+    font-size: 1rem;
     list-style: none;
     padding: 2px 5px;
     margin: 5px 50px 5px 0px;
@@ -132,7 +131,7 @@
 
   .choice,
   .highS {
-    font-size: 2vw;
+    font-size: 1rem;
     margin: 0vh 1vh;
     flex-direction: column;
     text-align: left;
@@ -146,8 +145,8 @@
 
 
   #response {
-  margin: 1vh 4vh;
-  font-size: 2vw;
+  margin: 1vh 1vh;
+  font-size: 1rem;
   }
 
   .start-button {
@@ -178,7 +177,7 @@
     border: solid 2px black;
     color: var(--offWhite);
     cursor: pointer;
-    font-size: 2vw;
+    font-size: 1rem;
     padding: 20px 52px;
     margin: 20px;
   }
@@ -192,7 +191,7 @@
     padding: 2px 4px;
     background-color: var(--offWhite);
     color: var(--dark);
-    font-size: 2vw;
+    font-size: 1rem;
   }
 
   .clearHighScores {
