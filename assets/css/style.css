@@ -78,6 +78,9 @@
     margin-top: 0.6em;
   }
 
+
+
+
   #card {
     background-color:var(--offWhite);
     border: solid 4px var(--dark);
@@ -110,7 +113,7 @@
     width: 70%;
     border: solid 2px black;
     border-radius: 8px;
-    margin: 4px 3rem 4px 0px;  
+    margin: 1rem 3rem 0px 0px;
     line-height: 2rem;
   }
 
@@ -137,6 +140,9 @@
     border-radius: 10px;
     margin: 15px 0px;
   }
+
+
+
 
   #cardEndQuiz {
     flex-direction: column;
@@ -170,54 +176,14 @@
     text-align: center;
   }
 
-  #cardHighScores {
-    align-items: center;
-    background-color:var(--offWhite);
-    border: solid 2px var(--dark);
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-    margin: 5% 10%;
-  }
-
-  .highScoresList {
-    font-size: 1rem;
-    list-style: none;
-    margin: 5px;
-    padding: 5px;
-  }
-
-  .highScoresList li {
-    padding-bottom: 10px;
-  }
-
-  .center {
-    font-size: 1rem;
-    text-align: center;
-    margin: 0px;
-  }
-
-  .tryAgainButton2 {
-    padding: 2px 4px;
+  .tryAgainButton{
+    padding: 5px 10px;
     color: var(--offWhite);
     font-size: 1rem;
     text-align: center;
     border-radius: 10px;
     margin: 15px 0px;
-    background-color: var(--greenBtn);
-  }
-
-
-  .clearHighScores {
-    padding: 2px 4px;
-    color: var(--offWhite);
-    font-size: 1rem;
-    text-align: center;
-    border-radius: 10px;
-    margin: 15px 0px;
-    background-color: var(--gray);
+    background-color: var(--redBtn);
   }
 
   .viewAllHighScores {
@@ -231,16 +197,59 @@
     background-color: rgba(247, 247, 173, 0.959);
   }
 
-  .tryAgainButton{
-    padding: 5px 10px;
+
+  
+
+  #cardHighScores {
+    align-items: center;
+    background-color:var(--offWhite);
+    border: solid 2px var(--dark);
+    border-radius: 25px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    margin: 5%;
+  }
+
+  .highScoresList {
+    font-size: 1rem;
+    list-style: none;
+    margin: 5px;
+    padding: 5px;
+  }
+
+  .highScoresList li {
+    padding: 5px;
+    line-height: 1rem;
+    border-bottom: dashed 1px gray;
+  }
+
+  .center {
+    font-size: 1rem;
+    text-align: center;
+    margin: 0px;
+  }
+  
+  .clearHighScores {
+    padding: 10px;
     color: var(--offWhite);
     font-size: 1rem;
     text-align: center;
     border-radius: 10px;
-    margin: 15px 0px;
+    margin: 10px;
     background-color: var(--redBtn);
   }
-  
+
+  .tryAgainButton2 {
+    padding: 10px;
+    color: var(--offWhite);
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: var(--greenBtn)
+  }
+
   /* ----- PSUEDO SELECTORS ----- */
 
   @media screen and (max-width: 318px) {
