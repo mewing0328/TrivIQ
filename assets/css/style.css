@@ -74,6 +74,7 @@
     letter-spacing: 0.21px;
     padding: 5px 15px;
     margin: 15px 0px;
+    border: 2px solid black;
   }
 
   .start-button {

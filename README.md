@@ -1,11 +1,11 @@
-# IQ-API
-A timed coding quiz with multiple-choice questions to test an end-user's knowledge and skills.
+# TrivIQ
+A timed quiz with multiple-choice questions to test an end-user's fun facts knowledge.
 
 ## Description
-The end-user (quiz taker) will be provided a timed quiz application that will store scores so (s)he can gauge his/her progress with peers.
+The end-user (quiz taker) will be provided a timed quiz application that will store scores so (s)he can gauge his/her progress with past scores.
 
 ### Usage
-A fun application for the end-user and an application to display my Javascript capabilities.
+A fun application for the quiz taker and an application to display my Javascript capabilities.
 
 ### Tasks Completed
 ```
@@ -15,11 +15,11 @@ HTML & CSS:
 JavaScript:
 *Activated the quiz when end-user clicks the Start button
 *Enabled cards to display questions after every end-user choice
-*Included a timer which starts after end-user clicks Start button 
+*Included a timer that starts after end-user clicks the Start button 
 *Enhanced the timer which is reactive to answer choices: an incorrect answer will reduce the timer
 *Replaced questions with next question after answers are evaluated
 *Included a score tracker for correct answers
-*Instructed JavaScript to present multiple options after end of quiz - save score, view past scores, clear local storage of scores, start quiz again
+*Instructed JavaScript to present multiple options after the end of quiz - save score, view past scores, clear local storage of scores, start quiz again
 ```
 
 ## Links
@@ -30,25 +30,27 @@ JavaScript:
 ## Demonstration 
 ### GIFS 
 The following GIFs demonstrate the web application's appearance and functionality:
+*note: this demo does not show questions to avoid seeing answers before taking quiz
 
-#### TrivIQ Demo Below: From start of quiz to end. 
+#### TrivIQ Demo Below: From the start of the quiz to the end. 
     For this GIF demo, I demonstrate the following:
     - Buttons are functional.
-    - Timer is functional.
-    - End-user can only choose one choice for each question. Buttons disable after choice is made.
+    - The timer is functional.
+    - End-user can only choose one choice for each question. The buttons are disabled after a choice is made.
     - Custom replies for each question are shown after each question.
     - Correct and Incorrect answers are providing input logic to score and timer.
-    - Alerts when user does not meet initials criteria.
+    - Alerts when the user input does not meet initials criteria.
     - Initials, score, date, and time are stored in local storage as unique keys.
     - The local storage keys are displayed on the application when the end-user clicks the designated button.
     - The local storage clears when the end-user clicks the designated button.
 
-<img src=./assets/media/TrivIQ.gif style="width:50rem">
+<img src=./assets/media/TrivIQ.gif style="width:40rem">
 <br></br>
 
 ### TrivIQ Screenshots
-The web application on the browser
+The web application on the browser: Intro card, example question, save score, and scores list.
 <br></br>
+<img src=./assets/media/TrivIQ.jpg style="width:20rem">
 <img src=./assets/media/Question.jpg style="width:20rem">
 <img src=./assets/media/Save.jpg style="width:20rem">
 <img src=./assets/media/ScoreList.jpg style="width:20rem">
@@ -58,9 +60,9 @@ The web application on the browser
 2. [W3docs](https://www.w3docs.com/): Referenced multiple sources in w3docs for javascript.
 3. [Image Repository Website](https://pixabay.com/): I downloaded image(s)
 4. [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random): Tutorial on how to utilize random numbers
-5. George Washington University instructor for GitLab repository with tutorials and this project's specifications. MiniProject files utilized to create frame of application.
+5. George Washington University instructor for GitLab repository with tutorials and this project's specifications. MiniProject files utilized to create the frame of the application.
 6. [techformist website](https://techformist.com/delete-array-elements-iteration-javascript/): Provided a solution to my random numbers repeating for index. Demo of splice for array in a for loop.
-7. [coeinwp](https://www.codeinwp.com/snippets/add-event-listener-to-multiple-elements-with-javascript/): forEach loop for allowing the event listener of click to all the option buttons.
+7. [coeinwp](https://www.codeinwp.com/snippets/add-event-listener-to-multiple-elements-with-javascript/): forEach loop for allowing the event listener to click on all the option buttons.
 8. [Stack Overflow](https://stackoverflow.com/questions/17745292/how-to-retrieve-all-localstorage-items-without-knowing-the-keys-in-advance): Utilized to understand clearing the local storage from the browser using a button
 9. [Stack Overflow](https://stackoverflow.com/questions/17745292/how-to-retrieve-all-localstorage-items-without-knowing-the-keys-in-advance): Utilized the advice for how to get all local storage arrays
 10. [w3 Resource](https://www.w3resource.com/javascript/form/all-letters-field.php): How to only check for letters in Javascript input.

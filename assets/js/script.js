@@ -206,6 +206,7 @@ function nextQuestion(){
             //if there is no time or the array is 0 in length, end quiz
             if(secondsLeft <= 0 || cards.length === 0) {
                 endQuiz();
+                return nextQuestion;
             //if there still is time and questions, splice (remove) the i number used and create a new array
             }else{
                 cards.splice(i, 1);
@@ -238,6 +239,7 @@ saveBtnEl.addEventListener("click", function (event){
     event.preventDefault();
     timerEl.remove();
     storePlayerData();
+    return endQuiz;
 
     //describes how to set the date in local storage
     function storePlayerData (){
