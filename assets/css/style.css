@@ -18,13 +18,26 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    min-width: 100vw;
     background: linear-gradient(0deg, var(--dark) 0%, var(--light) 70%);
   }
 
+  header,
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  header{
+    display: flex;
+    flex-direction: column;
+  }
+
   .title {
-    font-size: 5vw;
+    font-size: 4rem;
     color: var(--dark);
-    justify-content:space-between;
+    margin: 10px;
     border-radius: 8px;
     border-color: var(--dark);
     display: flex;
@@ -32,43 +45,101 @@
     text-align: justify;
     align-items: center;
   }
-  
+
   .score-time {
     display: flex;
     justify-content: space-around;
-    font-size: 1rem;
+    font-size: 1em;
     list-style-type: none;
     padding: 0 5rem;
     flex-wrap: wrap;
   }
 
+  #introCard {
+    width: 80%;
+    text-align: center;
+  }
+
   .instructions {
     color: var(--gray);
     font-size: 1rem;
-    font-style: italic;
     text-align:center;
     flex-wrap: wrap;
   }
-    
-  main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+
+  .start-button {
+    background-color: var(--dark);
+    border-radius: 8px;
+    color: var(--offWhite);
+    cursor: pointer;
+    font-size: 1.5rem;
+    letter-spacing: 0.21px;
+    padding: 5px 15px;
+    margin-top: 0.6em;
   }
 
   #card {
-    display: block;
     background-color:var(--offWhite);
-    border: solid 5px var(--dark);
-    border-radius: 30px;
-    width: 50%;
-    display: flex;
+    border: solid 4px var(--dark);
+    border-radius: 20px;
     flex-direction: column;
     text-align: left;
     align-items: center;
+    margin: 2rem 3rem;
   }
 
+  #question {
+    font-size: 1.5rem;
+    text-align: left;
+    padding: 10px;
+  }
+
+  .list {
+    text-align: center;
+    font-weight: bold;
+    margin: 1vh;
+    padding-inline-start: 2px;
+    display: flex;
+    flex-direction: column;
+  }
   
+  .choice {
+    font-size: 1rem;
+    flex-direction: column;
+    text-align: left;
+    min-width: 50%;
+    border: solid 2px black;
+    border-radius: 8px;
+    margin: 3px 3rem 3px 0px;  
+  }
+
+  .responseNext{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin: 10px;
+  }
+
+  #response {
+    font-size: 1rem;
+    text-align: center;
+    margin: 0px;
+  }
+
+  .nextButton{
+    padding: 2px 4px;
+    background-color: var(--offWhite);
+    color: var(--dark);
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 10px;
+    margin: 15px 0px;
+  }
+
+
+
+
   #cardEndQuiz {
     display: block;
     background-color:var(--offWhite);
@@ -79,6 +150,7 @@
     text-align: center;
     align-items: center;
     padding: 2vw;
+    width: 50%;
   }
 
   #greeting,
@@ -103,24 +175,10 @@
     text-align: left;
     align-items: center;
     margin: 1rem 3rem;
+    width: 50%;
   }
 
-  #question {
-    margin-top: 2vh;
-    font-size: 1rem;
-    text-align: left;
-    padding-left: 2rem;
-  }
 
-  .list {
-    font-size: 3vw;
-    text-align: center;
-    font-weight: bold;
-    margin: 1vh;
-    padding-inline-start: 2px;
-    display: flex;
-    flex-direction: column;
-  }
 
   .highScoresList li {
     font-size: 1rem;
@@ -129,7 +187,6 @@
     margin: 5px 50px 5px 0px;
   }
 
-  .choice,
   .highS {
     font-size: 1rem;
     margin: 0vh 1vh;
@@ -138,44 +195,19 @@
     min-width: 50%;
   }
 
-  .choice{
-    border: solid 2px black;
-    border-radius: 8px;
-    margin: .5vh .5vh;
-    font-size: 0.8em;
-  }
 
 
-  #response {
-  margin: 1vh 1vh;
-  font-size: 1rem;
-  text-align: center;
-  }
 
-  .start-button {
-    display: flex;
-    flex-direction: row;
-    background-color: var(--dark);
-    border-radius: 8px;
-    color: var(--offWhite);
-    cursor: pointer;
-    font-size: 2em;
-    letter-spacing: 0.21px;
-    line-height: 16px;
-    max-width: 50vw;
-    padding: 20px 52px;
-    transition-duration: 0.15s;
-    transition-property: background-color;
-    transition-timing-function: linear;
-    margin-top: 0.6em;
-  }
+
+
+
 
   .center {
     display: flex;
     justify-content: center;
   }
 
-  .btn {
+  /* .btn {
     display: flex;
     border-radius: 8px;
     border: solid 2px black;
@@ -185,20 +217,14 @@
     padding: 20px 52px;
     margin: 20px;
     width: fit-content;
-  }
+  } */
 
   .saveButton,
   .tryAgainButton2 {
     background-color: var(--greenBtn);
   }
 
-  .nextButton{
-    padding: 2px 4px;
-    background-color: var(--offWhite);
-    color: var(--dark);
-    font-size: 1rem;
-    text-align: center;
-  }
+
 
   .clearHighScores {
     background-color: var(--gray);

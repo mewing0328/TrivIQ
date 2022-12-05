@@ -9,6 +9,7 @@ var saveBtnEl = document.querySelector(".saveButton");
 var tryAgainBtnEl = document.querySelector(".tryAgainButton");
 var tryAgainBtn2El = document.querySelector(".tryAgainButton2");
 var nextBtnEl = document.querySelector(".nextButton");
+var introCardEl = document.querySelector("#introCard");
 var cardEl = document.querySelector("#card");
 var cardEndQuizEl = document.querySelector("#cardEndQuiz");
 var cardHighScoresEl = document.querySelector("#cardHighScores");
@@ -110,6 +111,7 @@ function startQuiz (){
         //hide the start button when clicked & show the questions card
         startBtnEl.disabled = true;
         startBtnEl.style.display="none";
+        introCardEl.style.display="none";
         cardEl.style.display="block";
 
         setTime();
