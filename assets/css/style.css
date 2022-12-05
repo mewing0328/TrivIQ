@@ -114,7 +114,7 @@
 
   .list {
     font-size: 3vw;
-    text-align: left;
+    text-align: center;
     font-weight: bold;
     margin: 1vh;
     padding-inline-start: 2px;
@@ -140,13 +140,16 @@
 
   .choice{
     border: solid 2px black;
-    margin: 1vh 1vh;
+    border-radius: 8px;
+    margin: .5vh .5vh;
+    font-size: 0.8em;
   }
 
 
   #response {
   margin: 1vh 1vh;
   font-size: 1rem;
+  text-align: center;
   }
 
   .start-button {
@@ -173,6 +176,7 @@
   }
 
   .btn {
+    display: flex;
     border-radius: 8px;
     border: solid 2px black;
     color: var(--offWhite);
@@ -180,6 +184,7 @@
     font-size: 1rem;
     padding: 20px 52px;
     margin: 20px;
+    width: fit-content;
   }
 
   .saveButton,
@@ -192,6 +197,7 @@
     background-color: var(--offWhite);
     color: var(--dark);
     font-size: 1rem;
+    text-align: center;
   }
 
   .clearHighScores {

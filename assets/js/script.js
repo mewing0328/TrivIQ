@@ -249,7 +249,7 @@ saveBtnEl.addEventListener("click", function (event){
             var date = new Date();
 
             localStorage.setItem(("Player " + theInitials + " earned a score of " + theScore + " on " + date), JSON.stringify(playerInfo));
-            alert("Your score has been saved! \n Click on 'View All High Scores button' to see how you compare with other players.")
+            alert("Your score has been saved! \n Click on 'View All Scores button' to see how you compare with other players.")
             
             // After player enters their score, they cannot resubmit - prevents multiple sets in local storage
             saveBtnEl.disabled = true;
@@ -257,7 +257,7 @@ saveBtnEl.addEventListener("click", function (event){
             tryAgainBtnEl.style.display="block";
             saveBtnEl.style.display="none";
         }else{
-            alert("Initials need to be letters and has to be 2 letters");
+            alert("Initials need to be letters and has to be 2 letters.");
         };
     };
 });
@@ -286,16 +286,20 @@ clearHighScoresEl.addEventListener("click", function (event){
     timerEl.remove();
     localStorage.clear();
     highScoresListEl.style.display="none";
+    clearHighScoresEl.style.display="none";
+    cardEndQuizEl.style.display="none";
 });
 
 tryAgainBtnEl.addEventListener("click", function (event){
     event.preventDefault();
     timerEl.remove();
+    cardEndQuizEl.style.display="none";
     location.reload();
 });
 
 tryAgainBtn2El.addEventListener("click", function (event){
     event.preventDefault();
     timerEl.remove();
+    cardEndQuizEl.style.display="none";
     location.reload();
 });
