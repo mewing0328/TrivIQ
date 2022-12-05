@@ -251,7 +251,7 @@ saveBtnEl.addEventListener("click", function (event){
             var date = new Date();
 
             localStorage.setItem(("Player " + theInitials + " earned a score of " + theScore + " on " + date), JSON.stringify(playerInfo));
-            alert("Your score has been saved! \n Click on 'View All Scores button' to see how you compare with other players.")
+            alert("Your score has been saved! \n Click on 'View All Scores button' to see past scores.")
             
             // After player enters their score, they cannot resubmit - prevents multiple sets in local storage
             saveBtnEl.disabled = true;
