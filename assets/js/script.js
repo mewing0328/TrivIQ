@@ -185,7 +185,7 @@ function nextQuestion(){
             } else{
                 secondsLeft = secondsLeft - 5;
                 responseEl.style.display="block";
-                responseEl.textContent = "Wrong! Correct answer: " + correctAnswer + "!";
+                responseEl.textContent = "Wrong! Correct answer is " + correctAnswer + "!";
                 responseEl.style.color = "rgb(185, 88, 88)";
                 nextBtnEl.style.display="block";
                 disableChoices();
@@ -226,7 +226,7 @@ function endQuiz (){
     timerEl.remove();
     cardEl.style.display="none";    
     currentScoreEl.style.display="none";  
-    cardEndQuizEl.style.display="block";
+    cardEndQuizEl.style.display="flex";
     timerEl.style.display = "none";
     greetingEl.textContent = "Quiz Ended.  Your score is: " + theScore + " points!";
     instructEl.textContent= "Please save your initials. Then you will have more options appear.";
@@ -255,7 +255,7 @@ saveBtnEl.addEventListener("click", function (event){
             
             // After player enters their score, they cannot resubmit - prevents multiple sets in local storage
             saveBtnEl.disabled = true;
-            viewAllHSEl.style.display="block";
+            viewAllHSEl.style.display="flex";
             tryAgainBtnEl.style.display="block";
             saveBtnEl.style.display="none";
         }else{
@@ -267,7 +267,7 @@ saveBtnEl.addEventListener("click", function (event){
 viewAllHSEl.addEventListener("click", function (event){
     event.preventDefault();
     timerEl.remove();
-    cardHighScoresEl.style.display="block";
+    cardHighScoresEl.style.display="flex";
     cardEndQuizEl.style.display="none";
 
     getPlayerData();
